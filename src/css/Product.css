@@ -1,0 +1,123 @@
+/* ProductDetail.css */
+
+/* 기본 스타일 */
+.cp-productp-700 {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.product-details {
+    margin-bottom: 20px;
+}
+
+.product-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-rating {
+    font-size: 1.1em;
+    color: #ffcc00;
+}
+
+.product-price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+}
+
+.product-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.image-thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ai-review {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.ai-title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.ai-description {
+    font-size: 1em;
+    color: #555;
+}
+
+.product-features {
+    margin-top: 20px;
+}
+
+.product-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-features li {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.purchase-options {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.add-to-cart,
+.buy-now {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+}
+
+.buy-now {
+    background-color: #f44336;
+    color: white;
+}
+
+.buy-now:hover {
+    background-color: #e41c1c;
+}

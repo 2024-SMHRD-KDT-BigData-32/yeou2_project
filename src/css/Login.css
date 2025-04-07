@@ -1,0 +1,283 @@
+
+
+#login .loginLabel {
+    color: #000000;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 50px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 866px;
+    top: 75px;
+    width: 188px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .idLabel {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 615px;
+    top: 215px;
+    width: 55px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .pwLabel {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 589px;
+    top: 261px;
+    width: 106px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .group-322 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .idInput {
+    background: #d9d9d9;
+    width: 369px;
+    height: 27px;
+    position: absolute;
+    left: 775px;
+    top: 215px;
+}
+
+#login .id3 {
+    color: rgba(0, 0, 0, 0.56);
+    text-align: center;
+    font-family: "Inter-Thin", sans-serif;
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 100;
+    position: absolute;
+    left: 775px;
+    top: 220px;
+    width: 128.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .group-323 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .pwInput {
+    width: 369px;
+    height: 27px;
+    position: absolute;
+    left: 775px;
+    top: 270px;
+    overflow: visible;
+}
+
+#login .loginBtn {
+    color: #000000;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 756px;
+    top: 415px;
+    width: 411px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .div6 {
+    background: #d9d9d9;
+    width: 132.6px;
+    height: 30px;
+    position: absolute;
+    left: 894px;
+    top: 601px;
+}
+
+#login .div7 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 894px;
+    top: 601px;
+    width: 132.6px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .div8 {
+    background: #d9d9d9;
+    width: 132.75px;
+    height: 30px;
+    position: absolute;
+    left: 1122.25px;
+    top: 601px;
+}
+
+#login .div9 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 1122px;
+    top: 601px;
+    width: 133px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .div10 {
+    background: #d9d9d9;
+    width: 132.6px;
+    height: 30px;
+    position: absolute;
+    left: 646px;
+    top: 601px;
+}
+
+#login .div11 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 646px;
+    top: 601px;
+    width: 132.6px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .group-326 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .userDio {
+    background: #d9d9d9;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 825px;
+    top: 341px;
+}
+
+#login .userLabel  {
+    color: #000000;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 869px;
+    top: 341px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#login .group-325 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .adminDio{
+    background: #d9d9d9;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 986px;
+    top: 341px;
+}
+
+#login .adminLabel {
+    color: #000000;
+    size: '40px';
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 1030px;
+    top: 341px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#login .kakaoBtn {
+    background: #e6ec3f;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    left: 994px;
+    top: 490px;
+    position: absolute;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    
+}
+
+#login .googleBtn {
+    
+    color: #000000;
+    background: #e58181;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    left: 775px;
+    top: 490px;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+}

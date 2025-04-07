@@ -1,0 +1,106 @@
+/* 전체 페이지 스타일 */
+#cp-searchp-800 {
+    font-family: 'Arial', sans-serif;
+    padding: 30px;
+    background-color: #f4f4f9;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 섹션 제목 */
+#cp-searchp-800 .section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 상품 리스트 */
+#cp-searchp-800 .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 개별 상품 카드 */
+#cp-searchp-800 .product-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+#cp-searchp-800 .product-item:hover {
+    transform: scale(1.02);
+}
+
+/* 상품 이미지 */
+#cp-searchp-800 .product-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+/* 상품명 */
+#cp-searchp-800 .product-link {
+    font-size: 18px;
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    flex: 1;
+}
+
+#cp-searchp-800 .product-link:hover {
+    color: #284eff;
+}
+
+/* 가격 */
+#cp-searchp-800 .product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+/* 버튼 컨테이너 */
+#cp-searchp-800 .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* 버튼 디자인 */
+#cp-searchp-800 .btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+#cp-searchp-800 .btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* 버튼 색상 */
+#cp-searchp-800 .btn:first-child {
+    background-color: #f44336;
+    color: white;
+}
+
+#cp-searchp-800 .btn:last-child {
+    background-color: #4CAF50;
+    color: white;
+}

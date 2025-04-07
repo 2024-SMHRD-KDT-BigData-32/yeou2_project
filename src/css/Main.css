@@ -1,0 +1,167 @@
+/* 전체 페이지 스타일 */
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  width: 100%;
+}
+
+/* 파란색 상단 배경 */
+#main .rectangle-17 {
+  width: 100%;
+  height: 230px;
+  background: #284eff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* 제목 텍스트 스타일 */
+#main .titleLabel {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 검색 영역 */
+#main .frame {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  width: 55%;
+  max-width: 700px;
+  margin: -40px auto 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 카테고리 버튼 */
+#main .order-card .top {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#main .order-card .top .text {
+  background: #d9e2ff;
+  color: #284eff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#main .order-card .top .text:hover {
+  background: #284eff;
+  color: white;
+}
+
+/* 검색 입력 필드 */
+#main .text-field-button {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+#main .text-field {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* 검색 버튼 */
+#main .search-button {
+  background: #284eff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#main .search-button:hover {
+  background: #1a38b5;
+}
+
+/* 추천 카드 컨테이너 */
+#main .flash-deals {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  width: 85%;
+}
+
+/* 개별 추천 카드 */
+#main .flash-deal-card {
+  width: 220px;
+  background: white;
+  text-align: center;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 추천 카드 버튼 */
+#main .recommend-btn {
+  background: #284eff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+#main .recommend-btn:hover {
+  background: #1a38b5;
+  transform: scale(1.05);
+}
+
+/* 추천 카드 이미지 */
+#main .flash-deal-card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  #main .frame {
+    width: 85%;
+  }
+
+  #main .flash-deals {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #main .flash-deal-card {
+    width: 90%;
+  }
+}
