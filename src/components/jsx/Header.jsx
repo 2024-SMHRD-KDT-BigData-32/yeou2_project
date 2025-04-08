@@ -15,9 +15,11 @@ const Header = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [userType, setUserType] = useState(true);
     const [searchText, setSearchText] = useState(''); // ✅ 검색어 상태
+    const [searchType, setSearchType] = useState('general'); // ✅ 기본값을 'general'로 설정
 
+    // 검색을 처리하는 함수
     const handleSearch = () => {
-        navigate('/search', { state: { query: searchText } }); // ✅ 검색어와 함께 이동
+        navigate('/search', { state: { query: searchText, searchType } }); // ✅ 검색어와 검색 유형과 함께 이동
     };
 
     return (
@@ -27,7 +29,7 @@ const Header = () => {
                 <span className="siteName">Compoota</span>
             </div>
 
-            {/* 검색창 */}
+            {/* 검색창과 레디오 버튼 그룹 */}
             <div className="searchContainer">
                 <input
                     className="searchInput"
@@ -36,6 +38,32 @@ const Header = () => {
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                 />
+
+                {/* 검색 유형 레디오 버튼 */}
+                <div className="searchType">
+                    <label>
+                        <input
+                            type="radio"
+                            name="searchType"
+                            value="general"
+                            checked={searchType === 'general'}
+                            onChange={() => setSearchType('general')}
+                        />
+                        일반
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="searchType"
+                            value="recommendation"
+                            checked={searchType === 'recommendation'}
+                            onChange={() => setSearchType('recommendation')}
+                        />
+                        추천
+                    </label>
+                </div>
+
+                {/* 검색 버튼 */}
                 <button className="searchBtn" onClick={handleSearch}>검색</button>
             </div>
 
