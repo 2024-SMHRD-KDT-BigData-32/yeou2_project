@@ -25,6 +25,13 @@ const Login = () => {
         window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     }
 
+    const googleLogin = () => {
+        const googleClientId = "681324437303-btref4o0qrpocsid88bh2tpmg2ctq2ir.apps.googleusercontent.com";
+        const REDIRECT_URI = "http://localhost:3000/oauth/google/callback";
+
+        const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=email%20profile`;
+    }
+
 
   const tryLogin = async()=>{
     try{
@@ -67,7 +74,7 @@ const Login = () => {
 
 
             <button className="loginBtn" onClick={()=>moveMain()}>로그인</button>
-            <button className="googleBtn">Google로그인</button>
+            <button className="googleBtn" onClick={googleLogin}>Google로그인</button>
 
             <button className="kakaoBtn" onClick={kakaoLogin}>KaKAO로그인</button>
 
