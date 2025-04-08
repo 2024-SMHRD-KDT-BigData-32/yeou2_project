@@ -17,7 +17,6 @@ const FindID = () => {
         moveMain
     } = useMove(); // ✅ Hook을 호출하여 네비게이션 함수 가져오기
 
-    const
 
     
     return (
@@ -29,7 +28,7 @@ const FindID = () => {
 
             <div className="emailLabel">이메일</div>
             <input className="emailInput" type="text"></input>
-            <button className="emailBtn" onClick={}>전송</button>
+            <button className="emailBtn" >전송</button>
             <br />
             
             <div className="authLabel">인증번호</div>
