@@ -22,6 +22,50 @@ const Header = () => {
         navigate('/search', { state: { query: searchText, searchType } }); // ✅ 검색어와 검색 유형과 함께 이동
     };
 
+
+
+    // AI 검색기능
+    const handleSearchAI = async () => {
+        console.log("🔍 handleSearch 호출됨");
+        try {
+            console.log("📡 axios 요청 시작");
+            const res = await axios.post('http://localhost:8001/save-search', {
+                text: searchText,
+                mb_id: null,
+            });
+            console.log("✅ 응답:", res.data);
+
+            const recommendedIds = res.data.recommended_ids; // ✅ 백엔드에서 받은 prod_idx 배열
+            if (recommendedIds && recommendedIds.length > 0) {
+                // 검색 페이지로 이동하면서 쿼리로 전달
+                navigate(`/Search?ids=${recommendedIds.join(",")}`);
+            } else {
+                alert("추천 상품이 없습니다.");
+            }
+
+        } catch (error) {
+            console.error("검색어 저장 실패:", error);
+        }
+    };
+
+    // 일반적인 검색기능
+    const handleSearchGeneral = async () => {
+        try {
+            const response = await axios.post("http://localhost:8001/searchGeneral", {
+                text: searchText
+            });
+
+            const ids = response.data.prod_idx_list; // ✅ prod_idx 리스트 받기
+            console.log("검색 결과:", ids);
+
+            // 검색 페이지로 이동하면서 쿼리로 prod_idx들 넘기기
+            navigate(`/Search?ids=${ids.join(",")}`);
+        } catch (error) {
+            console.error("자연어 처리 실패:", error);
+        }
+    };
+
+
     return (
         <header id="headerLogout">
             <div className="logo" onClick={moveMain}>
@@ -64,7 +108,7 @@ const Header = () => {
                 </div>
 
                 {/* 검색 버튼 */}
-                <button className="searchBtn" onClick={handleSearch}>검색</button>
+                <button className="searchBtn" onClick={handleSearchGeneral}>검색</button>
             </div>
 
             <div className="btnContainer">
