@@ -1,68 +1,55 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'; // 🔍 검색어 전달 및 페이지 이동
 import '../css/Search.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
 
 // 🔧 카테고리 탭 정의
-const TABS = ['cpu', 'gpu', 'ssd', 'hdd', 'mb', 'ram'];
+const TABS = ['cpu', 'graphiccard', 'ssd', 'hdd', 'mainboard', 'ram'];
 
 const Search = () => {
     const location = useLocation(); // 🔁 Header에서 전달된 검색어 받기
     const navigate = useNavigate(); // 📍 상세 페이지 이동용
     const searchQuery = location.state?.query || ''; // ✅ 검색어 없을 경우 기본값
 
+    // ✅ 상태 변수들
     const [selectedTab, setSelectedTab] = useState('cpu'); // 현재 선택된 탭
     const [currentPage, setCurrentPage] = useState(1);     // 현재 페이지
     const itemsPerPage = 10;                               // 페이지 당 아이템 수
+    const [productsByCategory, setProductsByCategory] = useState({}); // 카테고리별 상품들
 
-    // 🧪 DB 연동 전: 더미 데이터
-    const productsData = {
-        cpu: Array.from({ length: 50 }, (_, i) => ({
-            id: `cpu-${i + 1}`,
-            name: `CPU 제품 ${i + 1}`,
-            price: `${(200000 + i * 5000).toLocaleString()}원`,
-            specs: `스펙 정보 ${i + 1}`,
-            image: '/img/pr.png',
-        })),
-        gpu: Array.from({ length: 18 }, (_, i) => ({
-            id: `gpu-${i + 1}`,
-            name: `GPU 제품 ${i + 1}`,
-            price: `${(300000 + i * 10000).toLocaleString()}원`,
-            specs: `스펙 정보 ${i + 1}`,
-            image: '/img/pr.png',
-        })),
-        ssd: Array.from({ length: 6 }, (_, i) => ({
-            id: `ssd-${i + 1}`,
-            name: `SSD 저장장치 ${i + 1}`,
-            price: `${(120000 + i * 5000).toLocaleString()}원`,
-            specs: `SSD 속도/스펙 ${i + 1}`,
-            image: '/img/pr.png',
-        })),
-        hdd: Array.from({ length: 6 }, (_, i) => ({
-            id: `hdd-${i + 1}`,
-            name: `HDD 저장장치 ${i + 1}`,
-            price: `${(90000 + i * 3000).toLocaleString()}원`,
-            specs: `HDD 속도/스펙 ${i + 1}`,
-            image: '/img/pr.png',
-        })),
-        mb: Array.from({ length: 15 }, (_, i) => ({
-            id: `mb-${i + 1}`,
-            name: `메인보드 ${i + 1}`,
-            price: `${(150000 + i * 3000).toLocaleString()}원`,
-            specs: `스펙 정보 ${i + 1}`,
-            image: '/img/pr.png',
-        })),
-        ram: Array.from({ length: 20 }, (_, i) => ({
-            id: `ram-${i + 1}`,
-            name: `RAM 제품 ${i + 1}`,
-            price: `${(80000 + i * 2500).toLocaleString()}원`,
-            specs: `스펙 정보 ${i + 1}`,
-            image: '/img/pr.png',
-        })),
-    };
+    const queryParams = new URLSearchParams(location.search);
+    const idsParam = queryParams.get("ids"); // "1,5,7"
+
+    // 🚀 useEffect로 서버에서 상품 데이터 받아오기
+    useEffect(() => {
+        if (idsParam) {
+            const idsArray = idsParam.split(',').map(id => parseInt(id.trim(), 10));
+            
+            axios.post('http://localhost:8001/getProductsByIds', { ids: idsArray })
+                .then(res => {
+                    const categorized = {};
+                    res.data.products.forEach(product => {
+                        console.log(product)
+                        const cat = product.prod_category.toLowerCase();
+                        console.log(`Product Name: ${product.prod_name}, Price: ${product.prod_price}`); // 가격 확인
+                        if (!categorized[cat]) categorized[cat] = [];
+                        categorized[cat].push({
+                            id: product.prod_idx,
+                            name: product.prod_name,
+                            price: product.prod_price ? `${Number(product.prod_price).toLocaleString()}원` : '가격 정보 없음', // 가격을 포맷팅
+                            specs: product.prod_performance,
+                            image: product.prod_img || '/img/pr.png',
+                        });
+                    });
+                    setProductsByCategory(categorized);
+                })
+                .catch(err => console.error("❌ 상품 정보 불러오기 실패:", err));
+        }
+    }, [idsParam]);
 
     // 📂 선택된 탭의 전체 데이터
-    const allItems = productsData[selectedTab] || [];
+    const allItems = productsByCategory[selectedTab] || [];
 
     // 🔍 검색어로 필터링
     const filteredItems = allItems.filter(item =>
@@ -119,7 +106,7 @@ const Search = () => {
                         >
                             <img src={item.image} alt={item.name} />
                             <h4>{item.name}</h4>
-                            <p>{item.price}</p>
+                            <p>{item.price}</p> {/* 가격이 제대로 표시될 것 */}
                             <p>{item.specs}</p>
                         </div>
                     ))}

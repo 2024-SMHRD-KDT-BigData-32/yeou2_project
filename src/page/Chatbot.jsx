@@ -1,49 +1,83 @@
 import React, { useState } from 'react';
-import '../css/Chatbot.css'; // 챗봇 스타일 파일
+import '../css/Chatbot.css';
 
 function Chatbot() {
-    const [messages, setMessages] = useState([]);
-    const [input, setInput] = useState('');
-    const [isOpen, setIsOpen] = useState(false); // 챗봇 열림/닫힘 상태
+  // 📌 대화 메시지들을 저장하는 상태: [{text: '안녕', sender: 'user'}, {text: '안녕하세요!', sender: 'bot'}]
+  const [messages, setMessages] = useState([]);
 
-    const handleInputChange = (e) => {
-        setInput(e.target.value);
-    };
+  // 📌 입력창에 입력된 텍스트 저장
+  const [input, setInput] = useState('');
 
-    const handleSendMessage = () => {
-        if (input.trim()) {
-            setMessages([...messages, { text: input, sender: 'user' }]);
-            setInput('');
-            // AI 챗봇과의 통신 로직 추가
-        }
-    };
+  // 📌 챗봇 열기/닫기 상태
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggleChatbot = () => {
-        setIsOpen(!isOpen); // 챗봇 열림/닫힘 상태 변경
-    };
+  // 🔄 입력창이 바뀔 때마다 상태 업데이트
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
 
-    return (
-        <div>
-            <div className="chatbot-header" onClick={toggleChatbot}>
-                Chat {/* 챗봇 헤더 (클릭 시 열고 닫음) */}
-            </div>
-            {isOpen && ( // isOpen 상태가 true일 때만 챗봇 내용 표시
-                <div className="chatbot-content">
-                    <div className="chatbot-messages">
-                        {messages.map((message, index) => (
-                            <div key={index} className={`message ${message.sender}`}>
-                                {message.text}
-                            </div>
-                        ))}
-                    </div>
-                    <div className="chatbot-input">
-                        <input type="text" value={input} onChange={handleInputChange} />
-                        <button onClick={handleSendMessage}>Send</button>
-                    </div>
-                </div>
-            )}
+  // 🧠 Send 버튼 클릭 시 실행되는 함수
+  const handleSendMessage = async () => {
+    if (input.trim()) {
+      const userMessage = { text: input, sender: 'user' };
+
+      // 1. 사용자 메시지를 먼저 화면에 표시
+      setMessages((prev) => [...prev, userMessage]);
+      setInput('');
+
+      try {
+        // 2. FastAPI 서버로 메시지를 POST 요청
+        const response = await fetch('http://localhost:8001/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: input }), // 메시지 전송
+        });
+
+        // 3. 응답 받아오기 (json 형태로)
+        const data = await response.json();
+
+        // 4. 챗봇 응답 메시지를 state에 추가
+        const botMessage = { text: data.reply, sender: 'bot' };
+        setMessages((prev) => [...prev, botMessage]);
+      } catch (error) {
+        console.error('❌ 챗봇 응답 실패:', error);
+      }
+    }
+  };
+
+  // 챗봇 열기/닫기 toggle
+  const toggleChatbot = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div>
+      {/* 고정된 둥근 헤더 아이콘 - 클릭 시 열림/닫힘 */}
+      <div className="chatbot-header" onClick={toggleChatbot}>
+        Chat
+      </div>
+
+      {/* 열렸을 때만 챗봇 내용 표시 */}
+      {isOpen && (
+        <div className="chatbot-content">
+          {/* 메시지 출력 영역 */}
+          <div className="chatbot-messages">
+            {messages.map((message, index) => (
+              <div key={index} className={`message ${message.sender}`}>
+                {message.text}
+              </div>
+            ))}
+          </div>
+
+          {/* 입력창 + 버튼 */}
+          <div className="chatbot-input">
+            <input type="text" value={input} onChange={handleInputChange} />
+            <button onClick={handleSendMessage}>Send</button>
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 }
 
 export default Chatbot;
