@@ -1,0 +1,75 @@
+#findID {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#findID .mainLabel {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#findID .nameLabel,
+#findID .emailLabel,
+#findID .authLabel {
+    align-self: flex-start;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#findID .nameInput,
+#findID .emailInput,
+#findID .authInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#findID .emailBtn,
+#findID .authBtn,
+#findID .signUpBtn,
+#findID .loginBtn,
+#findID .findPWBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#findID .emailBtn,
+#findID .authBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#findID .loginBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#findID .signUpBtn {
+    background-color: #ffc107;
+    color: black;
+}
+
+#findID .findPWBtn {
+    background-color: transparent;
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 14px;
+}

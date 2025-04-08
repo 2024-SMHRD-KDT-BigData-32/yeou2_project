@@ -1,0 +1,120 @@
+#adminProduct {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+}
+
+/* 사이드바 스타일 */
+#adminProduct .sidebar {
+    width: 250px;
+    background-color: #2a2d3e;
+    color: white;
+    padding: 20px;
+}
+
+#adminProduct .sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#adminProduct .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#adminProduct .sidebar nav ul li {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#adminProduct .sidebar nav ul li:hover,
+#adminProduct .sidebar nav ul li.active {
+    background-color: #404258;
+}
+
+#adminProduct .sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#adminProduct .content {
+    flex: 1;
+    padding: 30px;
+}
+
+#adminProduct h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#adminProduct .productTable {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#adminProduct table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#adminProduct table th,
+#adminProduct table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#adminProduct table th {
+    background: #f1f1f1;
+}
+
+#adminProduct .deleteBtn {
+    background: #5f5f5f;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#adminProduct .deleteBtn:hover {
+    background: #c0392b;
+}
+
+#adminProduct .addProduct {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#adminProduct .addProduct input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#adminProduct .addProduct button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#adminProduct .addProduct button:hover {
+    background: #45a049;
+}

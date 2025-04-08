@@ -1,0 +1,84 @@
+/* 푸터 전체 스타일 */
+#footer {
+    background-color: #adadad;
+    color: white;
+    padding: 10px; /* 패딩 더 축소 */
+    text-align: center;
+    font-size: 10px; /* 글자 크기 더 축소 */
+    margin-top: 30px; /* 여백 더 감소 */
+}
+
+/* 푸터 내부 컨텐츠 정렬 */
+#footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* 간격 더 축소 */
+}
+
+/* 로고 및 회사명 */
+#footer .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 간격 축소 */
+}
+
+#footer .footer-img {
+    width: 25px; /* 기존 35px → 25px */
+    height: 25px; /* 크기 축소 */
+}
+
+#footer .company-name {
+    font-size: 12px; /* 기존 16px → 12px */
+    font-weight: bold;
+}
+
+/* 링크 스타일 */
+#footer .footer-links {
+    display: flex;
+    gap: 8px; /* 기존 12px → 8px */
+    flex-wrap: wrap;
+}
+
+#footer .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 10px; /* 기존 12px → 10px */
+    transition: 0.3s;
+}
+
+#footer .footer-links a:hover {
+    text-decoration: underline;
+    color: #ffeb3b;
+}
+
+/* 저작권 정보 */
+#footer .copyright {
+    margin-top: 5px; /* 기존 8px → 5px */
+    font-size: 8px; /* 기존 10px → 8px */
+    opacity: 0.8;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    #footer .footer-links {
+        flex-direction: column;
+        gap: 4px; /* 기존 6px → 4px */
+    }
+}
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+}

@@ -1,0 +1,132 @@
+#editProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#editProfile .mainLabel {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#editProfile .idLabel,
+#editProfile .nameLabel,
+#editProfile .nickLabel,
+#editProfile .genderLabel,
+#editProfile .birthLabel,
+#editProfile .emailLabel,
+#editProfile .pwLabel {
+    align-self: flex-start;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#editProfile .idInput,
+#editProfile .nameInput,
+#editProfile .nickInput,
+#editProfile .emailInput,
+#editProfile .pwInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#editProfile .saveBtn,
+#editProfile .cancelBtn,
+#editProfile .deleteBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#editProfile .saveBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#editProfile .cancelBtn {
+    background-color: #ffc107;
+    color: black;
+}
+
+#editProfile .deleteBtn {
+    background-color: #dc3545;
+    color: white;
+    margin-top: 20px;
+}
+
+#editProfile .birthDropbox {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+
+#editProfile .birthDropbox select {
+    width: 32%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#editProfile .maleLabel,
+#editProfile .femaleLabel {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#editProfile .maleRadio,
+#editProfile .femaleRadio {
+    margin-right: 20px;
+}
+
+#editProfile .pwInput {
+    margin-top: 15px;
+}
+
+#editProfile .saveBtn,
+#editProfile .deleteBtn {
+    font-weight: bold;
+}
+
+#editProfile .saveBtn:hover,
+#editProfile .cancelBtn:hover,
+#editProfile .deleteBtn:hover {
+    opacity: 0.8;
+}
+
+#editProfile .saveBtn:active,
+#editProfile .cancelBtn:active,
+#editProfile .deleteBtn:active {
+    opacity: 0.6;
+}
+
+#editProfile .idInput:disabled {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+}
+
+#editProfile .idLabel,
+#editProfile .nameLabel,
+#editProfile .nickLabel,
+#editProfile .genderLabel,
+#editProfile .birthLabel,
+#editProfile .emailLabel {
+    font-size: 16px;
+    margin-top: 15px;
+}

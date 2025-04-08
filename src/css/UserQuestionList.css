@@ -1,0 +1,77 @@
+#userQuestionList .listContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Pretendard", sans-serif;
+}
+
+#userQuestionList h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#userQuestionList .questionList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#userQuestionList .questionItem {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    background-color: #fff;
+}
+
+#userQuestionList .questionItem:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#userQuestionList .questionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#userQuestionList .questionHeader h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+#userQuestionList .status {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+/* ✅ 상태별 색상 - 심플한 스타일 */
+#userQuestionList .status.답변완료 {
+    background-color: #4CAF50;
+}
+
+#userQuestionList .status.처리중 {
+    background-color: #FF9800;
+}
+
+#userQuestionList .status.미답변 {
+    background-color: #9E9E9E;
+}
+
+#userQuestionList .content {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+#userQuestionList .metaInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+}

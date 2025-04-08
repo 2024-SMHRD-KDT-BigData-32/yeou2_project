@@ -1,0 +1,143 @@
+/* 헤더 스타일 */
+#headerLogout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+}
+
+/* 로고 영역 */
+#headerLogout .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#headerLogout .headerImg {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#headerLogout .siteName {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 검색창 스타일 */
+#headerLogout .searchContainer {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+#headerLogout .searchContainer:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#headerLogout .searchInput {
+    width: 300px;
+    padding: 8px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+}
+
+#headerLogout .searchBtn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#headerLogout .searchBtn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    transform: scale(1.05);
+}
+
+/* 버튼 컨테이너 */
+#headerLogout .btnContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 마이페이지 버튼 */
+#headerLogout .myPage {
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#headerLogout .myPage:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* 로그아웃 버튼 */
+#headerLogout .loginBtn {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#headerLogout .loginBtn:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    #headerLogout {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    #headerLogout .searchContainer {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    #headerLogout .searchInput {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    #headerLogout .searchInput {
+        width: 100%;
+    }
+
+    #headerLogout .searchContainer {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

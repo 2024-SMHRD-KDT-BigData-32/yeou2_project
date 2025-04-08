@@ -1,0 +1,42 @@
+.flash-deal-card,
+.flash-deal-card * {
+  box-sizing: border-box;
+}
+.flash-deal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.flash-deal-card .group-302 {
+  flex-shrink: 0;
+  width: 292px;
+  height: 359px;
+  position: static;
+}
+.flash-deal-card .pngegg-1 {
+  width: 292px;
+  height: 292px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.flash-deal-card .div {
+  color: var(--theme-gray-800, #424242);
+  text-align: left;
+  font-family: var(
+    --headline-6-bold-font-family,
+    "SourceSansPro-Bold",
+    sans-serif
+  );
+  font-size: var(--headline-6-bold-font-size, 22px);
+  line-height: var(--headline-6-bold-line-height, 120%);
+  font-weight: var(--headline-6-bold-font-weight, 700);
+  position: absolute;
+  left: 0px;
+  top: 333px;
+}

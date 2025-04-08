@@ -1,0 +1,105 @@
+#login {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f3f2f2;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#login .loginLabel {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#login .idLabel,
+#login .pwLabel {
+    align-self: flex-start;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#login .idInput,
+#login .pwInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login .userRio,
+#login .adminRio {
+    margin-top: 20px;
+    
+}
+
+#login .userLabel{
+    margin: 20px;
+}
+
+#login .userLabel,
+#login .adminLabel {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+#login .loginBtn,
+#login .googleBtn,
+#login .kakaoBtn,
+#login .findIDBtn,
+#login .findPWBtn,
+#login .signUpBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#login .loginBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#login .googleBtn {
+    background-color: #db4437;
+    color: white;
+}
+
+#login .kakaoBtn {
+    background-color: #fdd835;
+    color: #3c1e1e;
+}
+
+#login .findIDBtn,
+#login .findPWBtn,
+#login .signUpBtn {
+    white-space: nowrap; 
+    background-color: transparent;
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 12px;
+    text-decoration: none;
+
+}
+
+
+#login .findIDPW{
+    display: flex;
+    
+}
+
+#login .findIDPW :hover{
+    background-color: rgb(201, 230, 255);
+    
+}
