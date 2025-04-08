@@ -86,7 +86,7 @@ const Login = () => {
             <div className="signUpWrapper">
                 <span className="signUpLink" onClick={() => moveSignUp()}>회원가입</span> {/* 회원가입 텍스트 클릭 시 이동 */}
             </div>
-s
+\
             <div className="findIDPW">
                 <span className="findIDLink" onClick={() => moveFindId()}>아이디찾기</span> {/* 아이디 찾기 텍스트 클릭 시 이동 */}
                 <span className="separator">|</span> {/* 구분선 */}
