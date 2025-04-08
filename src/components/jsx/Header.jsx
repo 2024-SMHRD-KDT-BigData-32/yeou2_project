@@ -12,7 +12,7 @@ const Header = () => {
     } = useMove();
 
     const navigate = useNavigate(); // ✅ useNavigate 사용
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [userType, setUserType] = useState(true);
     const [searchText, setSearchText] = useState(''); // ✅ 검색어 상태
     const [searchType, setSearchType] = useState('general'); // ✅ 기본값을 'general'로 설정
