@@ -2,54 +2,47 @@ import { useNavigate } from "react-router-dom";
 import "../css/SignUp.css";
 import React, { useState } from 'react';
 import axios from "axios";
+import useMove from "../components/Fun";
 
 const SignUp = () => {
 
-    const navigate = useNavigate(); 
-    
-    const signUpBtnClick = () => {
-        navigate('/Main'); // 이동할 경로
-    };
-    const findIdBtnClick = () => {
-        navigate('/FindID'); // 이동할 경로
-    };
-    const findPwBtnClick = () => {
-        navigate('/FindPW'); // 이동할 경로
-    };
-    const loginBtnClick = () => {
-        navigate('/login'); // 이동할 경로
-    };
+    const navigate = useNavigate();
 
-    const[userId,setUserId] = useState("");
-    const[password,setPassword] = useState("");
-    const[name,setName] = useState("");
-    const[nickname,setNickname] = useState("");
-    const[gender,setGender] = useState("N");
-    const[birthdate,setBirthdate] = useState("");
-    const[email,setEmail] = useState("");
+    const {
+
+        moveLogin,
+    } = useMove(); // ✅ Hook을 호출하여 네비게이션 함수 가져오기
+
+    const [userId, setUserId] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [nickname, setNickname] = useState("");
+    const [gender, setGender] = useState("N");
+    const [birthdate, setBirthdate] = useState("");
+    const [email, setEmail] = useState("");
 
 
-        const handleSignUp =async (e) =>{
-            e.preventDefailt();
-        try{
-            const response= await axios.post(
-            "http://localhost:8084/controller/joinMember",
-            {
-            mb_id:userId, 
-            mb_pw:password,
-            mb_name:name,
-            mb_nick:nickname,
-            mb_email:email,
-            mb_gender:gender,
-            mb_birthdate:birthdate,
-            mb_role:"USER ",
-            mb_timestamp:new Date().toISOString(),
-            });
-            
-        
-        alert(response.data);
-        navigate("/login");
-        }catch(error){
+    const handleSignUp = async (e) => {
+        e.preventDefailt();
+        try {
+            const response = await axios.post(
+                "http://localhost:8084/controller/joinMember",
+                {
+                    mb_id: userId,
+                    mb_pw: password,
+                    mb_name: name,
+                    mb_nick: nickname,
+                    mb_email: email,
+                    mb_gender: gender,
+                    mb_birthdate: birthdate,
+                    mb_role: "USER ",
+                    mb_timestamp: new Date().toISOString(),
+                });
+
+
+            alert(response.data);
+            navigate("/login");
+        } catch (error) {
             alert("회원가입실패")
         }
     }
@@ -66,24 +59,28 @@ const SignUp = () => {
 
             {/* 아이디 */}
             <div className="idLabel">ID</div>
-            <input className="idInput" onChange={(e)=>setUserId(e.target.value)}></input>
+            <input className="idInput" onChange={(e) => setUserId(e.target.value)}></input>
             <button className="idBtn">중복확인</button>
 
             {/* 비밀번호 */}
             <div className="pwLabel">PW</div>
-            <input className="pwInput"  onChange={(e)=>setPassword(e.target.value)}></input>
+            <input className="pwInput" onChange={(e) => setPassword(e.target.value)}></input>
 
             {/* 비번 확인 */}
             <div className="pwLabel2">PW 확인</div>
-            <input className="pwInput2"  onChange={(e)=>setPassword(e.target.value)}></input>
+            <input className="pwInput2" onChange={(e) => setPassword(e.target.value)}></input>
 
             {/* 이름 */}
             <div className="nameLabel">이름</div>
-            <input className="nameInput" onChange={(e)=>setName(e.target.value)}></input>
+            <input className="nameInput" onChange={(e) => setName(e.target.value)}></input>
 
             {/* 닉네임 */}
             <div className="nickLabel">닉네임</div>
-            <input className="nickInput"  onChange={(e)=>setNickname(e.target.value)}></input>
+            <input className="nickInput" onChange={(e) => setNickname(e.target.value)}></input>
+
+            {/* 이메일 */}
+            <div className="emailLabel">이메일</div>
+            <input type="email" className="emailInput" onChange={(e) => setEmail(e.target.value)}></input>
 
             {/* 성별 */}
             <div className="genderLabel">성별</div>
@@ -127,13 +124,9 @@ const SignUp = () => {
                 </select>
             </div>
 
-
-            <div className="emailLabel">이메일</div>
-            <input type="email" className="emailInput"onChange={(e)=>setEmail(e.target.value)}></input>
-
             <button className="signUpBtn" onClick={handleSignUp} >회원가입 완료</button>
-            <button className="backBtn" onClick={loginBtnClick}>로그인</button>
-            
+            <button className="backBtn" onClick={moveLogin}>로그인</button>
+
 
 
 
