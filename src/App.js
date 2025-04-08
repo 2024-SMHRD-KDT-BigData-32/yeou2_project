@@ -21,7 +21,12 @@ import UserQuestionList from './page/UserQuestionList';
 import UserQuestionDetail from './page/UserQuestionDetail';
 import SearchDetail from './page/SearchDetail'; // ✅ 경로 수정
 
+// kakao , google 로그인
+import kakaoCallback from './page/kakaoCallback';
+import GoogleCallback from './page/GoogleCallback';
+
 import { useState } from 'react';
+
 
 function App() {
   return (
@@ -33,6 +38,8 @@ function App() {
           <Route path='/' element={<Main />} />
           <Route path='/MyPage' element={<MyPage />} />
           <Route path='/Login' element={<Login />} />
+          <Route path='/kakao' element={<kakaoCallback/>}></Route>
+          <Route path='/gogle' element={<GoogleCallback/>}></Route>
           <Route path='/SignUp' element={<SignUp />} />
           <Route path='/FindID' element={<FindID />} />
           <Route path='/FindPW' element={<FindPW />} />

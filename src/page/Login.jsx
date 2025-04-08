@@ -27,6 +27,14 @@ const Login = () => {
         window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     }
 
+    const googleLogin = () => {
+        const googleClientId = "681324437303-btref4o0qrpocsid88bh2tpmg2ctq2ir.apps.googleusercontent.com";
+        const redirectUri = "http://localhost:3000/oauth/google/callback";
+
+        const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=email%20profile`;
+
+        window.location.href = url;
+    };
     // 로그인 시 호출되는 함수
     const tryLogin = async () => {
         try {
@@ -79,7 +87,7 @@ const Login = () => {
             /> {/* 비밀번호 입력 필드 */}
 
             <button className="loginBtn" onClick={() => moveMain()}>로그인</button> {/* 로그인 버튼 */}
-            <button className="googleBtn">Google로그인</button> {/* Google 로그인 버튼 */}
+            <button className="googleBtn" onClick={googleLogin}>Google로그인</button> {/* Google 로그인 버튼 */}
 
             <button className="kakaoBtn" onClick={kakaoLogin}>KaKAO로그인</button> {/* 카카오 로그인 버튼 */}
 
