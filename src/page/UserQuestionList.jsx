@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "../css/UserQuestionList.css";
+import "../css/UserQuestionList.css"; // ✅ CSS 경로를 카멜표기로 표기
 import { useNavigate } from "react-router-dom";
 
 const UserQuestionList = () => {
     const [questions, setQuestions] = useState([]);
     const navigate = useNavigate();
 
+    // 🧪 더미 데이터 (서버 연동 전 임시용)
     const dummyData = [
         {
             id: 1,
@@ -57,31 +58,34 @@ const UserQuestionList = () => {
         },
     ];
 
+    // 🚀 컴포넌트 마운트 시 더미 데이터 세팅
     useEffect(() => {
         setQuestions(dummyData);
     }, []);
 
+    // 📄 문의 항목 클릭 시 상세 페이지로 이동
     const handleClick = (question) => {
         navigate(`/question/${question.id}`, { state: question });
     };
 
-    // 📌 문의 등록 페이지로 이동
+    // 🆕 문의 등록 페이지로 이동
     const handleRegisterClick = () => {
         navigate("/register-question");
     };
 
     return (
-        <div id="userQuestionList">
+        <div id="userQuestionList"> {/* ✅ 최상위 ID 지정 */}
             <div className="listContainer">
                 <h2>문의 내역</h2>
-                
-                {/* 🆕 문의 등록 버튼 */}
+
+                {/* ➕ 문의 등록 버튼 */}
                 <div className="registerButtonWrapper">
                     <button className="registerButton" onClick={handleRegisterClick}>
                         문의 등록하기
                     </button>
                 </div>
 
+                {/* 📋 문의 목록 */}
                 <ul className="questionList">
                     {questions.length === 0 ? (
                         <p>등록된 문의가 없습니다.</p>

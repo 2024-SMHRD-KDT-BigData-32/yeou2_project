@@ -16,16 +16,17 @@ import AdminQuestion from './page/AdminQuestion';
 import EditProfile from './page/EditProfile';
 import Header from './components/jsx/Header';
 import Footer from './components/jsx/Footer';
-import UserQuestion from './page/UserQuestion'
+import UserQuestion from './page/UserQuestion';
 import UserQuestionList from './page/UserQuestionList';
 import UserQuestionDetail from './page/UserQuestionDetail';
+import SearchDetail from './page/SearchDetail'; // ✅ 경로 수정
+
 import { useState } from 'react';
 
 function App() {
-
   return (
-    <div id="wrapper" >
-      <Header/>
+    <div id="wrapper">
+      <Header />
       <hr />
       <div className="content">
         <Routes>
@@ -43,9 +44,13 @@ function App() {
           <Route path='/EditProfile' element={<EditProfile />} />
           <Route path='/UserQuestion' element={<UserQuestion />} />
           <Route path='/UserQuestionList' element={<UserQuestionList />} />
-          
-          <Route path="/question" element={<UserQuestionList />} />
+
+          {/* 질문 페이지 */}
+          <Route path="/question" element={<UserQuestionList/>} />
           <Route path="/question/:id" element={<UserQuestionDetail />} />
+
+          {/* 상세 페이지 라우트 */}
+          <Route path="/search-detail" element={<SearchDetail />} /> {/* 경로 수정 */}
         </Routes>
       </div>
       <Chatbot />
