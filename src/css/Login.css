@@ -1,105 +1,283 @@
-#login {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f3f2f2;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+
 
 #login .loginLabel {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    color: #000000;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 50px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 866px;
+    top: 75px;
+    width: 188px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#login .idLabel,
+#login .idLabel {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 615px;
+    top: 215px;
+    width: 55px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #login .pwLabel {
-    align-self: flex-start;
-    font-size: 16px;
-    margin-top: 10px;
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 589px;
+    top: 261px;
+    width: 106px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#login .idInput,
+#login .group-322 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .idInput {
+    background: #d9d9d9;
+    width: 369px;
+    height: 27px;
+    position: absolute;
+    left: 775px;
+    top: 215px;
+}
+
+#login .id3 {
+    color: rgba(0, 0, 0, 0.56);
+    text-align: center;
+    font-family: "Inter-Thin", sans-serif;
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 100;
+    position: absolute;
+    left: 775px;
+    top: 220px;
+    width: 128.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .group-323 {
+    position: absolute;
+    inset: 0;
+}
+
 #login .pwInput {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#login .userRio,
-#login .adminRio {
-    margin-top: 20px;
-    
-}
-
-#login .userLabel{
-    margin: 20px;
-}
-
-#login .userLabel,
-#login .adminLabel {
-    font-size: 14px;
-    margin-left: 5px;
-}
-
-#login .loginBtn,
-#login .googleBtn,
-#login .kakaoBtn,
-#login .findIDBtn,
-#login .findPWBtn,
-#login .signUpBtn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    width: 369px;
+    height: 27px;
+    position: absolute;
+    left: 775px;
+    top: 270px;
+    overflow: visible;
 }
 
 #login .loginBtn {
-    background-color: #007bff;
-    color: white;
+    color: #000000;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 756px;
+    top: 415px;
+    width: 411px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#login .googleBtn {
-    background-color: #db4437;
-    color: white;
+#login .div6 {
+    background: #d9d9d9;
+    width: 132.6px;
+    height: 30px;
+    position: absolute;
+    left: 894px;
+    top: 601px;
+}
+
+#login .div7 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 894px;
+    top: 601px;
+    width: 132.6px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .div8 {
+    background: #d9d9d9;
+    width: 132.75px;
+    height: 30px;
+    position: absolute;
+    left: 1122.25px;
+    top: 601px;
+}
+
+#login .div9 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 1122px;
+    top: 601px;
+    width: 133px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .div10 {
+    background: #d9d9d9;
+    width: 132.6px;
+    height: 30px;
+    position: absolute;
+    left: 646px;
+    top: 601px;
+}
+
+#login .div11 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--id-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--id-font-size, 20px);
+    line-height: var(--id-line-height, 150%);
+    font-weight: var(--id-font-weight, 700);
+    position: absolute;
+    left: 646px;
+    top: 601px;
+    width: 132.6px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .group-326 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .userDio {
+    background: #d9d9d9;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 825px;
+    top: 341px;
+}
+
+#login .userLabel  {
+    color: #000000;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 869px;
+    top: 341px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#login .group-325 {
+    position: absolute;
+    inset: 0;
+}
+
+#login .adminDio{
+    background: #d9d9d9;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 986px;
+    top: 341px;
+}
+
+#login .adminLabel {
+    color: #000000;
+    size: '40px';
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
+    position: absolute;
+    left: 1030px;
+    top: 341px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 #login .kakaoBtn {
-    background-color: #fdd835;
-    color: #3c1e1e;
-}
-
-#login .findIDBtn,
-#login .findPWBtn,
-#login .signUpBtn {
-    white-space: nowrap; 
-    background-color: transparent;
-    color: #007bff;
-    text-decoration: underline;
-    font-size: 12px;
-    text-decoration: none;
-
-}
-
-
-#login .findIDPW{
-    display: flex;
+    background: #e6ec3f;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    left: 994px;
+    top: 490px;
+    position: absolute;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
     
 }
 
-#login .findIDPW :hover{
-    background-color: rgb(201, 230, 255);
+#login .googleBtn {
     
+    color: #000000;
+    background: #e58181;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    left: 775px;
+    top: 490px;
+    text-align: center;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 700;
 }

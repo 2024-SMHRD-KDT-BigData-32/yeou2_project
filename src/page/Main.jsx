@@ -36,6 +36,7 @@ export const Main = ({ className, ...props }) => {
 
       {/* 추천 카드 영역 */}
       <div className="flash-deals">
+        
         <div className="flash-deal-card">
           <button className="recommend-btn">리그오브레전드 사양 추천</button>
           <img className="image-2" src="/img/lol.png" alt="리그오브레전드 사양 추천" />

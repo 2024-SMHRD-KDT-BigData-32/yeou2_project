@@ -1,0 +1,58 @@
+#headerLogin{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    background-color: hsl(210, 17%, 98%);
+}
+
+#headerLogin .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#headerLogin .headerImg {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#headerLogin .siteName {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#headerLogin .searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#headerLogin .searchInput {
+    width: 500px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#headerLogin .searchBtn {
+    height: 34px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#headerLogin .loginBtn {
+    padding: 8px 16px;
+    background-color: rgb(7, 156, 14);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}

@@ -1,4 +1,4 @@
-/* 기본 #main 스타일 */
+/* 전체 페이지 스타일 */
 #main {
   display: flex;
   flex-direction: column;
