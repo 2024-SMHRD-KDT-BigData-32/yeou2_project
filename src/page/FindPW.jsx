@@ -1,24 +1,19 @@
 import React from 'react'
 import "../css/FindPW.css";
 import { useNavigate } from 'react-router-dom';
+import useMove from "../components/Fun.jsx"
 
 const FindPW = () => {
 
-    const navigate = useNavigate(); 
     
-    const signUpBtnClick = () => {
-        navigate('/SignUp'); // 이동할 경로
-    };
-    const findIdBtnClick = () => {
-        navigate('/FindID'); // 이동할 경로
-    };
-    const findPwBtnClick = () => {
-        navigate('/FindPW'); // 이동할 경로
-    };
-    const loginBtnClick = () => {
-        navigate('/login'); // 이동할 경로
-    };
 
+    const {
+        
+        moveSignUp,
+        moveLogin,
+        moveFindId,
+        moveFindPw,
+    } = useMove(); // ✅ Hook을 호출하여 네비게이션 함수 가져오기
 
 
 
@@ -42,11 +37,11 @@ const FindPW = () => {
             <input className="authInput" type='text'></input>
             <button className="authBtn">확인</button>
             
-            <button className="findPWBtn"onClick={findPwBtnClick}>비밀번호 찾기</button>
+            <button className="findPWBtn"onClick={()=>moveFindPw()}>비밀번호 찾기</button>
             
-            <button className="signUpBtn"onClick={signUpBtnClick}>회원가입</button>
-            <button className="loginBtntext"onClick={loginBtnClick}>로그인</button>
-            <button className="findIDBtn" onClick={findIdBtnClick}>아이디 찾기</button>
+            <button className="signUpBtn"onClick={()=>moveSignUp()}>회원가입</button>
+            <button className="loginBtntext"onClick={()=>moveLogin()}>로그인</button>
+            <button className="findIDBtn" onClick={()=>moveFindId()}>아이디 찾기</button>
 
             
         </div>
