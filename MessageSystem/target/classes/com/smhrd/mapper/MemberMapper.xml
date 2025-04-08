@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.MemberMapper">
+
+<!-- 쿼리는 <mapper> 안쪽에 작성 -->
+
+	<insert id="Join" parameterType="com.smhrd.entity.UserJoin">
+    INSERT INTO tb_member (
+        mb_id, mb_pw, mb_name, mb_nick, mb_email, mb_gender, mb_birthdate, mb_role
+    ) VALUES (
+        #{id}, #{pw}, #{name}, #{nick}, #{email}, #{gender}, #{birthdate}, #{role}
+    )
+</insert>
+	
+	<select id="login" parameterType="com.smhrd.entity.MyUser" resultType="com.smhrd.entity.Member">  <!-- resultType은 값을 반환할때 작성, 어떤 맴버타입인지 모르기 때문에 작성 및 select타입에서만 사용이가능 함!!  -->
+		SELECT * FROM tb_member WHERE mb_id = #{id} AND mb_PW = #{pw}
+	</select>
+	
+	
+	<update id="update" parameterType="com.smhrd.entity.Member">
+		UPDATE MEMBER SET PW = #{pw}, TEL = #{tel}, ADDRESS = #{address} WHERE EMAIL = #{email}; 
+	</update>
+
+	
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM MEMBER WHERE EMAIL = #{email}
+	</delete>
+	
+	<select id="emailCheck" parameterType="String" resultType="com.smhrd.entity.Member">
+		SELECT * FROM MEMBER WHERE EMAIL = #{email};
+	</select>
+	
+	
+	
+</mapper>
