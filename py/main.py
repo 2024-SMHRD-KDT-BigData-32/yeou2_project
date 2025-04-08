@@ -11,7 +11,7 @@ from pydantic import BaseModel
 import ast  # 문자열 리스트를 리스트로 바꿔주는 안전한 방법
 
 # 🔐 여기에 OpenAI API 키 입력 (또는 .env로 관리 가능)
-client = openai.OpenAI(api_key="")
+# client = openai.OpenAI(api_key="**")
 
 app = FastAPI()
 
