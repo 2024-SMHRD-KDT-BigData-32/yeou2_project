@@ -20,7 +20,7 @@ const Search = () => {
 
     const queryParams = new URLSearchParams(location.search);
     const idsParam = queryParams.get("ids"); // "1,5,7"
-    console.log("📨 전달받은 검색어:", searchQuery);
+
     // 🚀 useEffect로 서버에서 상품 데이터 받아오기
     useEffect(() => {
         if (idsParam) {
@@ -28,23 +28,33 @@ const Search = () => {
             
             axios.post('http://localhost:8001/getProductsByIds', { ids: idsArray })
                 .then(res => {
+                    const products = res.data.products;
+                    if (products.length === 0) {
+                        setProductsByCategory({}); // 🔄 검색결과가 없으면 빈 객체로 초기화
+                        return;
+                    }
+    
                     const categorized = {};
-                    res.data.products.forEach(product => {
-                        console.log(product)
+                    products.forEach(product => {
                         const cat = product.prod_category.toLowerCase();
-                        console.log(`Product Name: ${product.prod_name}, Price: ${product.prod_price}`); // 가격 확인
                         if (!categorized[cat]) categorized[cat] = [];
                         categorized[cat].push({
                             id: product.prod_idx,
                             name: product.prod_name,
-                            price: product.prod_price ? `${Number(product.prod_price).toLocaleString()}원` : '가격 정보 없음', // 가격을 포맷팅
+                            price: product.prod_price ? `${Number(product.prod_price).toLocaleString()}원` : '가격 정보 없음',
                             specs: product.prod_performance,
                             image: product.prod_img || '/img/pr.png',
                         });
                     });
+    
                     setProductsByCategory(categorized);
                 })
-                .catch(err => console.error("❌ 상품 정보 불러오기 실패:", err));
+                .catch(error => {
+                    console.error("상품 정보 불러오기 실패:", error);
+                    setProductsByCategory({}); // 실패 시도 빈값 처리
+                });
+        } else {
+            setProductsByCategory({}); // 🔄 idsParam이 없을 때도 초기화
         }
     }, [idsParam]);
 
