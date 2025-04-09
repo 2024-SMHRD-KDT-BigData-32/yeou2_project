@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // 🔍 검색어 전달 및 페이지 이동
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../css/Search.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 
-// 🔧 카테고리 탭 정의
-const TABS = ['cpu', 'graphiccard', 'ssd', 'hdd', 'mainboard', 'ram'];
+// 🔧 카테고리 탭 정의 (전체 추가)
+const TABS = ['all', 'cpu', 'graphiccard', 'ssd', 'hdd', 'mainboard', 'ram'];
 
 const Search = () => {
-    const location = useLocation(); // 🔁 Header에서 전달된 검색어 받기
-    const navigate = useNavigate(); // 📍 상세 페이지 이동용
-    const searchQuery = location.state?.query || ''; // ✅ 검색어 없을 경우 기본값
+    const location = useLocation();
+    const navigate = useNavigate();
+    const searchQuery = location.state?.query || ''; // 기본값
 
     // ✅ 상태 변수들
-    const [selectedTab, setSelectedTab] = useState('cpu'); // 현재 선택된 탭
-    const [currentPage, setCurrentPage] = useState(1);     // 현재 페이지
-    const itemsPerPage = 10;                               // 페이지 당 아이템 수
-    const [productsByCategory, setProductsByCategory] = useState({}); // 카테고리별 상품들
+    const [selectedTab, setSelectedTab] = useState('all'); // 초기값을 'all'로 설정
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+    const [productsByCategory, setProductsByCategory] = useState({});
 
     const queryParams = new URLSearchParams(location.search);
-    const idsParam = queryParams.get("ids"); // "1,5,7"
+    const idsParam = queryParams.get("ids");
 
     // 🚀 useEffect로 서버에서 상품 데이터 받아오기
     useEffect(() => {
@@ -30,7 +30,7 @@ const Search = () => {
                 .then(res => {
                     const products = res.data.products;
                     if (products.length === 0) {
-                        setProductsByCategory({}); // 🔄 검색결과가 없으면 빈 객체로 초기화
+                        setProductsByCategory({});
                         return;
                     }
     
@@ -51,15 +51,17 @@ const Search = () => {
                 })
                 .catch(error => {
                     console.error("상품 정보 불러오기 실패:", error);
-                    setProductsByCategory({}); // 실패 시도 빈값 처리
+                    setProductsByCategory({});
                 });
         } else {
-            setProductsByCategory({}); // 🔄 idsParam이 없을 때도 초기화
+            setProductsByCategory({});
         }
     }, [idsParam]);
 
     // 📂 선택된 탭의 전체 데이터
-    const allItems = productsByCategory[selectedTab] || [];
+    const allItems = selectedTab === 'all' 
+        ? Object.values(productsByCategory).flat() // 모든 카테고리의 상품을 결합
+        : productsByCategory[selectedTab] || [];
 
     // 🔍 검색어로 필터링
     const filteredItems = allItems.filter(item =>
@@ -77,7 +79,7 @@ const Search = () => {
 
     // 🧭 상세 페이지로 이동
     const handleItemClick = (item) => {
-        navigate('/search-detail', { state: { item } }); // 상세 페이지로 아이템 전달
+        navigate('/search-detail', { state: { item } });
     };
 
     return (
@@ -93,7 +95,7 @@ const Search = () => {
                             setCurrentPage(1); // 탭 변경 시 페이지는 1로 초기화
                         }}
                     >
-                        {tab.toUpperCase()}
+                        {tab === 'all' ? '전체' : tab.toUpperCase()}
                     </button>
                 ))}
             </div>
@@ -116,7 +118,7 @@ const Search = () => {
                         >
                             <img src={item.image} alt={item.name} />
                             <h4>{item.name}</h4>
-                            <p>{item.price}</p> {/* 가격이 제대로 표시될 것 */}
+                            <p>{item.price}</p>
                             <p>{item.specs}</p>
                         </div>
                     ))}
