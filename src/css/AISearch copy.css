@@ -1,0 +1,138 @@
+/* 전체 AI 검색 컨테이너 */
+#aiSearch {
+    padding: 80px 24px;
+    background-color: #121212;
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 카테고리 섹션 */
+#aiSearch .categorySection {
+    width: 100%;
+    max-width: 1400px;
+    margin-bottom: 100px;
+}
+
+/* 카테고리 제목 */
+#aiSearch .categorySection h2 {
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+}
+
+#aiSearch .categorySection h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #00e0ff;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* 상품 리스트 */
+#aiSearch .productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    justify-items: center;
+}
+
+/* 상품 카드 */
+#aiSearch .productCard {
+    background: #1e1e1e;
+    border: 1px solid #2c2c2c;
+    border-radius: 18px;
+    padding: 24px;
+    max-width: 260px;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ddd;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+#aiSearch .productCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 224, 255, 0.3);
+}
+
+/* 이미지 */
+#aiSearch .productCard img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background-color: #2c2c2c;
+    padding: 10px;
+}
+
+/* 상품명 */
+#aiSearch .productCard h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 10px 0 6px;
+    color: #00e0ff;
+}
+
+/* 텍스트들 */
+#aiSearch .productCard p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 4px 0;
+}
+
+/* 링크 버튼 */
+#aiSearch .productCard a {
+    margin-top: 14px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background-color: #00e0ff;
+    color: #000;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#aiSearch .productCard a:hover {
+    background-color: #00c6e0;
+}
+
+/* 반응형 - 태블릿 */
+@media (max-width: 1024px) {
+    #aiSearch .productList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 600px) {
+    #aiSearch .productList {
+        grid-template-columns: 1fr;
+    }
+
+    #aiSearch .productCard {
+        max-width: 90%;
+    }
+
+    #aiSearch .categorySection h2 {
+        font-size: 24px;
+    }
+
+    #aiSearch .productCard h3 {
+        font-size: 15px;
+    }
+
+    #aiSearch .productCard p,
+    #aiSearch .productCard a {
+        font-size: 13px;
+    }
+}

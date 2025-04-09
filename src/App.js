@@ -1,4 +1,4 @@
-import './App.css';
+
 import { Route, Routes } from 'react-router-dom';
 
 import Main from './page/Main';
@@ -20,9 +20,10 @@ import UserQuestion from './page/UserQuestion';
 import UserQuestionList from './page/UserQuestionList';
 import UserQuestionDetail from './page/UserQuestionDetail';
 import SearchDetail from './page/SearchDetail';
-import AdminAnswer from './page/AdminAnswer'; 
-import kakaoCallback from './page/kakaoCallback';
+import AdminAnswer from './page/AdminAnswer';
+import KakaoCallback from './page/kakaoCallback';
 import GoogleCallback from './page/googleCallback';
+import AISearch from './page/AISearch.jsx';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -33,24 +34,25 @@ import { useEffect } from 'react';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  
+
 
   return (
     <QuestionProvider> {/* ✅ 전역 상태로 전체 감싸기 */}
       <div id="wrapper">
-        <Header isLoggedIn={isLoggedIn}/>
+        <Header isLoggedIn={isLoggedIn} />
         <hr />
         <div className="content">
           <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/MyPage' element={<MyPage />} />
             <Route path='/Login' element={<Login />} />
-            <Route path='/kakao' element={<kakaoCallback/>} />
+            <Route path='/kakao' element={<KakaoCallback />} />
             <Route path='/gogle' element={<GoogleCallback />} />
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/FindID' element={<FindID />} />
             <Route path='/FindPW' element={<FindPW />} />
-            <Route path='/Search' element={<Search isLoggedIn={isLoggedIn}/>} />
+            <Route path='/Search' element={<Search isLoggedIn={isLoggedIn} />} />
+            <Route path='/AISearch' element={<AISearch />} /> {/* ✅ 추가된 라우트 */}
             <Route path='/Product' element={<Product />} />
             <Route path='/AdminProduct' element={<AdminProduct />} />
             <Route path='/AdminCustomer' element={<AdminCustomer />} />
@@ -58,10 +60,10 @@ function App() {
             <Route path='/EditProfile' element={<EditProfile />} />
             <Route path='/UserQuestion' element={<UserQuestion />} />
             <Route path='/UserQuestionList' element={<UserQuestionList />} />
-            <Route path="/question" element={<UserQuestionList />} />
-            <Route path="/question/:id" element={<UserQuestionDetail />} />
-            <Route path="/search-detail" element={<SearchDetail />} />
-            <Route path="/admin-answer/:id" element={<AdminAnswer />} /> 
+            <Route path='/question' element={<UserQuestionList />} />
+            <Route path='/question/:id' element={<UserQuestionDetail />} />
+            <Route path='/search-detail' element={<SearchDetail />} />
+            <Route path='/admin-answer/:id' element={<AdminAnswer />} />
           </Routes>
         </div>
         <Chatbot />

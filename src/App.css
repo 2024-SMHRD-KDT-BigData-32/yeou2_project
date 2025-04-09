@@ -70,12 +70,6 @@ body.dark-mode div {
     color: #fff !important;
 }
 
-/* 사이드바 스타일 */
-.sidebar {
-    background-color: #f4f4f4 !important;
-    color: #333 !important;
-}
-
 body.dark-mode .sidebar {
     background-color: #121212 !important;
     color: #e0e0e0 !important;

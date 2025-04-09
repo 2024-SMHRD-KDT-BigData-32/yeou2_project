@@ -1,0 +1,154 @@
+/* 전체 AI 검색 컨테이너 */
+#aiSearch {
+    padding: 80px 24px; /* 상하 여백 80px, 좌우 여백 24px */
+    background-color: #fafafa; /* 배경 색상 */
+    font-family: 'Pretendard', sans-serif; /* 폰트 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333; /* 텍스트 색상 */
+}
+
+/* 카테고리 섹션 */
+#aiSearch .categorySection {
+    width: 100%; /* 전체 너비 */
+    max-width: 1400px; /* 최대 너비 1400px */
+    margin-bottom: 80px; /* 아래 여백 */
+}
+
+/* 카테고리 제목 */
+#aiSearch .categorySection h2 {
+    font-size: 30px; /* 폰트 크기 */
+    color: #333; /* 텍스트 색상 */
+    margin-bottom: 24px; /* 아래 여백 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    position: relative; /* 상대 위치 설정 */
+}
+
+/* 카테고리 제목 밑줄 */
+#aiSearch .categorySection h2::after {
+    content: '';
+    display: block;
+    width: 60px; /* 밑줄 너비 */
+    height: 3px; /* 밑줄 높이 */
+    background: #4a90e2; /* 밑줄 색상 */
+    margin: 12px auto 0; /* 마진 */
+    border-radius: 2px; /* 밑줄 둥근 모서리 */
+}
+
+/* 상품 리스트 */
+#aiSearch .productList {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 자동으로 열 크기 조정 */
+    gap: 24px; /* 카드 간격 */
+    justify-items: center; /* 아이템 중앙 정렬 */
+    padding: 0 16px; /* 좌우 여백 */
+}
+
+/* 상품 카드 */
+#aiSearch .productCard {
+    background: #fff; /* 배경 색상 */
+    border: 1px solid #e5e5e5; /* 테두리 색상 */
+    border-radius: 18px; /* 카드 모서리 둥글게 */
+    padding: 24px; /* 카드 안쪽 여백 */
+    max-width: 280px; /* 최대 너비 280px */
+    width: 100%; /* 전체 너비 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 전환 효과 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 아이템 중앙 정렬 */
+    color: #333; /* 텍스트 색상 */
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); /* 그림자 */
+    height: 100%; /* 카드 높이 */
+    position: relative; /* 상대 위치 설정 */
+    justify-content: space-between; /* 콘텐츠 자동 배치 */
+}
+
+/* 카드 hover 효과 */
+#aiSearch .productCard:hover {
+    transform: translateY(-6px); /* 카드 이동 */
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2); /* hover시 그림자 */
+}
+
+/* 이미지 */
+#aiSearch .productCard img {
+    width: 100%; /* 이미지 너비 */
+    max-width: 180px; /* 최대 너비 */
+    height: auto; /* 비율 유지 */
+    margin-bottom: 20px; /* 아래 여백 */
+    border-radius: 12px; /* 이미지 모서리 둥글게 */
+    background-color: #f4f6f8; /* 배경 색상 */
+    padding: 10px; /* 이미지 안쪽 여백 */
+}
+
+/* 상품명 */
+#aiSearch .productCard h3 {
+    font-size: 17px; /* 폰트 크기 */
+    font-weight: 600; /* 폰트 두께 */
+    margin: 10px 0 6px; /* 여백 */
+    color: #4a90e2; /* 텍스트 색상 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+/* 텍스트들 */
+#aiSearch .productCard p {
+    font-size: 14px; /* 폰트 크기 */
+    color: #666; /* 텍스트 색상 */
+    margin: 4px 0; /* 여백 */
+    text-align: center; /* 중앙 정렬 */
+    flex-grow: 1; /* 텍스트가 공간을 차지 */
+    padding-bottom: 20px; /* 버튼과 겹치지 않도록 여백 추가 */
+}
+
+/* 링크 버튼 */
+#aiSearch .productCard a {
+    margin-top: 14px; /* 버튼과 텍스트 간 간격 */
+    padding: 10px 16px; /* 패딩 */
+    font-size: 14px; /* 폰트 크기 */
+    background-color: #4a90e2; /* 버튼 배경 색상 */
+    color: #fff; /* 버튼 텍스트 색상 */
+    border-radius: 6px; /* 둥근 모서리 */
+    text-decoration: none; /* 링크 스타일 제거 */
+    font-weight: bold; /* 텍스트 두께 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    transition: background 0.3s; /* 배경 색상 변화 효과 */
+}
+
+/* 버튼 hover 효과 */
+#aiSearch .productCard a:hover {
+    background-color: #357ae8; /* hover 시 버튼 배경 색상 */
+}
+
+
+
+
+/* 반응형 - 태블릿 */
+@media (max-width: 1024px) {
+    #aiSearch .productList {
+        grid-template-columns: repeat(3, 1fr); /* 태블릿에서 3열 */
+    }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 600px) {
+    #aiSearch .productList {
+        grid-template-columns: 1fr; /* 모바일에서 1열 */
+    }
+
+    #aiSearch .productCard {
+        max-width: 90%; /* 카드 너비 90%로 설정 */
+    }
+
+    #aiSearch .categorySection h2 {
+        font-size: 24px; /* 카테고리 제목 폰트 크기 */
+    }
+
+    #aiSearch .productCard h3 {
+        font-size: 16px; /* 상품명 폰트 크기 */
+    }
+
+    #aiSearch .productCard p,
+    #aiSearch .productCard a {
+        font-size: 13px; /* 텍스트 폰트 크기 */
+    }
+}
