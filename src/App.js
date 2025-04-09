@@ -23,6 +23,9 @@ import SearchDetail from './page/SearchDetail';
 import AdminAnswer from './page/AdminAnswer'; 
 import kakaoCallback from './page/kakaoCallback';
 import GoogleCallback from './page/googleCallback';
+import axios from 'axios';
+import { useState } from 'react';
+
 
 import { QuestionProvider } from './contexts/QuestionContext.jsx'; // ✅ 전역 상태 import
 import { useEffect } from 'react';
@@ -30,23 +33,7 @@ import { useEffect } from 'react';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const checkSession = async () => {
-      try {
-        const res = await axios.get("http://localhost:8080/session", {
-          withCredentials: true
-        });
-    
-        if (res.status === 200) {
-          setIsLoggedIn(true);
-        }
-      } catch (err) {
-        setIsLoggedIn(false);
-      }
-    };
-
-    checkSession();
-  },[]);
+  
 
   return (
     <QuestionProvider> {/* ✅ 전역 상태로 전체 감싸기 */}
