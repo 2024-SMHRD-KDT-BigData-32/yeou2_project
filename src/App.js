@@ -23,9 +23,8 @@ import SearchDetail from './page/SearchDetail'; // ✅ 경로 수정
 
 // kakao , google 로그인
 import kakaoCallback from './page/kakaoCallback';
-import GoogleCallback from './page/GoogleCallback';
+import GoogleCallback from './page/googleCallback';
 
-import { useState } from 'react';
 
 
 function App() {

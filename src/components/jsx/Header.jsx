@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // ✅ 라우터 훅 추가
 import useMove from "../Fun.jsx";
 import '../css/Header.css';
+import axios from 'axios';
 
 const Header = () => {
     const {
@@ -42,7 +43,6 @@ const Header = () => {
             } else {
                 alert("추천 상품이 없습니다.");
             }
-
         } catch (error) {
             console.error("검색어 저장 실패:", error);
         }
