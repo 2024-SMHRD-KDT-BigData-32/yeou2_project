@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 12px 12px;
 }
