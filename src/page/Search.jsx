@@ -20,7 +20,7 @@ const Search = () => {
 
     const queryParams = new URLSearchParams(location.search);
     const idsParam = queryParams.get("ids"); // "1,5,7"
-
+    console.log("📨 전달받은 검색어:", searchQuery);
     // 🚀 useEffect로 서버에서 상품 데이터 받아오기
     useEffect(() => {
         if (idsParam) {
