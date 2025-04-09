@@ -1,77 +1,123 @@
+#userQuestionList {
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+}
+
+/* 메인 컨테이너 */
 #userQuestionList .listContainer {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
-    font-family: "Pretendard", sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 타이틀 */
 #userQuestionList h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
 }
 
+/* 등록 버튼 */
+#userQuestionList .registerButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+#userQuestionList .registerButton {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#userQuestionList .registerButton:hover {
+    background-color: #357ab8;
+}
+
+/* 문의 리스트 */
 #userQuestionList .questionList {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
+/* 문의 아이템 */
 #userQuestionList .questionItem {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+    transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
-    transition: box-shadow 0.3s;
-    background-color: #fff;
 }
 
 #userQuestionList .questionItem:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* 제목과 상태 구역 */
 #userQuestionList .questionHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 #userQuestionList .questionHeader h3 {
-    font-size: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
     margin: 0;
 }
 
+/* 상태 뱃지 */
 #userQuestionList .status {
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-    color: white;
-    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
 }
 
-/* ✅ 상태별 색상 - 심플한 스타일 */
 #userQuestionList .status.답변완료 {
-    background-color: #4CAF50;
-}
-
-#userQuestionList .status.처리중 {
-    background-color: #FF9800;
+    background-color: #e0f7e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
 }
 
 #userQuestionList .status.미답변 {
-    background-color: #9E9E9E;
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
 }
 
+/* 본문 내용 */
 #userQuestionList .content {
-    margin: 10px 0;
-    font-size: 15px;
-    color: #333;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
 }
 
+/* 작성자, 날짜 */
 #userQuestionList .metaInfo {
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
-    color: #666;
-    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #999;
 }

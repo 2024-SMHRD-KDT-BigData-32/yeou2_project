@@ -1,7 +1,6 @@
 #adminQuestion {
     display: flex;
     height: 100vh;
-    
     font-family: 'Arial', sans-serif;
 }
 
@@ -11,52 +10,12 @@
     color: white;
     padding: 20px;
 }
+
 #adminQuestion .sidebar .logo {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
 }
-
-/* 헤더 */
-#adminQuestion .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#adminQuestion .header h1 {
-    font-size: 1.8rem;
-    color: #333;
-}
-
-/* 통계 박스 */
-#adminQuestion .stats {
-    display: flex;
-    gap: 20px;
-}
-
-
-#adminQuestion .stat-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-#adminQuestion .stat-box p {
-    font-size: 14px;
-    color: #666;
-}
-
-
-#adminQuestion .stat-box h2 {
-    font-size: 24px;
-    color: #222;
-    margin-top: 5px;
-}
-
 
 #adminQuestion .sidebar nav ul {
     list-style: none;
@@ -75,14 +34,39 @@
 #adminQuestion .sidebar nav ul li.active {
     background-color: #404258;
 }
+
 #adminQuestion .content {
     flex-grow: 1;
     padding: 20px;
     background: #f4f4f4;
 }
 
-#adminQuestion h1 {
+#adminQuestion .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+#adminQuestion .header h1 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+#adminQuestion .search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+#adminQuestion .search-bar input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-size: 14px;
 }
 
 #adminQuestion .question-table {
@@ -99,15 +83,17 @@
 
 #adminQuestion .question-table th,
 #adminQuestion .question-table td {
-    padding: 10px;
+    padding: 12px 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-#adminQuestion .question-table .response-yes {
+#adminQuestion .response-yes {
     color: green;
+    font-weight: bold;
 }
 
-#adminQuestion .question-table .response-no {
+#adminQuestion .response-no {
     color: red;
+    font-weight: bold;
 }

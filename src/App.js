@@ -19,49 +19,47 @@ import Footer from './components/jsx/Footer';
 import UserQuestion from './page/UserQuestion';
 import UserQuestionList from './page/UserQuestionList';
 import UserQuestionDetail from './page/UserQuestionDetail';
-import SearchDetail from './page/SearchDetail'; // ✅ 경로 수정
-
-// kakao , google 로그인
+import SearchDetail from './page/SearchDetail';
+import AdminAnswer from './page/AdminAnswer'; 
 import kakaoCallback from './page/kakaoCallback';
 import GoogleCallback from './page/googleCallback';
 
-
+import { QuestionProvider } from './contexts/QuestionContext.jsx'; // ✅ 전역 상태 import
 
 function App() {
   return (
-    <div id="wrapper">
-      <Header />
-      <hr />
-      <div className="content">
-        <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path='/MyPage' element={<MyPage />} />
-          <Route path='/Login' element={<Login />} />
-          <Route path='/kakao' element={<kakaoCallback/>}></Route>
-          <Route path='/gogle' element={<GoogleCallback/>}></Route>
-          <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/FindID' element={<FindID />} />
-          <Route path='/FindPW' element={<FindPW />} />
-          <Route path='/Search' element={<Search />} />
-          <Route path='/Product' element={<Product />} />
-          <Route path='/AdminProduct' element={<AdminProduct />} />
-          <Route path='/AdminCustomer' element={<AdminCustomer />} />
-          <Route path='/AdminQuestion' element={<AdminQuestion />} />
-          <Route path='/EditProfile' element={<EditProfile />} />
-          <Route path='/UserQuestion' element={<UserQuestion />} />
-          <Route path='/UserQuestionList' element={<UserQuestionList />} />
-
-          {/* 질문 페이지 */}
-          <Route path="/question" element={<UserQuestionList/>} />
-          <Route path="/question/:id" element={<UserQuestionDetail />} />
-
-          {/* 상세 페이지 라우트 */}
-          <Route path="/search-detail" element={<SearchDetail />} /> {/* 경로 수정 */}
-        </Routes>
+    <QuestionProvider> {/* ✅ 전역 상태로 전체 감싸기 */}
+      <div id="wrapper">
+        <Header />
+        <hr />
+        <div className="content">
+          <Routes>
+            <Route path='/' element={<Main />} />
+            <Route path='/MyPage' element={<MyPage />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/kakao' element={<kakaoCallback />} />
+            <Route path='/gogle' element={<GoogleCallback />} />
+            <Route path='/SignUp' element={<SignUp />} />
+            <Route path='/FindID' element={<FindID />} />
+            <Route path='/FindPW' element={<FindPW />} />
+            <Route path='/Search' element={<Search />} />
+            <Route path='/Product' element={<Product />} />
+            <Route path='/AdminProduct' element={<AdminProduct />} />
+            <Route path='/AdminCustomer' element={<AdminCustomer />} />
+            <Route path='/AdminQuestion' element={<AdminQuestion />} />
+            <Route path='/EditProfile' element={<EditProfile />} />
+            <Route path='/UserQuestion' element={<UserQuestion />} />
+            <Route path='/UserQuestionList' element={<UserQuestionList />} />
+            <Route path="/question" element={<UserQuestionList />} />
+            <Route path="/question/:id" element={<UserQuestionDetail />} />
+            <Route path="/search-detail" element={<SearchDetail />} />
+            <Route path="/admin-answer/:id" element={<AdminAnswer />} /> 
+          </Routes>
+        </div>
+        <Chatbot />
+        <Footer />
       </div>
-      <Chatbot />
-      <Footer />
-    </div>
+    </QuestionProvider>
   );
 }
 
