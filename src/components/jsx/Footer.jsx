@@ -1,6 +1,9 @@
 import "../css/Footer.css";
 
 export const Footer = () => {
+    const toggleDarkMode = () => {
+        document.body.classList.toggle('dark-mode');
+    };
     return (
         <footer id="footer">
             {/* 회사 정보 영역 */}
@@ -22,6 +25,7 @@ export const Footer = () => {
             <div className="copyright">
                 © 2025 여유. All rights reserved.
             </div>
+            <button onClick={toggleDarkMode}>다크 모드</button>
         </footer>
     );
 };
