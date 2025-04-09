@@ -1,5 +1,3 @@
-# main.py
-
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -14,8 +12,6 @@ import json
 import numpy as np
 import pandas as pd
 import os
-# from sklearn.metrics.pairwise import cosine_similarity
-
 
 # 환경변수 로드 및 OpenAI 클라이언트 초기화
 load_dotenv()
