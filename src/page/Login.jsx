@@ -25,7 +25,7 @@ const Login = () => {
         const REDIRECT_URI = "http://localhost:3000/oauth/kakao/callback"; // 카카오 로그인 후 리다이렉트될 URI
         // 카카오 로그인 페이지로 리다이렉트
         window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-    }
+    };
 
     const googleLogin = () => {
         const googleClientId = "681324437303-btref4o0qrpocsid88bh2tpmg2ctq2ir.apps.googleusercontent.com";
