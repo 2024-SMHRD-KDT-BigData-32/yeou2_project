@@ -25,24 +25,45 @@ import kakaoCallback from './page/kakaoCallback';
 import GoogleCallback from './page/googleCallback';
 
 import { QuestionProvider } from './contexts/QuestionContext.jsx'; // ✅ 전역 상태 import
+import { useEffect } from 'react';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/session", {
+          withCredentials: true
+        });
+    
+        if (res.status === 200) {
+          setIsLoggedIn(true);
+        }
+      } catch (err) {
+        setIsLoggedIn(false);
+      }
+    };
+
+    checkSession();
+  },[]);
+
   return (
     <QuestionProvider> {/* ✅ 전역 상태로 전체 감싸기 */}
       <div id="wrapper">
-        <Header />
+        <Header isLoggedIn={isLoggedIn}/>
         <hr />
         <div className="content">
           <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/MyPage' element={<MyPage />} />
             <Route path='/Login' element={<Login />} />
-            <Route path='/kakao' element={<kakaoCallback />} />
+            <Route path='/kakao' element={<kakaoCallback/>} />
             <Route path='/gogle' element={<GoogleCallback />} />
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/FindID' element={<FindID />} />
             <Route path='/FindPW' element={<FindPW />} />
-            <Route path='/Search' element={<Search />} />
+            <Route path='/Search' element={<Search isLoggedIn={isLoggedIn}/>} />
             <Route path='/Product' element={<Product />} />
             <Route path='/AdminProduct' element={<AdminProduct />} />
             <Route path='/AdminCustomer' element={<AdminCustomer />} />

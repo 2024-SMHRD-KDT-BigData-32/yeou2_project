@@ -16,7 +16,7 @@ const Login = () => {
         moveFindPw, // 비밀번호 찾기 페이지로 이동하는 함수
     } = useMove(); // 커스텀 훅에서 네비게이션 관련 함수 가져오기
 
-    const [userId, setUserId] = useState(); // 사용자 ID 상태   
+    const [userId, setUserId] = useState(); // 사용자 ID 상태
     const [password, setPassWord] = useState(); // 비밀번호 상태
 
     // 카카오 로그인 버튼 클릭 시 호출되는 함수
