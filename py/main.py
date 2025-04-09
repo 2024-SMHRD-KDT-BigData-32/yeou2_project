@@ -14,6 +14,8 @@ import json
 import numpy as np
 import pandas as pd
 import os
+# from sklearn.metrics.pairwise import cosine_similarity
+
 
 # 환경변수 로드 및 OpenAI 클라이언트 초기화
 load_dotenv()
