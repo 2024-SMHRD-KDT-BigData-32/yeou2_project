@@ -26,7 +26,7 @@ import GoogleCallback from './page/googleCallback';
 import AISearch from './page/AISearch.jsx';
 import axios from 'axios';
 import { useState } from 'react';
-
+import './App.css';
 
 import { QuestionProvider } from './contexts/QuestionContext.jsx'; // ✅ 전역 상태 import
 import { useEffect } from 'react';
