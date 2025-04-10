@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useMove from "../Fun.jsx";
 import '../css/Header.css';
@@ -13,21 +13,40 @@ const Header = () => {
     } = useMove();
 
     const navigate = useNavigate();
-    const [isVisible, setIsVisible] = useState(false);
-    const [userType, setUserType] = useState(true);
+
+    // ✅ 로그인 여부와 사용자 타입 상태
+    const [isVisible, setIsVisible] = useState(false); // 로그인 여부
+    const [userType, setUserType] = useState(true);     // true: 관리자, false: 사용자
+
     const [searchText, setSearchText] = useState('');
     const [searchType, setSearchType] = useState('general');
+
+    // ✅ 마운트 시 sessionStorage 기반 상태 설정
+    useEffect(() => {
+        const loginStatus = sessionStorage.getItem("isLogin") === "true";
+        const storedUserType = sessionStorage.getItem("userType"); // "admin" 또는 "user"
+
+        setIsVisible(loginStatus);
+        setUserType(storedUserType === "admin");
+    }, []);
+
+    // ✅ 로그아웃 처리
+    const handleLogout = () => {
+        sessionStorage.clear();
+        setIsVisible(false);
+        navigate("/");
+    };
 
     // ✅ 검색 버튼 클릭 시: 일반 / 추천 구분
     const handleSearch = () => {
         if (searchType === 'general') {
-            handleSearchGeneral(); // 일반 검색
+            handleSearchGeneral();
         } else {
-            handleSearchAI(); // 추천 검색
+            handleSearchAI();
         }
     };
 
-    // ✅ 일반 검색 (그대로 유지)
+    // ✅ 일반 검색
     const handleSearchGeneral = async () => {
         try {
             const response = await axios.post("http://localhost:8001/searchGeneral", {
@@ -43,10 +62,9 @@ const Header = () => {
         }
     };
 
-    // ✅ AI 추천 검색 (더미 추천 ID 기반 이동)
+    // ✅ AI 추천 검색 (더미 ID)
     const handleSearchAI = () => {
-        // 🔸 실제 서버 통신 없이, 프론트에서 더미 ID로 이동
-        const dummyRecommendedIds = [24]; // 추후 백엔드 연동 시 대체 예정
+        const dummyRecommendedIds = [24];
         console.log("추천 검색(더미) 결과:", dummyRecommendedIds);
         navigate(`/AISearch?ids=${dummyRecommendedIds.join(",")}`);
     };
@@ -90,21 +108,43 @@ const Header = () => {
                     </label>
                 </div>
 
-                {/* ✅ 선택된 검색 유형에 따라 분기 */}
                 <button className="searchBtn" onClick={handleSearch}>검색</button>
             </div>
 
             <div className="btnContainer">
-                <div className="loginBtn" onClick={moveAdminCustomer} style={{ display: isVisible && userType ? 'block' : 'none' }}>
+                {/* ✅ 관리자 전용 버튼 */}
+                <div
+                    className="loginBtn"
+                    onClick={moveAdminCustomer}
+                    style={{ display: isVisible && userType ? 'block' : 'none' }}
+                >
                     Admin Settings
                 </div>
-                <div className="myPage" onClick={moveMyPage} style={{ display: isVisible && !userType ? 'block' : 'none' }}>
+
+                {/* ✅ 사용자 전용 마이페이지 */}
+                <div
+                    className="myPage"
+                    onClick={moveMyPage}
+                    style={{ display: isVisible && !userType ? 'block' : 'none' }}
+                >
                     MyPage
                 </div>
-                <div className="loginBtn" onClick={moveLogin} style={{ display: isVisible ? 'none' : 'block' }}>
+
+                {/* ✅ 로그인 버튼 */}
+                <div
+                    className="loginBtn"
+                    onClick={moveLogin}
+                    style={{ display: isVisible ? 'none' : 'block' }}
+                >
                     Login
                 </div>
-                <div className="loginBtn" onClick={moveMain} style={{ display: isVisible ? 'block' : 'none' }}>
+
+                {/* ✅ 로그아웃 버튼 */}
+                <div
+                    className="loginBtn"
+                    onClick={handleLogout}
+                    style={{ display: isVisible ? 'block' : 'none' }}
+                >
                     Logout
                 </div>
             </div>

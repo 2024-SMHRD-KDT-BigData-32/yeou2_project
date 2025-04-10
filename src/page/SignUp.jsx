@@ -56,7 +56,8 @@ const SignUp = () => {
                 }
             );
 
-            alert(response.data);
+            console.log(response.data==="회원가입성공");
+            alert("회원가입성공")
             navigate("/login");
         } catch (error) {
             alert("회원가입 실패");
@@ -83,6 +84,9 @@ const SignUp = () => {
 
             <div className="nickLabel">닉네임</div>
             <input className="nickInput" onChange={(e) => setNickname(e.target.value)} />
+
+            <div className="emailLabel">이메일</div>
+            <input type="email" className="emailInput" onChange={(e) => setEmail(e.target.value)} />
 
             <div className="genderLabel">성별</div>
             <div className="maleLabel">남자</div>
@@ -116,9 +120,6 @@ const SignUp = () => {
                     })}
                 </select>
             </div>
-
-            <div className="emailLabel">이메일</div>
-            <input type="email" className="emailInput" onChange={(e) => setEmail(e.target.value)} />
 
             <button className="signUpBtn" onClick={handleSignUp}>회원가입 완료</button>
             <button className="backBtn" onClick={() => navigate('/login')}>로그인</button>
