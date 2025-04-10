@@ -1,29 +1,45 @@
 import { useNavigate } from "react-router-dom";
 import "../css/SignUp.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import useMove from "../components/Fun";
 
 const SignUp = () => {
+    const navigate = useNavigate(); 
 
-    const navigate = useNavigate();
-
-    const {
-
-        moveLogin,
-    } = useMove(); // ✅ Hook을 호출하여 네비게이션 함수 가져오기
-
+    // 상태 선언
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [name, setName] = useState("");
     const [nickname, setNickname] = useState("");
     const [gender, setGender] = useState("N");
-    const [birthdate, setBirthdate] = useState("");
     const [email, setEmail] = useState("");
 
+    const [year, setYear] = useState("");
+    const [month, setMonth] = useState("");
+    const [day, setDay] = useState("");
+    const [birthdate, setBirthdate] = useState("");
+
+    // 생년월일 조합
+    useEffect(() => {
+        if (year && month && day) {
+            setBirthdate(`${year}-${month}-${day}`);
+        }
+    }, [year, month, day]);
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+
+        if (!year || !month || !day) {
+            alert("생년월일을 모두 선택해주세요.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return;
+        }
+
         try {
             const response = await axios.post(
                 "http://localhost:8084/controller/joinMember",
@@ -35,104 +51,79 @@ const SignUp = () => {
                     mb_email: email,
                     mb_gender: gender,
                     mb_birthdate: birthdate,
-                    mb_role: "USER ",
+                    mb_role: "USER",
                     mb_timestamp: new Date().toISOString(),
-                });
-
+                }
+            );
 
             alert(response.data);
             navigate("/login");
         } catch (error) {
-            alert("회원가입실패")
+            alert("회원가입 실패");
+            console.error(error);
         }
-    }
-
-    const hadleGenderChange = (e) => {
-        setGender(e.target.value);
-    }
-
+    };
 
     return (
         <div id='signUp'>
-            {/* 제목 */}
             <div className="mainLabel">회원가입</div>
 
-            {/* 아이디 */}
             <div className="idLabel">ID</div>
-            <input className="idInput" onChange={(e) => setUserId(e.target.value)}></input>
+            <input className="idInput" onChange={(e) => setUserId(e.target.value)} />
             <button className="idBtn">중복확인</button>
 
-            {/* 비밀번호 */}
             <div className="pwLabel">PW</div>
-            <input className="pwInput" onChange={(e) => setPassword(e.target.value)}></input>
+            <input className="pwInput" type="password" onChange={(e) => setPassword(e.target.value)} />
 
-            {/* 비번 확인 */}
             <div className="pwLabel2">PW 확인</div>
-            <input className="pwInput2" onChange={(e) => setPassword(e.target.value)}></input>
+            <input className="pwInput2" type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
 
-            {/* 이름 */}
             <div className="nameLabel">이름</div>
-            <input className="nameInput" onChange={(e) => setName(e.target.value)}></input>
+            <input className="nameInput" onChange={(e) => setName(e.target.value)} />
 
-            {/* 닉네임 */}
             <div className="nickLabel">닉네임</div>
-            <input className="nickInput" onChange={(e) => setNickname(e.target.value)}></input>
+            <input className="nickInput" onChange={(e) => setNickname(e.target.value)} />
 
-            {/* 이메일 */}
-            <div className="emailLabel">이메일</div>
-            <input type="email" className="emailInput" onChange={(e) => setEmail(e.target.value)}></input>
-
-            {/* 성별 */}
             <div className="genderLabel">성별</div>
-
             <div className="maleLabel">남자</div>
-            <input type="radio" className="maleRio" name='gender' onChange={hadleGenderChange}></input>
-
+            <input type="radio" name='gender' value="M" onChange={(e) => setGender(e.target.value)} />
             <div className="femaleLabel">여자</div>
-            <input type="radio" className="femaleRio" name='gender' onChange={hadleGenderChange}></input>
+            <input type="radio" name='gender' value="F" onChange={(e) => setGender(e.target.value)} />
 
-            {/* 생년월일 */}
             <div className="birthLabel">생년월일</div>
-
             <div className="birthDropbox">
-                {/* year 드롭박스 */}
-                <select className='yearInput' name="year" id="">
-                    <option value="01">1990</option>
-                    <option value="02">1992</option>
-                    <option value="03">1999</option>
-                    <option value="04">2002</option>
+                <select className='yearInput' onChange={(e) => setYear(e.target.value)}>
+                    <option value="">연도</option>
+                    <option value="1990">1990</option>
+                    <option value="1992">1992</option>
+                    <option value="1999">1999</option>
+                    <option value="2002">2002</option>
                 </select>
 
-                {/* month 드롭박스 */}
-                <select className='monthInput' name="month" id="">
-                    <option value="01">1월</option>
-                    <option value="02">2월</option>
-                    <option value="03">3월</option>
-                    <option value="04">4월</option>
-                    <option value="08">5월</option>
-                    <option value="06">6월</option>
-                    <option value="07">7월</option>
-                    <option value="08">8월</option>
-                    <option value="09">9월</option>
-                    <option value="10">10월</option>
-                    <option value="11">11월</option>
-                    <option value="12">12월</option>
+                <select className='monthInput' onChange={(e) => setMonth(e.target.value)}>
+                    <option value="">월</option>
+                    {[...Array(12)].map((_, i) => {
+                        const m = (i + 1).toString().padStart(2, "0");
+                        return <option key={m} value={m}>{m}월</option>;
+                    })}
                 </select>
-                {/* day 드롭박스 */}
-                <select className='dayInput' name="day" id="">
-                    <option value="12">12일</option>
+
+                <select className='dayInput' onChange={(e) => setDay(e.target.value)}>
+                    <option value="">일</option>
+                    {[...Array(31)].map((_, i) => {
+                        const d = (i + 1).toString().padStart(2, "0");
+                        return <option key={d} value={d}>{d}일</option>;
+                    })}
                 </select>
             </div>
 
-            <button className="signUpBtn" onClick={handleSignUp} >회원가입 완료</button>
-            <button className="backBtn" onClick={moveLogin}>로그인</button>
+            <div className="emailLabel">이메일</div>
+            <input type="email" className="emailInput" onChange={(e) => setEmail(e.target.value)} />
 
-
-
-
-
+            <button className="signUpBtn" onClick={handleSignUp}>회원가입 완료</button>
+            <button className="backBtn" onClick={() => navigate('/login')}>로그인</button>
         </div>
-    )
-}
+    );
+};
 
-export default SignUp
+export default SignUp;
