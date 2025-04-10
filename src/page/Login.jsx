@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate(); 
     
     const signUpBtnClick = () => {
-        navigate('/SingUp'); // 이동할 경로
+        navigate('/SignUp'); // 이동할 경로
     };
     const findIdBtnClick = () => {
         navigate('/FindID'); // 이동할 경로

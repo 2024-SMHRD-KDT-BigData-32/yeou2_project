@@ -23,7 +23,7 @@ const SignUp = () => {
 
 
     const handleSignUp = async (e) => {
-        e.preventDefailt();
+        e.preventDefault();
         try {
             const response = await axios.post(
                 "http://localhost:8084/controller/joinMember",
