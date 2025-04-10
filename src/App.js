@@ -26,6 +26,7 @@ import GoogleCallback from './page/GoogleCallback.jsx';
 import AISearch from './page/AISearch.jsx';
 import axios from 'axios';
 import { useState } from 'react';
+import { LoginProvider } from './contexts/LoginContext.jsx';
 // import './App.css';
 
 import { QuestionProvider } from './contexts/QuestionContext.jsx'; // ✅ 전역 상태 import
@@ -37,39 +38,41 @@ function App() {
 
 
   return (
-    <QuestionProvider> {/* ✅ 전역 상태로 전체 감싸기 */}
-      <div id="wrapper">
-        <Header isLoggedIn={isLoggedIn} />
-        <hr />
-        <div className="content">
-          <Routes>
-            <Route path='/' element={<Main />} />
-            <Route path='/MyPage' element={<MyPage />} />
-            <Route path='/Login' element={<Login />} />
-            <Route path='/kakao' element={<KakaoCallback />} />
-            <Route path='/gogle' element={<GoogleCallback />} />
-            <Route path='/SignUp' element={<SignUp />} />
-            <Route path='/FindID' element={<FindID />} />
-            <Route path='/FindPW' element={<FindPW />} />
-            <Route path='/Search' element={<Search isLoggedIn={isLoggedIn} />} />
-            <Route path='/AISearch' element={<AISearch />} /> {/* ✅ 추가된 라우트 */}
-            <Route path='/Product' element={<Product />} />
-            <Route path='/AdminProduct' element={<AdminProduct />} />
-            <Route path='/AdminCustomer' element={<AdminCustomer />} />
-            <Route path='/AdminQuestion' element={<AdminQuestion />} />
-            <Route path='/EditProfile' element={<EditProfile />} />
-            <Route path='/UserQuestion' element={<UserQuestion />} />
-            <Route path='/UserQuestionList' element={<UserQuestionList />} />
-            <Route path='/question' element={<UserQuestionList />} />
-            <Route path='/question/:id' element={<UserQuestionDetail />} />
-            <Route path='/search-detail' element={<SearchDetail />} />
-            <Route path='/admin-answer/:id' element={<AdminAnswer />} />
-          </Routes>
+    <LoginProvider>
+      <QuestionProvider> {/* ✅ 전역 상태로 전체 감싸기 */}
+        <div id="wrapper">
+          <Header isLoggedIn={isLoggedIn} />
+          <hr />
+          <div className="content">
+            <Routes>
+              <Route path='/' element={<Main />} />
+              <Route path='/MyPage' element={<MyPage />} />
+              <Route path='/Login' element={<Login />} />
+              <Route path='/kakao' element={<KakaoCallback />} />
+              <Route path='/gogle' element={<GoogleCallback />} />
+              <Route path='/SignUp' element={<SignUp />} />
+              <Route path='/FindID' element={<FindID />} />
+              <Route path='/FindPW' element={<FindPW />} />
+              <Route path='/Search' element={<Search isLoggedIn={isLoggedIn} />} />
+              <Route path='/AISearch' element={<AISearch />} /> {/* ✅ 추가된 라우트 */}
+              <Route path='/Product' element={<Product />} />
+              <Route path='/AdminProduct' element={<AdminProduct />} />
+              <Route path='/AdminCustomer' element={<AdminCustomer />} />
+              <Route path='/AdminQuestion' element={<AdminQuestion />} />
+              <Route path='/EditProfile' element={<EditProfile />} />
+              <Route path='/UserQuestion' element={<UserQuestion />} />
+              <Route path='/UserQuestionList' element={<UserQuestionList />} />
+              <Route path='/question' element={<UserQuestionList />} />
+              <Route path='/question/:id' element={<UserQuestionDetail />} />
+              <Route path='/search-detail' element={<SearchDetail />} />
+              <Route path='/admin-answer/:id' element={<AdminAnswer />} />
+            </Routes>
+          </div>
+          <Chatbot />
+          <Footer />
         </div>
-        <Chatbot />
-        <Footer />
-      </div>
-    </QuestionProvider>
+      </QuestionProvider>
+    </LoginProvider>
   );
 }
 
