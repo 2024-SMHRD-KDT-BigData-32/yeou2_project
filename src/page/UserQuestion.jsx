@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../css/UserQuestion.css";
 import { useQuestionContext } from "../contexts/QuestionContext.jsx";
 import { useNavigate } from "react-router-dom"; // ✅ 추가
+import axios from "axios";
 
 const UserQuestion = () => {
     const loggedInUser = "user123"; // 임시 사용자 (스프링 연동 시 대체)
@@ -25,9 +26,27 @@ const UserQuestion = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         setIsSubmitting(true);
+
+        const formData = new FormData();
+        //formData.append("id", loggedInUser);
+        formData.append("title", title);
+        formData.append("content", content);
+        if(image)formData.append("file", image); // 파일은 null일 수 있음
+    
+        try {
+            const response = await axios.post("http://localhost:8084/controller/insert", formData, {
+                withCredentials: true, // ✅ 세션 쿠키 포함!
+                //method: 'POST',
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                  },
+            })
+            
+            console.log("✅ 등록 성공:", response.data);
+            alert("문의가 등록되었습니다!");
 
         const newQuestion = {
             id: Date.now(),
@@ -50,7 +69,12 @@ const UserQuestion = () => {
         setPreview(null);
         setIsSubmitting(false);
         navigate("/UserQuestionList"); // ✅ 리스트 페이지로 이동
-    };
+    }catch (error) {
+        console.error("❌ 등록 중 에러 발생:", error);
+        alert("오류가 발생했습니다.");
+        setIsSubmitting(false);
+    }
+};
 
     return (
         <div id="userQuestion">
