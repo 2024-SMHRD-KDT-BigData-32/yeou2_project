@@ -161,3 +161,34 @@ async def record_visit():
 async def get_visits():
     count = get_visit_count()
     return {"count": count}
+
+
+
+#상품조회
+@app.get("/getProducts")
+async def get_products():
+    sql = """
+        SELECT 
+            p.prod_idx AS id,
+            p.prod_name AS productName,
+            MIN(pp.prod_price) AS productPrice 
+            FROM 
+                tb_product p 
+            JOIN
+                tb_product_price pp ON p.prod_idx = pp.prod_idx
+            Group by p.prod_idx
+
+    """
+
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        conn.close()
+        return {"products": rows}  
+    except Exception as e:
+        print("❌ DB 에러:", e)
+        raise HTTPException(status_code=500, detail="Database error")
+    
+    
