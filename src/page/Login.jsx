@@ -80,9 +80,9 @@ const Login = () => {
 
 
             <button className="loginBtn" onClick={tryLogin}>로그인</button>
-            <button className="googleBtn" onClick={googleLogin}>Google로그인</button>
+            <button className="googleBtn" onClick={googleLogin}><img src="/img/google_login.png" width="200" height="50"></img></button>
             
-            <button className="kakaoBtn" onClick={kakaoLogin}>KaKAO로그인</button>
+            <button className="kakaoBtn" onClick={kakaoLogin}><img src="/img/kakao_login.png" width="200" height="50"></img></button>
             
 
             <button className="div7" onClick={ findIdBtnClick }>아이디찾기</button>
