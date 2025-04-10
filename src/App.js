@@ -22,7 +22,7 @@ import UserQuestionDetail from './page/UserQuestionDetail';
 import SearchDetail from './page/SearchDetail';
 import AdminAnswer from './page/AdminAnswer';
 import KakaoCallback from './page/kakaoCallback';
-import GoogleCallback from './page/GoogleCallback';
+import GoogleCallback from './page/googleCallback.jsx';
 import AISearch from './page/AISearch.jsx';
 import axios from 'axios';
 import { useState } from 'react';

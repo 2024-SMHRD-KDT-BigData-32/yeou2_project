@@ -191,4 +191,23 @@ async def get_products():
         print("❌ DB 에러:", e)
         raise HTTPException(status_code=500, detail="Database error")
     
+
+@app.get("/getProductPrices/{prod_idx}")
+async def get_product_prices(prod_idx: int):
+    sql = """
+        SELECT prod_price, prod_shoppingmall, prod_link 
+        FROM tb_product_price 
+        WHERE prod_idx = %s
+        ORDER BY prod_price ASC
+    """
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute(sql, (prod_idx,))
+        rows = cursor.fetchall()
+        conn.close()
+        return {"prices": rows}
+    except Exception as e:
+        print("❌ 가격 데이터 에러:", e)
+        raise HTTPException(status_code=500, detail="가격 정보를 불러오는 중 오류 발생")
     
