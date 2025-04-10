@@ -1,11 +1,27 @@
 import "../css/Main.css";
 import { FlashDealCard } from "./FlashDealCard/FlashDealCard.jsx";
 import useMove from "../components/Fun.jsx";
+import axios from "axios";
+import { useEffect } from "react";
 
 export const Main = ({ className, ...props }) => {
   const {
     moveSearch
   } = useMove(); // ✅ Hook을 호출하여 네비게이션 함수 가져오기
+
+
+  // 홈페이지 총 방문 수 기록하기 (파이썬 서버 열려있을 때만 가능)
+  useEffect(() => {
+    axios.post('http://localhost:8001/main-home-visit')
+      .then(response => {
+        console.log('Main 홈페이지 방문 기록 성공:', response.status);
+      })
+      .catch(error => {
+        console.error('Main 홈페이지 방문 기록 실패:', error);
+      });
+  }, []);
+
+
 
   // 현재 경로에 따라 id 동적으로 설정
   const currentPath = window.location.pathname;
