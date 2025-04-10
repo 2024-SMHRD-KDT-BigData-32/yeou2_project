@@ -25,11 +25,10 @@ const AdminPage = () => {
         setError(null); // 이전 에러 초기화
         try {
             const response = await axios.get("http://localhost:8001/getMembers");
-            console.log(response)
-            console.log(response.data)
+
             setCustomers(response.data.members || []); // 데이터를 받아와 상태 업데이트
-            console.log(customers)
-            // console.log(customers.data.members[1].joined_at)
+            // console.log(response.data);
+
         } catch (err) {
             setError("회원 데이터를 불러오는 데 실패했습니다."); // 에러 상태 업데이트
             console.error("회원 데이터 로딩 오류:", err);
@@ -47,8 +46,46 @@ const AdminPage = () => {
           });
           fetchCustomers();  // 데이터를 가져오는 함수 호출
       }, []);
+    
 
-  
+      const handleRoleChange = async (mb_id) => {
+        console.log(customers.mb_id)
+        // mb_id 기반으로 해당 유저만 변경
+        setCustomers((prev) =>
+            
+          prev.map((customer) =>
+            customer.mb_id === mb_id ? { ...customer, mb_role: "ADMIN" } : customer
+          )
+        );
+      
+        try {
+          const response = await axios.post("http://localhost:8001/change-role", {
+            mb_id: mb_id,
+            new_role: "ADMIN",
+          });
+      
+          if (!response.data.success) {
+            alert("역할 변경 실패");
+            // 실패 시 롤백
+            setCustomers((prev) =>
+              prev.map((customer) =>
+                customer.mb_id === mb_id ? { ...customer, mb_role: "USER" } : customer
+              )
+            );
+          }
+        } catch (error) {
+          console.error("역할 변경 중 오류 발생:", error);
+          alert("서버 오류로 역할 변경에 실패했습니다.");
+          // 실패 시 롤백
+          setCustomers((prev) =>
+            prev.map((customer) =>
+              customer.mb_id === mb_id ? { ...customer, mb_role: "USER" } : customer
+            )
+          );
+        }
+      };
+      
+
     return (
         <div id="adminCustomer">
             <aside className="sidebar">
@@ -127,7 +164,27 @@ const AdminPage = () => {
                                         <td>{customer.mb_email}</td>
                                         <td>{customer.mb_gender}</td>
                                         <td>{customer.mb_birthdate}</td>
-                                        <td>{customer.mb_role}</td>
+                                        <td>
+                                        {customer.mb_role === "ADMIN" ? (
+                                            <div style={{ color: "red", fontWeight: "bold" }}>관리자</div>
+                                        ) : (
+                                            <>
+                                            <button
+                                                onClick={() => handleRoleChange(customer.mb_id)}
+                                                style={{
+                                                padding: "4px 8px",
+                                                backgroundColor: "#007bff",
+                                                color: "white",
+                                                border: "none",
+                                                borderRadius: "4px",
+                                                cursor: "pointer",
+                                                }}
+                                            >
+                                                관리자로 전환
+                                            </button>
+                                            </>
+                                        )}
+                                        </td>
                                     </tr>
                                  ))}
                             </tbody>

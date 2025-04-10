@@ -250,3 +250,19 @@ async def get_members():
         print("❌ DB 에러:", e)
         raise HTTPException(status_code=500, detail="Database error")
     
+
+
+@app.post("/change-role")
+async def change_role(data: dict):
+    mb_id = data.get("mb_id")
+    new_role = data.get("new_role", "ADMIN")
+
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("UPDATE tb_member SET mb_role = %s WHERE mb_id = %s", (new_role, mb_id))
+        conn.commit()
+        return {"success": True}
+    except Exception as e:
+        print("Error updating role:", e)
+        return {"success": False}
