@@ -15,7 +15,7 @@ export const Footer = () => {
 
                 <div className="footer-links">
                     <a href="/about">회사 소개</a>
-                    <a href="/contact">고객 센터</a>
+                    <a href="/UserQuestionList">고객 센터</a>
                     <a href="/terms">이용 약관</a>
                     <a href="/privacy">개인정보 처리방침</a>
                 </div>

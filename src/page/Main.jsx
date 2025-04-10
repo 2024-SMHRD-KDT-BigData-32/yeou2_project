@@ -37,11 +37,6 @@ export const Main = ({ className, ...props }) => {
       {/* 검색창과 버튼 */}
       <div className="frame">
         <div className="order-card">
-          <div className="top">
-            <button className="text">컴퓨터</button>
-            <button className="text">노트북</button>
-          </div>
-
           <div className="bottom">
             <div className="text-field-button">
               <input className="text-field" type="text" placeholder="검색어 입력" />
