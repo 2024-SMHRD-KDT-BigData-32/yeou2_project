@@ -8,9 +8,9 @@ const Login = () => {
 
 
 
-    
-    const navigate = useNavigate(); 
-    
+
+    const navigate = useNavigate();
+
     const signUpBtnClick = () => {
         navigate('/SignUp'); // 이동할 경로
     };
@@ -46,12 +46,12 @@ const Login = () => {
             alert("아이디를 입력해주세요.");
             return;
         }
-    
+
         const loginData = {
             mb_id: userId,
             mb_pw: password,
         };
-    
+
         try {
             const response = await axios.post(
                 "http://localhost:8084/controller/login",
@@ -63,11 +63,11 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-    
+
             const result = response.data;
-    
+
             console.log("🟢 서버 응답:", result); // 디버깅 필수!
-    
+
             // 문자열 응답이라면
             if (result === "관리자 로그인 성공") {
                 alert("관리자 로그인 성공!");
@@ -81,7 +81,7 @@ const Login = () => {
             } else {
                 alert(result || "로그인 실패");
             }
-    
+
         } catch (error) {
             alert("서버 오류 또는 네트워크 문제로 로그인 실패");
             console.error(error);
@@ -133,11 +133,20 @@ const Login = () => {
             </div>
 
             <button className="loginBtn" onClick={tryLogin}>로그인</button>
-            <button className="googleBtn" onClick={googleLogin}>Google로그인</button>
-            <button className="kakaoBtn" onClick={kakaoLogin}>KaKAO로그인</button>
-            <button className="div7" onClick={findIdBtnClick}>아이디찾기</button>
-            <button className="div9" onClick={findPwBtnClick}>비밀번호찾기</button>
-            <button className="div11" onClick={signUpBtnClick}>회원가입</button>
+
+            {/* 버튼 두 개를 한 줄에 배치 */}
+            <div className="buttonRow">
+
+                <img className='snsLogin' id ="googleBtn" src="/img/loginGoogle.png" onClick={googleLogin}  alt="Google" />
+                <img className='snsLogin' id ="kakaoBtn" src="/img/loginKakao.png" onClick={kakaoLogin}  alt="Kakao" />
+
+            </div>
+
+
+
+            <button className="findIDBtn" onClick={findIdBtnClick}>아이디찾기</button>
+            <button className="findPWBtn" onClick={findPwBtnClick}>비밀번호찾기</button>
+            <button className="SignUpBtn" onClick={signUpBtnClick}>회원가입</button>
         </div>
     );
 };
