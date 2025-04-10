@@ -211,3 +211,42 @@ async def get_product_prices(prod_idx: int):
         print("❌ 가격 데이터 에러:", e)
         raise HTTPException(status_code=500, detail="가격 정보를 불러오는 중 오류 발생")
     
+
+@app.post("/chat")
+async def chat(request: Request):
+    data = await request.json()
+    user_message = data.get("message", "")
+
+    # OpenAI ChatGPT 호출
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",  # 또는 "gpt-4"
+        messages=[
+            {"role": "system", "content": "당신은 친절한 고객 지원 챗봇입니다."},
+            {"role": "user", "content": user_message}
+        ]
+    )
+
+    reply = response.choices[0].message.content.strip()
+
+    return {"reply": reply}
+
+@app.get("/getMembers")
+async def get_members():
+    # DB 연결 및 쿼리 실행
+    sql = """
+        SELECT mb_name, mb_nick, mb_email, mb_gender, mb_birthdate, mb_role, joined_at
+        FROM tb_member
+    """
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        conn.close()
+        
+        # 결과를 리스트로 반환
+        return {"members": rows}
+    except Exception as e:
+        print("❌ DB 에러:", e)
+        raise HTTPException(status_code=500, detail="Database error")
+    
