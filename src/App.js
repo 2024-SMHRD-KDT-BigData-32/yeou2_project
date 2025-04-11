@@ -48,7 +48,7 @@ function App() {
               <Route path='/' element={<Main />} />
               <Route path='/MyPage' element={<MyPage />} />
               <Route path='/Login' element={<Login />} />
-              <Route path='/kakao' element={<KakaoCallback />} />
+              <Route path='/oauth/kakao/callback' element={<KakaoCallback />} />
               <Route path='/google' element={<GoogleCallback />} />
               <Route path='/SignUp' element={<SignUp />} />
               <Route path='/FindID' element={<FindID />} />
