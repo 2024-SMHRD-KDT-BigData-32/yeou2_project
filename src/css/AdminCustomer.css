@@ -154,3 +154,35 @@
     color: red;
     font-weight: bold;
 }
+/* 페이지네이션 전체 영역 */
+#adminCustomer .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 8px; /* 버튼 간 간격 */
+}
+
+/* 페이지네이션 버튼 공통 스타일 */
+#adminCustomer .pagination button {
+    padding: 6px 12px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* 마우스 호버 시 효과 */
+#adminCustomer .pagination button:hover {
+    background-color: #eee;
+}
+
+/* 현재 선택된 페이지 버튼 */
+#adminCustomer .pagination button.active {
+    background-color: #2a2d3e;
+    color: white;
+    font-weight: bold;
+    border-color: #2a2d3e;
+}
