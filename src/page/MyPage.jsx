@@ -63,9 +63,9 @@ const MyPage = () => {
       </div>
 
       {/* 🔸 계정 삭제 버튼 (기능 없음) */}
-      <div className="delete-account">
-        <button className="delete-account-button">계정 삭제</button>
-      </div>
+      <div className="deleteAccount">
+    <button className="deleteAccountButton">계정 삭제</button>
+  </div>
     </div>
   );
 };
