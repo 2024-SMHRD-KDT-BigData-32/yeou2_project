@@ -234,7 +234,7 @@ async def chat(request: Request):
 async def get_members():
     # DB 연결 및 쿼리 실행
     sql = """
-        SELECT mb_name, mb_nick, mb_email, mb_gender, mb_birthdate, mb_role, joined_at
+        SELECT mb_name, mb_nick, mb_email, mb_gender, mb_birthdate, mb_role, joined_at, mb_id
         FROM tb_member
     """
     try:

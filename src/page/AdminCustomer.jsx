@@ -49,13 +49,14 @@ const AdminPage = () => {
     
 
       const handleRoleChange = async (mb_id) => {
-        console.log(customers.mb_id)
+        // console.log(customers.mb_id)
         // mb_id 기반으로 해당 유저만 변경
         setCustomers((prev) =>
             
           prev.map((customer) =>
             customer.mb_id === mb_id ? { ...customer, mb_role: "ADMIN" } : customer
           )
+          
         );
       
         try {
