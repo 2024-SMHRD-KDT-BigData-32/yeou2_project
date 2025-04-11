@@ -1,7 +1,6 @@
 import React from 'react';
 import "../css/MyPage.css";
-import { useLoginContext } from '../contexts/LoginContext';
-import useMove from "../components/Fun.jsx";
+import axios from 'axios';
 
 const products = [
   {
@@ -31,31 +30,37 @@ const products = [
   },
 ];
 
-const MyPage = () => {
-  const { moveMain } = useMove(); // ✅ 훅은 컴포넌트 안에서 호출
-  const { setIsLoggedIn } = useLoginContext(); // ✅ 마찬가지
+const handleDelete = async () => {
+  const userId = localStorage.getItem("userId"); // ✅ 먼저 가져오기!
+  console.log("삭제 요청 아이디:", userId);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    setIsLoggedIn(false);
-    alert('로그아웃 되었습니다.');
-    moveMain(); // 로그인 페이지로 이동
-  };
+  if (!userId) {
+    alert("로그인 정보가 없습니다.");
+    return;
+  }
 
-  const handleDeleteAccount = () => {
-    const confirmDelete = window.confirm("정말로 계정을 삭제하시겠습니까?\n삭제하면 되돌릴 수 없습니다.");
-    if (confirmDelete) {
-      // 스프링 들어갈 자리
+  if (!window.confirm("정말로 회원탈퇴 하시겠습니까?")) return;
 
+  try {
+    const response = await axios.post("http://localhost:8084/controller/deleteMember", {
+      mb_id: userId,
+    });
 
-
-
-      console.log("계정이 삭제되었습니다.");
-      alert("계정이 삭제되었습니다.");
-      handleLogout(); // 로그아웃 처리 포함
+    console.log("서버 응답:", response.data);
+    if (response.data === "success") {
+      alert("탈퇴 완료!");
+      localStorage.removeItem("userId");
+      window.location.href = "/";
+    } else {
+      alert("탈퇴 실패: 서버에서 실패 처리됨");
     }
-  };
+  } catch (err) {
+    console.error("탈퇴 실패:", err);
+    alert("탈퇴 실패 (네트워크 또는 서버 에러)");
+  }
+};
 
+const MyPage = () => {
   return (
     <div id="cp-searchp-800">
       {/* 최근 검색 상품 섹션 */}
@@ -88,11 +93,9 @@ const MyPage = () => {
         </div>
       </div>
 
-      {/* 🔸 계정 삭제 버튼 */}
-      <div className="deleteAccount">
-        <button className="deleteAccountButton" onClick={handleDeleteAccount}>
-          회원 탈퇴
-        </button>
+      {/* 🔸 계정 삭제 버튼 (기능 없음) */}
+      <div className="delete-account">
+        <button className="delete-account-button" onClick={handleDelete}>계정 삭제</button>
       </div>
     </div>
   );
