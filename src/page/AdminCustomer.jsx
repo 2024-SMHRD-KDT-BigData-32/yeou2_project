@@ -171,7 +171,11 @@ const AdminPage = () => {
                                         ) : (
                                             <>
                                             <button
-                                                onClick={() => handleRoleChange(customer.mb_id)}
+                                                onClick={() => {
+                                                if (window.confirm(`${customer.mb_nick}님을 관리자로 전환하시겠습니까?`)) {
+                                                    handleRoleChange(customer.mb_id);
+                                                }
+                                                }}
                                                 style={{
                                                 padding: "4px 8px",
                                                 backgroundColor: "#007bff",
