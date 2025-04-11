@@ -1,10 +1,9 @@
-// React 기본 훅과 axios, 스타일 import
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "../css/AISearch.css";
 
-// 추천된 제품 리스트를 카테고리별 섹션으로 렌더링하는 함수
-// 이미지, 이름, 가격, 쇼핑몰, 리뷰, 링크 등 출력
+// 카테고리별 섹션 렌더링 함수
 const renderCategory = (categoryName, productList) => {
     return (
         <section className="categorySection" key={categoryName}>
@@ -12,11 +11,9 @@ const renderCategory = (categoryName, productList) => {
             <div className="productList">
                 {productList.map((product, index) => (
                     <div className="productCard" key={`${categoryName}_${product.prod_idx}_${index}`}>
-                        {/* 👉 최저가일 경우만 뱃지 표시 */}
                         {product.isCheapest && (
                             <div className="badge">최저가</div>
                         )}
-
                         <img src={product.prod_img} alt={product.prod_name} />
                         <h3>{product.prod_name}</h3>
                         <div className="productDetails">
@@ -34,97 +31,70 @@ const renderCategory = (categoryName, productList) => {
     );
 };
 
-const AISearch = () => { //const AISearch = ({ mbId }), mbId삭제
-    const [aiResults, setAiResults] = useState({});  // 추천 결과 저장
-    const [query, setQuery] = useState("되노?"); // 검색어 기본값(최초 1회 자동실행)
-    const [inputText, setInputText] = useState("");  // 입력창 값
-    const [isLoading, setIsLoading] = useState(false); // 로딩 상태
-    const mbId = "qwe";                              // 회원ID
+const AISearch = () => {
+    const location = useLocation();
+    const [aiResults, setAiResults] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const mbId = "qwe";
+
+    const getQueryParam = () => {
+        const params = new URLSearchParams(location.search);
+        return params.get("query") || "";
+    };
 
     const fetchData = async (searchText) => {
         try {
             setIsLoading(true);
-            console.log("검색어:", searchText, "회원:", mbId);
-    
+            setError(null);
             const response = await axios.post("http://localhost:8001/ai-search", {
                 mb_id: mbId,
                 query: searchText
             });
-    
+
             const rawData = response.data;
-            console.log("원본 응답:", rawData);
-    
             const cleanedData = {};
-    
+
             for (const [category, products] of Object.entries(rawData)) {
-                // 가격 오름차순 정렬
                 const sorted = [...products].sort((a, b) => Number(a.prod_price) - Number(b.prod_price));
-    
-                // 최저가 제품의 prod_idx 저장
                 const cheapestIdx = sorted[0]?.prod_idx;
                 const cheapestPrice = Number(sorted[0]?.prod_price);
-    
-                // 총 5개 추출 (중복 허용)
+
                 const sliced = sorted.slice(0, 5);
-    
-                // 각 상품에 isCheapest 플래그 추가 (카테고리 기준 최저가 1개만 true)
                 const productsWithFlag = sliced.map(prod => ({
                     ...prod,
                     isCheapest: prod.prod_idx === cheapestIdx && Number(prod.prod_price) === cheapestPrice
                 }));
-    
+
                 cleanedData[category] = productsWithFlag;
             }
-    
+
             setAiResults(cleanedData);
-        } catch (error) {
-            console.error("AI 검색 실패:", error);
+        } catch (err) {
+            console.error("AI 검색 실패:", err);
+            setError("추천 검색 중 오류가 발생했습니다.");
         } finally {
             setIsLoading(false);
         }
     };
-    
-    /* 초기 렌더링 및 검색어 변경 감지
-        query가 변경될 때마다 자동 실행됨
-        초기에는 "되노?"라는 텍스트로 실행됨 */
+
     useEffect(() => {
-        fetchData(query);
-    }, [query]);
+        const query = getQueryParam();
+        if (query) fetchData(query);
+    }, [location.search]);
 
-    // 검색 버튼 및 Enter 키 입력 처리
-    const handleSearch = () => {
-        if (inputText.trim() !== "") {
-            setQuery(inputText.trim());
-            console.log(inputText.trim())
-        }
-    };
-
-    // 최종 렌더링
     return (
         <div id="aiSearch">
-            <div className="searchBar">
-                <input
-                    type="text"
-                    placeholder="검색어를 입력하세요..."
-                    value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            handleSearch();
-                        }
-                    }}
-                />
-                <button onClick={handleSearch}>검색</button>
-            </div>
-
-            {/* 로딩 중일 때 메시지 표시 */}
             {isLoading ? (
-                <div className="loadingMessage"> 🔄 검색 중입니다...</div>
-            ) : (
-            // 검색 결과 카테고리별 반복 렌더링
+                <div className="loadingMessage">🔄 검색 중입니다...</div>
+            ) : error ? (
+                <div className="errorMessage">❗ {error}</div>
+            ) : Object.keys(aiResults).length > 0 ? (
                 Object.entries(aiResults).map(([category, products]) =>
                     renderCategory(category, products)
                 )
+            ) : (
+                <div className="noResults">추천 결과가 없습니다.</div>
             )}
         </div>
     );

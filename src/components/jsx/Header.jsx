@@ -1,30 +1,25 @@
-// src/components/jsx/Header.jsx
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useMove from '../Fun';
+import useMove from "../Fun.jsx";
 import '../css/Header.css';
 import axios from 'axios';
-import { useLoginContext } from '../../contexts/LoginContext';
 
 const Header = () => {
     const {
-        moveMain, moveMyPage, moveLogin, moveAdminCustomer
+        moveMain,
+        moveMyPage,
+        moveLogin,
+        moveAdminCustomer,
     } = useMove();
-    const navigate = useNavigate();
-    const { isLoggedIn, isAdmin, setIsLoggedIn } = useLoginContext();
 
+    const navigate = useNavigate();
+    const [isVisible, setIsVisible] = useState(false);
+    const [userType, setUserType] = useState(true);
     const [searchText, setSearchText] = useState('');
     const [searchType, setSearchType] = useState('general');
 
-    const handleLogout = () => {
-        localStorage.clear();
-        setIsLoggedIn(false);
-        alert('로그아웃 되었습니다.')
-        navigate("/");
-    };
-
     const handleSearch = () => {
+        navigate('/AISearch')
         if (searchType === 'general') {
             handleSearchGeneral();
         } else {
@@ -45,8 +40,11 @@ const Header = () => {
     };
 
     const handleSearchAI = () => {
-        const dummyRecommendedIds = [24];
-        navigate(`/AISearch?ids=${dummyRecommendedIds.join(",")}`);
+        if (searchText.trim()) {
+            // 추천 검색은 Header에서 직접 요청하지 않음
+            // 결과 요청 및 렌더링은 /AISearch 페이지에서 처리
+            navigate(`/AISearch?query=${encodeURIComponent(searchText.trim())}`);
+        }
     };
 
     return (
@@ -63,7 +61,14 @@ const Header = () => {
                     placeholder="검색어 입력"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            e.preventDefault(); // ✅ 기본 동작(폼 제출 등) 방지
+                            handleSearch();
+                        }
+                    }}
                 />
+
                 <div className="searchType">
                     <label>
                         <input
@@ -86,36 +91,21 @@ const Header = () => {
                         추천
                     </label>
                 </div>
+
                 <button className="searchBtn" onClick={handleSearch}>검색</button>
             </div>
 
             <div className="btnContainer">
-                <div
-                    className="loginBtn"
-                    onClick={moveAdminCustomer}
-                    style={{ display: isLoggedIn && isAdmin ? 'block' : 'none' }}
-                >
+                <div className="loginBtn" onClick={moveAdminCustomer} style={{ display: isVisible && userType ? 'block' : 'none' }}>
                     Admin Settings
                 </div>
-                <div
-                    className="loginBtn"
-                    onClick={moveMyPage}
-                    style={{ display: isLoggedIn && !isAdmin ? 'block' : 'none' }}
-                >
+                <div className="myPage" onClick={moveMyPage} style={{ display: isVisible && !userType ? 'block' : 'none' }}>
                     MyPage
                 </div>
-                <div
-                    className="loginBtn"
-                    onClick={moveLogin}
-                    style={{ display: isLoggedIn ? 'none' : 'block' }}
-                >
+                <div className="loginBtn" onClick={moveLogin} style={{ display: isVisible ? 'none' : 'block' }}>
                     Login
                 </div>
-                <div
-                    className="myPage"
-                    onClick={handleLogout}
-                    style={{ display: isLoggedIn ? 'block' : 'none' }}
-                >
+                <div className="loginBtn" onClick={moveMain} style={{ display: isVisible ? 'block' : 'none' }}>
                     Logout
                 </div>
             </div>
