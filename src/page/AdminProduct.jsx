@@ -103,7 +103,7 @@ const AdminProduct = () => {
 
                 {/* ✅ 검색창 추가 */}
                 <div className="searchBox">
-                    <input
+                    <input className ='searchInput'
                         type="text"
                         placeholder="상품명을 검색하세요"
                         value={searchKeyword}
