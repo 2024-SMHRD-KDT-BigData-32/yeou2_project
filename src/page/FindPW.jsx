@@ -46,10 +46,14 @@ const FindPW = () => {
             </div>
             <button className="findPWBtn" onClick={() => moveFindPw()}>비밀번호 찾기</button>
 
-            <button className="signUpBtn" onClick={() => moveSignUp()}>회원가입</button>
-            <button className="loginBtntext" onClick={() => moveLogin()}>로그인</button>
-            <button className="findIDBtn" onClick={() => moveFindId()}>아이디 찾기</button>
+            
+            <div className="linkButtonGroup">
+                <a className="signUpBtn" onClick={() => moveSignUp()}>회원가입</a>
 
+                <a className="loginBtntext" onClick={() => moveLogin()}>로그인</a>
+
+                <a className="findIDBtn" onClick={() => moveFindId()}>아이디 찾기</a>
+            </div>
 
         </div>
 

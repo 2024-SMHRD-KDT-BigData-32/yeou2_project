@@ -91,11 +91,8 @@
     cursor: pointer;
 }
 
-/* ✅ 하단 버튼 스타일 공통 */
-#findPW .findPWBtn,
-#findPW .signUpBtn,
-#findPW .loginBtntext,
-#findPW .findIDBtn {
+/* ✅ findPWBtn 버튼 스타일  */
+#findPW .findPWBtn{
     width: 100%;
     margin-top: 15px;
     padding: 10px;
@@ -108,9 +105,25 @@
     transition: background-color 0.3s ease;
 }
 
-#findPW .findPWBtn:hover,
-#findPW .signUpBtn:hover,
-#findPW .loginBtntext:hover,
-#findPW .findIDBtn:hover {
-    background-color: #5a6268;
+
+
+
+#findPW .linkButtonGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+#findPW .signUpBtn,
+#findPW .loginBtntext,
+#findPW .findIDBtn  {
+    margin: 10px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
 }
