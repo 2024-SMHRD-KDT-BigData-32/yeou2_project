@@ -104,3 +104,25 @@
     background-color: #4CAF50;
     color: white;
 }
+
+/* 🔸 계정 삭제 버튼 스타일 */
+#cp-searchp-800 .deleteAccount {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#cp-searchp-800 .deleteAccountButton {
+    background-color: #e74c3c;
+    /* 빨간 버튼 */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#cp-searchp-800 .deleteAccountButton:hover {
+    background-color: #c0392b;
+}
