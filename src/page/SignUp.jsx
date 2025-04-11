@@ -65,13 +65,35 @@ const SignUp = () => {
         }
     };
 
+
+
+
+
+
+
+
+
+    const getDaysInMonth = (year, month) => {
+        if (!year || !month) {
+          return 31; // 기본값 또는 에러 처리
+        }
+        return new Date(year, month, 0).getDate();
+      };
+
+
+
+
+
     return (
         <div id='signUp'>
             <div className="mainLabel">회원가입</div>
 
+            
             <div className="idLabel">ID</div>
-            <input className="idInput" onChange={(e) => setUserId(e.target.value)} />
-            <button className="idBtn">중복확인</button>
+            <div className="idContainer">
+                <input className="idInput" onChange={(e) => setUserId(e.target.value)} />
+                <button className="idBtn">중복확인</button>
+            </div>
 
             <div className="pwLabel">PW</div>
             <input className="pwInput" type="password" onChange={(e) => setPassword(e.target.value)} />
@@ -89,35 +111,39 @@ const SignUp = () => {
             <input type="email" className="emailInput" onChange={(e) => setEmail(e.target.value)} />
 
             <div className="genderLabel">성별</div>
-            <div className="maleLabel">남자</div>
-            <input type="radio" name='gender' value="M" onChange={(e) => setGender(e.target.value)} />
-            <div className="femaleLabel">여자</div>
-            <input type="radio" name='gender' value="F" onChange={(e) => setGender(e.target.value)} />
+            <div className="genderContainer">
+                <div className="maleLabel">남자</div>
+                <input type="radio" name='gender' value="M" onChange={(e) => setGender(e.target.value)} />
+                <div className="femaleLabel">여자</div>
+                <input type="radio" name='gender' value="F" onChange={(e) => setGender(e.target.value)} />
+            </div>
 
             <div className="birthLabel">생년월일</div>
             <div className="birthDropbox">
-                <select className='yearInput' onChange={(e) => setYear(e.target.value)}>
-                    <option value="">연도</option>
-                    <option value="1990">1990</option>
-                    <option value="1992">1992</option>
-                    <option value="1999">1999</option>
-                    <option value="2002">2002</option>
+                <select className='yearInput' onChange={(e) => setYear(e.target.value)} value={year}>
+                <option value="">연도</option>
+                {Array.from({ length: 2020 - 1950 + 1 }, (_, i) => 1950 + i).map((y) => (
+                    <option key={y} value={y}>{y}</option>
+                ))}
                 </select>
 
-                <select className='monthInput' onChange={(e) => setMonth(e.target.value)}>
-                    <option value="">월</option>
-                    {[...Array(12)].map((_, i) => {
-                        const m = (i + 1).toString().padStart(2, "0");
-                        return <option key={m} value={m}>{m}월</option>;
-                    })}
+
+                <select className='monthInput' onChange={(e) => setMonth(e.target.value)} value={month}>
+                <option value="">월</option>
+                {Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, "0")).map((m) => (
+                    <option key={m} value={m}>{m}월</option>
+                ))}
                 </select>
 
-                <select className='dayInput' onChange={(e) => setDay(e.target.value)}>
-                    <option value="">일</option>
-                    {[...Array(31)].map((_, i) => {
-                        const d = (i + 1).toString().padStart(2, "0");
-                        return <option key={d} value={d}>{d}일</option>;
-                    })}
+                <select
+                className='dayInput'
+                onChange={(e) => setDay(e.target.value)}
+                value={day}
+                >
+                <option value="">일</option>
+                {Array.from({ length: getDaysInMonth(year, month) }, (_, i) => (i + 1).toString().padStart(2, "0")).map((d) => (
+                    <option key={d} value={d}>{d}일</option>
+                ))}
                 </select>
             </div>
 

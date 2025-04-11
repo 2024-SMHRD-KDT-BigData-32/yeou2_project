@@ -24,6 +24,7 @@
   align-self: flex-start;
   font-size: 16px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 /* 공통 인풋 */
@@ -48,11 +49,17 @@
   width: 100%;
   margin-top: 5px;
   flex-wrap: wrap; /* 모바일 대응 */
+  align-items: center; /* 추가: 세로 중앙 정렬 */
 }
-
+#signUp .idContainer {
+  display: flex; /* 요소들을 가로로 배치 */
+  align-items: center; /* 요소들을 세로 방향으로 중앙 정렬 (선택 사항) */
+  width: 105%; /* 필요하다면 width 조정 */
+}
 #signUp .idInput {
   flex: 1;
   min-width: 60%;
+  margin-right: 10px;
 }
 
 #signUp .idBtn {
@@ -64,6 +71,7 @@
   padding: 10px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
 }
 
 /* 버튼 공통 */
@@ -78,13 +86,24 @@
 }
 
 #signUp .signUpBtn {
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
+  font-weight: bold;
 }
 
 #signUp .backBtn {
-  background-color: #ffc107;
-  color: black;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+#signUp .genderContainer{
+  display: flex; /* 요소들을 가로로 배치 */
+  align-items: center; /* 요소들을 세로 방향으로 중앙 정렬 (선택 사항) */
+  width: 105%; /* 필요하다면 width 조정 */
+  margin-top: 10px;
+  margin-bottom: 5px;
+  justify-content: center;
 }
 
 /* 성별 */
@@ -103,6 +122,10 @@
   font-size: 16px;
 }
 
+#signUp .maleLabel{
+  margin-left: 10px;
+ 
+}
 /* 생년월일 */
 #signUp .birthDropbox {
   display: flex;
