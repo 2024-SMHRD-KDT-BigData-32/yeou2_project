@@ -28,6 +28,15 @@ const products = [
     price: '1,070,000원',
   },
 ];
+const handleDeleteAccount = () => {
+  const confirmDelete = window.confirm("정말로 계정을 삭제하시겠습니까?\n삭제하면 되돌릴 수 없습니다.");
+  if (confirmDelete) {
+    // 실제 삭제 로직 (현재는 콘솔 로그만)
+    console.log("계정이 삭제되었습니다.");
+    alert("계정이 삭제되었습니다."); // 알림 표시
+    // 여기서 localStorage 초기화, 로그아웃 처리 등 넣을 수 있음
+  }
+};
 
 const MyPage = () => {
   return (
@@ -64,8 +73,10 @@ const MyPage = () => {
 
       {/* 🔸 계정 삭제 버튼 (기능 없음) */}
       <div className="deleteAccount">
-    <button className="deleteAccountButton">계정 삭제</button>
-  </div>
+        <button className="deleteAccountButton" onClick={handleDeleteAccount}>
+          회원 탈퇴
+        </button>
+      </div>
     </div>
   );
 };

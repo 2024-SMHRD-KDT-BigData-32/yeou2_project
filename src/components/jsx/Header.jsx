@@ -98,7 +98,7 @@ const Header = () => {
                     Admin Settings
                 </div>
                 <div
-                    className="myPage"
+                    className="loginBtn"
                     onClick={moveMyPage}
                     style={{ display: isLoggedIn && !isAdmin ? 'block' : 'none' }}
                 >
@@ -112,7 +112,7 @@ const Header = () => {
                     Login
                 </div>
                 <div
-                    className="loginBtn"
+                    className="myPage"
                     onClick={handleLogout}
                     style={{ display: isLoggedIn ? 'block' : 'none' }}
                 >
