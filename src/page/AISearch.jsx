@@ -1,281 +1,29 @@
-import React from "react";
+// React 기본 훅과 axios, 스타일 import
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../css/AISearch.css";
 
-
-// 카테고리별 더미 데이터
-const dummyData = {
-    cpu: [
-        {
-            prodIdx: 1,
-            prodName: "인텔 코어i9-14900K",
-            prodCategory: "cpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 753120,
-            prodShoppingmall: "SSG.COM",
-            prodLink: "https://www.google.com/search?q=%ED%8C%8C%EC%84%B9+%EC%BB%A8%ED%8A%B8%EB%A1%A4+%ED%82%A4&oq=&gs_lcrp=EgZjaHJvbWUqCQgAEEUYOxjCAzIJCAAQRRg7GMIDMgkIARBFGDsYwgMyCQgCEEUYOxjCAzIJCAMQRRg7GMIDMgkIBBBFGDsYwgMyCQgFEEUYOxjCAzIJCAYQRRg7GMIDMgkIBxBFGDsYwgPSAQg2OTA5ajBqN6gCCLACAQ&sourceid=chrome&ie=UTF-8",
-            reviewText: "고성능에 발열도 준수합니다.",
-        },
-        {
-            prodIdx: 2,
-            prodName: "AMD 라이젠 9 7950X",
-            prodCategory: "cpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 799000,
-            prodShoppingmall: "컴퓨존",
-            prodLink: "https://example.com/cpu2",
-            reviewText: "다중 작업에 탁월한 성능입니다.",
-        },
-        {
-            prodIdx: 3,
-            prodName: "인텔 코어i7-14700F",
-            prodCategory: "cpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 495000,
-            prodShoppingmall: "11번가",
-            prodLink: "https://example.com/cpu3",
-            reviewText: "가성비 좋은 고성능 CPU입니다.",
-        },
-        {
-            prodIdx: 4,
-            prodName: "AMD 라이젠 7 7700X",
-            prodCategory: "cpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 439000,
-            prodShoppingmall: "쿠팡",
-            prodLink: "https://example.com/cpu4",
-            reviewText: "게임용으로 최적화된 성능입니다.",
-        },
-        {
-            prodIdx: 5,
-            prodName: "인텔 코어i5-14400",
-            prodCategory: "cpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 310000,
-            prodShoppingmall: "G마켓",
-            prodLink: "https://example.com/cpu5",
-            reviewText: "일반 사용자를 위한 최적의 선택입니다.",
-        },
-    ],
-    gpu: [
-        {
-            prodIdx: 6,
-            prodName: "NVIDIA RTX 4090",
-            prodCategory: "gpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 2450000,
-            prodShoppingmall: "SSG.COM",
-            prodLink: "https://example.com/gpu1",
-            reviewText: "4K 게임에서도 최고의 퍼포먼스.",
-        },
-        {
-            prodIdx: 7,
-            prodName: "AMD Radeon RX 7900 XTX",
-            prodCategory: "gpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 1390000,
-            prodShoppingmall: "쿠팡",
-            prodLink: "https://example.com/gpu2",
-            reviewText: "고해상도 작업에 강력한 성능.",
-        },
-        {
-            prodIdx: 8,
-            prodName: "NVIDIA RTX 4070 Ti",
-            prodCategory: "gpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 1020000,
-            prodShoppingmall: "다나와몰",
-            prodLink: "https://example.com/gpu3",
-            reviewText: "최신 게임도 쾌적하게 구동 가능.",
-        },
-        {
-            prodIdx: 9,
-            prodName: "AMD Radeon RX 7800 XT",
-            prodCategory: "gpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 950000,
-            prodShoppingmall: "컴퓨존",
-            prodLink: "https://example.com/gpu4",
-            reviewText: "가성비 좋은 하이엔드 그래픽카드.",
-        },
-        {
-            prodIdx: 10,
-            prodName: "NVIDIA RTX 4060",
-            prodCategory: "gpu",
-            prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-            prodPrice: 480000,
-            prodShoppingmall: "11번가",
-            prodLink: "https://example.com/gpu5",
-            reviewText: "보급형 그래픽카드 중 최고의 선택.",
-        },
-    ],
-    mainboard: [{
-        prodIdx: 6,
-        prodName: "NVIDIA RTX 4090",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 2450000,
-        prodShoppingmall: "SSG.COM",
-        prodLink: "https://example.com/gpu1",
-        reviewText: "4K 게임에서도 최고의 퍼포먼스.",
-    },
-    {
-        prodIdx: 7,
-        prodName: "AMD Radeon RX 7900 XTX",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 1390000,
-        prodShoppingmall: "쿠팡",
-        prodLink: "https://example.com/gpu2",
-        reviewText: "고해상도 작업에 강력한 성능.",
-    },
-    {
-        prodIdx: 8,
-        prodName: "NVIDIA RTX 4070 Ti",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 1020000,
-        prodShoppingmall: "다나와몰",
-        prodLink: "https://example.com/gpu3",
-        reviewText: "최신 게임도 쾌적하게 구동 가능.",
-    },
-    {
-        prodIdx: 9,
-        prodName: "AMD Radeon RX 7800 XT",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 950000,
-        prodShoppingmall: "컴퓨존",
-        prodLink: "https://example.com/gpu4",
-        reviewText: "가성비 좋은 하이엔드 그래픽카드.",
-    },
-    {
-        prodIdx: 10,
-        prodName: "NVIDIA RTX 4060",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 480000,
-        prodShoppingmall: "11번가",
-        prodLink: "https://example.com/gpu5",
-        reviewText: "보급형 그래픽카드 중 최고의 선택.",
-    },], // 다음 메시지에서 이어서 작성 가능
-    ram: [{
-        prodIdx: 6,
-        prodName: "NVIDIA RTX 4090",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 2450000,
-        prodShoppingmall: "SSG.COM",
-        prodLink: "https://example.com/gpu1",
-        reviewText: "4K 게임에서도 최고의 퍼포먼스.",
-    },
-    {
-        prodIdx: 7,
-        prodName: "AMD Radeon RX 7900 XTX",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 1390000,
-        prodShoppingmall: "쿠팡",
-        prodLink: "https://example.com/gpu2",
-        reviewText: "고해상도 작업에 강력한 성능.",
-    },
-    {
-        prodIdx: 8,
-        prodName: "NVIDIA RTX 4070 Ti",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 1020000,
-        prodShoppingmall: "다나와몰",
-        prodLink: "https://example.com/gpu3",
-        reviewText: "최신 게임도 쾌적하게 구동 가능.",
-    },
-    {
-        prodIdx: 9,
-        prodName: "AMD Radeon RX 7800 XT",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 950000,
-        prodShoppingmall: "컴퓨존",
-        prodLink: "https://example.com/gpu4",
-        reviewText: "가성비 좋은 하이엔드 그래픽카드.",
-    },
-    {
-        prodIdx: 10,
-        prodName: "NVIDIA RTX 4060",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 480000,
-        prodShoppingmall: "11번가",
-        prodLink: "https://example.com/gpu5",
-        reviewText: "보급형 그래픽카드 중 최고의 선택.",
-    },],
-    ssd: [{
-        prodIdx: 6,
-        prodName: "NVIDIA RTX 4090",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 2450000,
-        prodShoppingmall: "SSG.COM",
-        prodLink: "https://example.com/gpu1",
-        reviewText: "4K 게임에서도 최고의 퍼포먼스.",
-    },
-    {
-        prodIdx: 7,
-        prodName: "AMD Radeon RX 7900 XTX",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 1390000,
-        prodShoppingmall: "쿠팡",
-        prodLink: "https://example.com/gpu2",
-        reviewText: "고해상도 작업에 강력한 성능.",
-    },
-    {
-        prodIdx: 8,
-        prodName: "NVIDIA RTX 4070 Ti",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 1020000,
-        prodShoppingmall: "다나와몰",
-        prodLink: "https://example.com/gpu3",
-        reviewText: "최신 게임도 쾌적하게 구동 가능.",
-    },
-    {
-        prodIdx: 9,
-        prodName: "AMD Radeon RX 7800 XT",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 950000,
-        prodShoppingmall: "컴퓨존",
-        prodLink: "https://example.com/gpu4",
-        reviewText: "가성비 좋은 하이엔드 그래픽카드.",
-    },
-    {
-        prodIdx: 10,
-        prodName: "NVIDIA RTX 4060",
-        prodCategory: "gpu",
-        prodImg: "https://img.danawa.com/prod_img/500000/964/798/img/28798964_1.jpg",
-        prodPrice: 480000,
-        prodShoppingmall: "11번가",
-        prodLink: "https://example.com/gpu5",
-        reviewText: "보급형 그래픽카드 중 최고의 선택.",
-    },],
-};
-
+// 추천된 제품 리스트를 카테고리별 섹션으로 렌더링하는 함수
+// 이미지, 이름, 가격, 쇼핑몰, 리뷰, 링크 등 출력
 const renderCategory = (categoryName, productList) => {
     return (
         <section className="categorySection" key={categoryName}>
             <h2>{categoryName.toUpperCase()}</h2>
             <div className="productList">
-                {productList.map((product) => (
-                    <div className="productCard" key={product.prodIdx}>
-                        <img src={product.prodImg} alt={product.prodName} />
-                        <h3>{product.prodName}</h3>
-                        
-                        {/* 숨겨진 추가 정보 */}
+                {productList.map((product, index) => (
+                    <div className="productCard" key={`${categoryName}_${product.prod_idx}_${index}`}>
+                        {/* 👉 최저가일 경우만 뱃지 표시 */}
+                        {product.isCheapest && (
+                            <div className="badge">최저가</div>
+                        )}
+
+                        <img src={product.prod_img} alt={product.prod_name} />
+                        <h3>{product.prod_name}</h3>
                         <div className="productDetails">
-                            <p>₩{product.prodPrice.toLocaleString()}</p>
-                            <p>{product.prodShoppingmall}</p>
-                            <p>{product.reviewText}</p>
-                            <a href={product.prodLink} target="_blank" rel="noopener noreferrer">
+                            <p className="price">{Number(product.prod_price).toLocaleString()}원</p>
+                            <p>{product.prod_shoppingmall}</p>
+                            <p>{product.review_text}</p>
+                            <a href={product.prod_link} target="_blank" rel="noopener noreferrer">
                                 자세히 보기
                             </a>
                         </div>
@@ -286,12 +34,97 @@ const renderCategory = (categoryName, productList) => {
     );
 };
 
-// 전체 AI 추천 페이지
-const AISearch = () => {
+const AISearch = () => { //const AISearch = ({ mbId }), mbId삭제
+    const [aiResults, setAiResults] = useState({});  // 추천 결과 저장
+    const [query, setQuery] = useState("되노?"); // 검색어 기본값(최초 1회 자동실행)
+    const [inputText, setInputText] = useState("");  // 입력창 값
+    const [isLoading, setIsLoading] = useState(false); // 로딩 상태
+    const mbId = "qwe";                              // 회원ID
+
+    const fetchData = async (searchText) => {
+        try {
+            setIsLoading(true);
+            console.log("검색어:", searchText, "회원:", mbId);
+    
+            const response = await axios.post("http://localhost:8002/ai-search", {
+                mb_id: mbId,
+                query: searchText
+            });
+    
+            const rawData = response.data;
+            console.log("원본 응답:", rawData);
+    
+            const cleanedData = {};
+    
+            for (const [category, products] of Object.entries(rawData)) {
+                // 가격 오름차순 정렬
+                const sorted = [...products].sort((a, b) => Number(a.prod_price) - Number(b.prod_price));
+    
+                // 최저가 제품의 prod_idx 저장
+                const cheapestIdx = sorted[0]?.prod_idx;
+                const cheapestPrice = Number(sorted[0]?.prod_price);
+    
+                // 총 5개 추출 (중복 허용)
+                const sliced = sorted.slice(0, 5);
+    
+                // 각 상품에 isCheapest 플래그 추가 (카테고리 기준 최저가 1개만 true)
+                const productsWithFlag = sliced.map(prod => ({
+                    ...prod,
+                    isCheapest: prod.prod_idx === cheapestIdx && Number(prod.prod_price) === cheapestPrice
+                }));
+    
+                cleanedData[category] = productsWithFlag;
+            }
+    
+            setAiResults(cleanedData);
+        } catch (error) {
+            console.error("AI 검색 실패:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    
+    /* 초기 렌더링 및 검색어 변경 감지
+        query가 변경될 때마다 자동 실행됨
+        초기에는 "되노?"라는 텍스트로 실행됨 */
+    useEffect(() => {
+        fetchData(query);
+    }, [query]);
+
+    // 검색 버튼 및 Enter 키 입력 처리
+    const handleSearch = () => {
+        if (inputText.trim() !== "") {
+            setQuery(inputText.trim());
+            console.log(inputText.trim())
+        }
+    };
+
+    // 최종 렌더링
     return (
         <div id="aiSearch">
-            {Object.entries(dummyData).map(([category, products]) =>
-                renderCategory(category, products)
+            <div className="searchBar">
+                <input
+                    type="text"
+                    placeholder="검색어를 입력하세요..."
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleSearch();
+                        }
+                    }}
+                />
+                <button onClick={handleSearch}>검색</button>
+            </div>
+
+            {/* 로딩 중일 때 메시지 표시 */}
+            {isLoading ? (
+                <div className="loadingMessage"> 🔄 검색 중입니다...</div>
+            ) : (
+            // 검색 결과 카테고리별 반복 렌더링
+                Object.entries(aiResults).map(([category, products]) =>
+                    renderCategory(category, products)
+                )
             )}
         </div>
     );

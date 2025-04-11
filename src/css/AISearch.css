@@ -152,3 +152,24 @@
         font-size: 13px; /* 텍스트 폰트 크기 */
     }
 }
+
+/* 최저가 뱃지 */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff4d4f;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* 가격 강조 */
+.productDetails .price {
+    color: #d32f2f;
+    font-weight: bold;
+    font-size: 16px;
+}
