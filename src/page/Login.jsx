@@ -3,12 +3,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from "axios";
+// 추가 1: LoginContext import
+import { useLoginContext } from '../contexts/LoginContext'; // 위치 확인 필요
 
 const Login = () => {
 
 
 
-    
+    // 추가 2: 함수 내부에서 context 사용
+const { setIsLoggedIn, setIsAdmin } = useLoginContext();
+
     const navigate = useNavigate(); 
     
     const signUpBtnClick = () => {
@@ -60,7 +64,7 @@ const Login = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    withCredentials: true
+                    withCredentials: false
                 }
             );
     
@@ -71,13 +75,14 @@ const Login = () => {
             // 문자열 응답이라면
             if (result === "관리자 로그인 성공") {
                 alert("관리자 로그인 성공!");
-                navigate("/admin");
-            } else if (result === "사용자 로그인 성공") {
-                alert("사용자 로그인 성공!");
-                navigate("/user");
-            } else if (result === "로그인성공") {
-                alert("일반 로그인 성공!");
                 navigate("/");
+                setIsLoggedIn(true);
+                setIsAdmin(true);   
+            } else if (result === "로그인성공") {
+                alert("로그인 성공!");
+                navigate("/");
+                setIsLoggedIn(true);
+                setIsAdmin(false);
             } else {
                 alert(result || "로그인 실패");
             }
@@ -133,11 +138,13 @@ const Login = () => {
             </div>
 
             <button className="loginBtn" onClick={tryLogin}>로그인</button>
-            <button className="googleBtn" onClick={googleLogin}>Google로그인</button>
-            <button className="kakaoBtn" onClick={kakaoLogin}>KaKAO로그인</button>
-            <button className="div7" onClick={findIdBtnClick}>아이디찾기</button>
-            <button className="div9" onClick={findPwBtnClick}>비밀번호찾기</button>
-            <button className="div11" onClick={signUpBtnClick}>회원가입</button>
+            <div className="buttonRow">
+                <img className='snsLogin' id ="googleBtn" src="/img/loginGoogle.png" onClick={googleLogin}/>
+                <img className='snsLogin' id ="kakaoBtn" src="/img/loginKakao.png" onClick={kakaoLogin}/>
+            </div>
+            <button className="findIDBtn" onClick={findIdBtnClick}>아이디찾기</button>
+            <button className="findPWBtn" onClick={findPwBtnClick}>비밀번호찾기</button>
+            <button className="SignUpBtn" onClick={signUpBtnClick}>회원가입</button>
         </div>
     );
 };

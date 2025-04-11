@@ -49,7 +49,7 @@ function App() {
               <Route path='/MyPage' element={<MyPage />} />
               <Route path='/Login' element={<Login />} />
               <Route path='/kakao' element={<KakaoCallback />} />
-              <Route path='/gogle' element={<GoogleCallback />} />
+              <Route path='/google' element={<GoogleCallback />} />
               <Route path='/SignUp' element={<SignUp />} />
               <Route path='/FindID' element={<FindID />} />
               <Route path='/FindPW' element={<FindPW />} />

@@ -46,7 +46,7 @@ const AISearch = () => { //const AISearch = ({ mbId }), mbId삭제
             setIsLoading(true);
             console.log("검색어:", searchText, "회원:", mbId);
     
-            const response = await axios.post("http://localhost:8002/ai-search", {
+            const response = await axios.post("http://localhost:8084/ai-search", {
                 mb_id: mbId,
                 query: searchText
             });

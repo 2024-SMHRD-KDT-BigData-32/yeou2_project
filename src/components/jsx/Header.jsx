@@ -20,6 +20,7 @@ const Header = () => {
     const handleLogout = () => {
         localStorage.clear();
         setIsLoggedIn(false);
+        alert('로그아웃 되었습니다.')
         navigate("/");
     };
 
