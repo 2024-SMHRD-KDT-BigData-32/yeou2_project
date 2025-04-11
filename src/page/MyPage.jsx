@@ -1,5 +1,7 @@
 import React from 'react';
 import "../css/MyPage.css";
+import { useLoginContext } from '../contexts/LoginContext';
+import useMove from "../components/Fun.jsx";
 
 const products = [
   {
@@ -28,17 +30,32 @@ const products = [
     price: '1,070,000원',
   },
 ];
-const handleDeleteAccount = () => {
-  const confirmDelete = window.confirm("정말로 계정을 삭제하시겠습니까?\n삭제하면 되돌릴 수 없습니다.");
-  if (confirmDelete) {
-    // 실제 삭제 로직 (현재는 콘솔 로그만)
-    console.log("계정이 삭제되었습니다.");
-    alert("계정이 삭제되었습니다."); // 알림 표시
-    // 여기서 localStorage 초기화, 로그아웃 처리 등 넣을 수 있음
-  }
-};
 
 const MyPage = () => {
+  const { moveMain } = useMove(); // ✅ 훅은 컴포넌트 안에서 호출
+  const { setIsLoggedIn } = useLoginContext(); // ✅ 마찬가지
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+    alert('로그아웃 되었습니다.');
+    moveMain(); // 로그인 페이지로 이동
+  };
+
+  const handleDeleteAccount = () => {
+    const confirmDelete = window.confirm("정말로 계정을 삭제하시겠습니까?\n삭제하면 되돌릴 수 없습니다.");
+    if (confirmDelete) {
+      // 스프링 들어갈 자리
+
+
+
+
+      console.log("계정이 삭제되었습니다.");
+      alert("계정이 삭제되었습니다.");
+      handleLogout(); // 로그아웃 처리 포함
+    }
+  };
+
   return (
     <div id="cp-searchp-800">
       {/* 최근 검색 상품 섹션 */}
@@ -71,7 +88,7 @@ const MyPage = () => {
         </div>
       </div>
 
-      {/* 🔸 계정 삭제 버튼 (기능 없음) */}
+      {/* 🔸 계정 삭제 버튼 */}
       <div className="deleteAccount">
         <button className="deleteAccountButton" onClick={handleDeleteAccount}>
           회원 탈퇴
