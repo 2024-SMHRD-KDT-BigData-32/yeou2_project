@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 const SignUp = () => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     // 상태 선언
     const [userId, setUserId] = useState("");
@@ -56,7 +56,7 @@ const SignUp = () => {
                 }
             );
 
-            console.log(response.data==="회원가입성공");
+            console.log(response.data === "회원가입성공");
             alert("회원가입성공")
             navigate("/login");
         } catch (error) {
@@ -75,10 +75,10 @@ const SignUp = () => {
 
     const getDaysInMonth = (year, month) => {
         if (!year || !month) {
-          return 31; // 기본값 또는 에러 처리
+            return 31; // 기본값 또는 에러 처리
         }
         return new Date(year, month, 0).getDate();
-      };
+    };
 
 
 
@@ -88,7 +88,7 @@ const SignUp = () => {
         <div id='signUp'>
             <div className="mainLabel">회원가입</div>
 
-            
+
             <div className="idLabel">ID</div>
             <div className="idContainer">
                 <input className="idInput" onChange={(e) => setUserId(e.target.value)} />
@@ -121,29 +121,29 @@ const SignUp = () => {
             <div className="birthLabel">생년월일</div>
             <div className="birthDropbox">
                 <select className='yearInput' onChange={(e) => setYear(e.target.value)} value={year}>
-                <option value="">연도</option>
-                {Array.from({ length: 2020 - 1950 + 1 }, (_, i) => 1950 + i).map((y) => (
-                    <option key={y} value={y}>{y}</option>
-                ))}
+                    <option value="">연도</option>
+                    {Array.from({ length: 2020 - 1950 + 1 }, (_, i) => 1950 + i).map((y) => (
+                        <option key={y} value={y}>{y}</option>
+                    ))}
                 </select>
 
 
                 <select className='monthInput' onChange={(e) => setMonth(e.target.value)} value={month}>
-                <option value="">월</option>
-                {Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, "0")).map((m) => (
-                    <option key={m} value={m}>{m}월</option>
-                ))}
+                    <option value="">월</option>
+                    {Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, "0")).map((m) => (
+                        <option key={m} value={m}>{m}월</option>
+                    ))}
                 </select>
 
                 <select
-                className='dayInput'
-                onChange={(e) => setDay(e.target.value)}
-                value={day}
+                    className='dayInput'
+                    onChange={(e) => setDay(e.target.value)}
+                    value={day}
                 >
-                <option value="">일</option>
-                {Array.from({ length: getDaysInMonth(year, month) }, (_, i) => (i + 1).toString().padStart(2, "0")).map((d) => (
-                    <option key={d} value={d}>{d}일</option>
-                ))}
+                    <option value="">일</option>
+                    {Array.from({ length: getDaysInMonth(year, month) }, (_, i) => (i + 1).toString().padStart(2, "0")).map((d) => (
+                        <option key={d} value={d}>{d}일</option>
+                    ))}
                 </select>
             </div>
 

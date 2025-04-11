@@ -5,7 +5,7 @@
     background: #f9f9f9;
 }
 
-/* 사이드바 스타일 */
+/* 사이드바 */
 #adminProduct .sidebar {
     width: 250px;
     background-color: #2a2d3e;
@@ -37,14 +37,7 @@
     background-color: #404258;
 }
 
-#adminProduct .sidebar nav ul li a {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+/* 메인 콘텐츠 */
 #adminProduct .content {
     flex: 1;
     padding: 30px;
@@ -55,6 +48,37 @@
     margin-bottom: 20px;
 }
 
+/* ✅ 검색창 스타일 개선 */
+#adminProduct .searchBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#adminProduct .searchInput {
+    width: 320px;
+    padding: 12px 16px;
+    padding-left: 44px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: white;
+    background-image: url("https://www.svgrepo.com/show/7109/search.svg");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+#adminProduct .searchInput:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.25);
+}
+
+/* 상품 테이블 */
 #adminProduct .productTable {
     background: white;
     padding: 20px;
@@ -78,9 +102,10 @@
     background: #f1f1f1;
 }
 
+/* 삭제 버튼 */
 #adminProduct .deleteBtn {
     background: #5f5f5f;
-    color: rgb(255, 255, 255);
+    color: white;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
@@ -92,10 +117,35 @@
     background: #c0392b;
 }
 
+/* 추가 상품 입력창 */
 #adminProduct .addProduct {
     margin-top: 20px;
     display: flex;
     gap: 10px;
+}
+/* ✅ 검색창 wrapper 스타일 */
+#adminProduct .searchBox {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin: 20px 0;
+}
+
+/* ✅ 검색 입력창 스타일 */
+#adminProduct .searchBox input {
+    width: 250px; /* 살짝만 보이도록 적당한 너비 설정 */
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    outline: none;
+}
+
+/* ✅ 포커스 시 효과 */
+#adminProduct .searchBox input:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 6px rgba(0, 119, 255, 0.15);
 }
 
 #adminProduct .addProduct input {
@@ -117,4 +167,24 @@
 
 #adminProduct .addProduct button:hover {
     background: #45a049;
+}
+
+/* 페이지네이션 */
+#adminProduct .pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#adminProduct .pagination button {
+    margin: 0 5px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+}
+
+#adminProduct .pagination .activePage {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
 }

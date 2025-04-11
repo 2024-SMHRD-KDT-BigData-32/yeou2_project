@@ -12,9 +12,7 @@ const FindID = () => {
 
         moveSignUp,
         moveLogin,
-        moveFindId,
-        moveFindPw,
-        moveMain
+        moveFindPw
     } = useMove(); // ✅ Hook을 호출하여 네비게이션 함수 가져오기
 
 
