@@ -1,9 +1,10 @@
+/* FindPW.css */
+
 #findPW {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
@@ -24,55 +25,92 @@
 #findPW .authLabel {
     align-self: flex-start;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-#findPW .idInput,
-#findPW .nameInput,
-#findPW .emailInput,
-#findPW .authInput {
+/* ✅ 모든 group 한 줄 정렬 공통 클래스 */
+#findPW .group {
+    display: flex;
     width: 100%;
-    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     margin-top: 5px;
+}
+
+/* ✅ ID, 이름 입력 공통 스타일 */
+#findPW .idInput,
+#findPW .nameInput {
+    flex: 1;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
 }
 
-#findPW .emailBtn,
-#findPW .authBtn,
+/* ✅ 이메일 입력 */
+#findPW .emailInput {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+/* ✅ 이메일 전송 버튼 */
+#findPW .emailBtn {
+    flex: 1;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ✅ 인증번호 입력 */
+#findPW .authInput {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+/* ✅ 인증번호 확인 버튼 */
+#findPW .authBtn {
+    flex: 1;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ✅ 하단 버튼 스타일 공통 */
 #findPW .findPWBtn,
 #findPW .signUpBtn,
 #findPW .loginBtntext,
 #findPW .findIDBtn {
     width: 100%;
+    margin-top: 15px;
     padding: 10px;
-    margin-top: 10px;
+    background-color: #6c757d;
     border: none;
+    color: white;
     border-radius: 5px;
+    font-size: 15px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-#findPW .emailBtn,
-#findPW .authBtn {
-    background-color: #007bff;
-    color: white;
-}
-
-#findPW .findPWBtn {
-    background-color: #28a745;
-    color: white;
-}
-
-#findPW .signUpBtn {
-    background-color: #ffc107;
-    color: black;
-}
-
-#findPW .loginBtntext,
-#findPW .findIDBtn {
-    background-color: transparent;
-    color: #007bff;
-    text-decoration: underline;
-    font-size: 14px;
+#findPW .findPWBtn:hover,
+#findPW .signUpBtn:hover,
+#findPW .loginBtntext:hover,
+#findPW .findIDBtn:hover {
+    background-color: #5a6268;
 }
