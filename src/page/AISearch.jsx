@@ -34,12 +34,12 @@ const renderCategory = (categoryName, productList) => {
     );
 };
 
-const AISearch = () => { //const AISearch = ({ mbId }), mbId삭제
+const AISearch = ({ mbId }) => { //const AISearch = ({ mbId }), mbId삭제
     const [aiResults, setAiResults] = useState({});  // 추천 결과 저장
     const [query, setQuery] = useState("되노?"); // 검색어 기본값(최초 1회 자동실행)
     const [inputText, setInputText] = useState("");  // 입력창 값
     const [isLoading, setIsLoading] = useState(false); // 로딩 상태
-    const mbId = "qwe";                              // 회원ID
+    // const mbId = "qwe";                              // 회원ID
 
     const fetchData = async (searchText) => {
         try {
