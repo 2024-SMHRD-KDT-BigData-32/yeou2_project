@@ -25,6 +25,7 @@ const Header = () => {
         } else {
             handleSearchAI();
         }
+        setSearchText('');
     };
 
     const handleSearchGeneral = async () => {
@@ -37,6 +38,7 @@ const Header = () => {
         } catch (error) {
             console.error("자연어 처리 실패:", error);
         }
+        setSearchText('');
     };
 
     const handleSearchAI = () => {

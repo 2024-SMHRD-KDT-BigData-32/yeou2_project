@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "../css/AISearch.css";
+import { div } from "framer-motion/client";
 
 // 카테고리별 섹션 렌더링 함수
 const renderCategory = (categoryName, productList) => {
@@ -86,7 +87,9 @@ const AISearch = () => {
     return (
         <div id="aiSearch">
             {isLoading ? (
-                <div className="loadingMessage">🔄 검색 중입니다...</div>
+                
+                <img className="loadingMessage" src="/img/Vho.gif"/>
+                // <div className="loadingMessage">🔄 검색 중입니다...</div>
             ) : error ? (
                 <div className="errorMessage">❗ {error}</div>
             ) : Object.keys(aiResults).length > 0 ? (
