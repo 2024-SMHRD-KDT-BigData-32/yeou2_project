@@ -12,12 +12,14 @@ const GoogleCallback = () => {
     if (code) {
       axios.post("http://localhost:8084/controller/google-login", { code })
         .then(res => {
+          console.log(res);
           alert("Google 로그인 성공! 이메일: " + res.data.email);
-          navigate("/main");
+          navigate("/");
         })
         .catch(err => {
           console.error(err);
-          alert("Google 로그인 실패");
+        }).finally(res=>{
+          navigate("/");
         });
     }
   }, [location]);
