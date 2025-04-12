@@ -27,8 +27,11 @@
 #wrapper footer {
     background-color: gray;
     color: white;
-    padding: 20px 40px;
+    padding: 10px 40px;
     text-align: center;
+
+
+
     /* margin-top: auto; 제거 */
     /* 🔥 핵심: 푸터를 화면 하단에 고정 */
     position: fixed;
