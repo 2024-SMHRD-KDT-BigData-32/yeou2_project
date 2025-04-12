@@ -73,14 +73,18 @@ const Login = () => {
                 navigate("/");
                 setIsLoggedIn(true);
                 setIsAdmin(true);
+                
+                console.log('관리자 로그인 성공')
             } else if (result === "로그인성공") {
                 alert("로그인 성공!");
                 navigate("/");
                 setIsLoggedIn(true);
                 setIsAdmin(false);
-                console.log('네비게이터 ')
+                console.log('유저 로그인 성공')
             } else {
                 alert(result || "로그인 실패");
+                
+                console.log('유저 로그인 성공')
             }
 
         } catch (error) {
