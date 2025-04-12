@@ -13,7 +13,7 @@ export const Main = ({ className, ...props }) => {
 
   // 홈페이지 총 방문 수 기록하기 (파이썬 서버 열려있을 때만 가능)
   useEffect(() => {
-    axios.post('http://localhost:8084/main-home-visit')
+    axios.post('http://localhost:8001/main-home-visit')
       .then(response => {
         console.log('Main 홈페이지 방문 기록 성공:', response.status);
       })
