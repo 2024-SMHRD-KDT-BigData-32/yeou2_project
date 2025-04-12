@@ -3,36 +3,55 @@
     font-family: 'Arial', sans-serif;
     background-color: #f4f6f8;
     min-height: 100vh;
-}
-
-/* 메인 컨테이너 */
-#userQuestionList .listContainer {
+    color: #333;
+  }
+  
+  /* 다크 모드 전체 컨테이너 */
+  .dark-mode #userQuestionList {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+  }
+  
+  /* 메인 컨테이너 */
+  #userQuestionList .listContainer {
     max-width: 900px;
     margin: 0 auto;
     background: #ffffff;
     border-radius: 12px;
     padding: 40px 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 타이틀 */
-#userQuestionList h2 {
+  }
+  
+  /* 다크 모드 메인 컨테이너 */
+  .dark-mode #userQuestionList .listContainer {
+    background: #303030;
+    box-shadow: 0 0 0 1px #666;
+  }
+  
+  /* 타이틀 */
+  #userQuestionList h2 {
     font-size: 2rem;
     font-weight: 600;
     color: #2c3e50;
     margin-bottom: 30px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
-}
-
-/* 등록 버튼 */
-#userQuestionList .registerButtonWrapper {
+  }
+  
+  /* 다크 모드 타이틀 */
+  .dark-mode #userQuestionList h2 {
+    color: #F5F5F5;
+    border-bottom-color: #616161;
+  }
+  
+  /* 등록 버튼 */
+  #userQuestionList .registerButtonWrapper {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 25px;
-}
-
-#userQuestionList .registerButton {
+  }
+  
+  #userQuestionList .registerButton {
     padding: 10px 20px;
     background-color: #4a90e2;
     color: #fff;
@@ -42,21 +61,32 @@
     font-size: 0.95rem;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-#userQuestionList .registerButton:hover {
+  }
+  
+  /* 다크 모드 등록 버튼 */
+  .dark-mode #userQuestionList .registerButton {
+    background-color: #81D4FA;
+    color: #212121;
+  }
+  
+  #userQuestionList .registerButton:hover {
     background-color: #357ab8;
-}
-
-/* 문의 리스트 */
-#userQuestionList .questionList {
+  }
+  
+  /* 다크 모드 등록 버튼 호버 */
+  .dark-mode #userQuestionList .registerButton:hover {
+    background-color: #4FC3F7;
+  }
+  
+  /* 문의 리스트 */
+  #userQuestionList .questionList {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-/* 문의 아이템 */
-#userQuestionList .questionItem {
+  }
+  
+  /* 문의 아이템 */
+  #userQuestionList .questionItem {
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -64,60 +94,102 @@
     background-color: #fafafa;
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
-}
-
-#userQuestionList .questionItem:hover {
+    color: #333;
+  }
+  
+  /* 다크 모드 문의 아이템 */
+  .dark-mode #userQuestionList .questionItem {
+    background-color: #424242;
+    border-color: #616161;
+    color: #E0E0E0;
+  }
+  
+  #userQuestionList .questionItem:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* 제목과 상태 구역 */
-#userQuestionList .questionHeader {
+  }
+  
+  /* 다크 모드 문의 아이템 호버 */
+  .dark-mode #userQuestionList .questionItem:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.03);
+  }
+  
+  /* 제목과 상태 구역 */
+  #userQuestionList .questionHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-}
-
-#userQuestionList .questionHeader h3 {
+  }
+  
+  #userQuestionList .questionHeader h3 {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
     margin: 0;
-}
-
-/* 상태 뱃지 */
-#userQuestionList .status {
+  }
+  
+  /* 다크 모드 문의 제목 */
+  .dark-mode #userQuestionList .questionHeader h3 {
+    color: #F5F5F5;
+  }
+  
+  /* 상태 뱃지 */
+  #userQuestionList .status {
     padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: bold;
-}
-
-#userQuestionList .status.답변완료 {
+  }
+  
+  #userQuestionList .status.답변완료 {
     background-color: #e0f7e9;
     color: #2e7d32;
     border: 1px solid #a5d6a7;
-}
-
-#userQuestionList .status.미답변 {
+  }
+  
+  /* 다크 모드 답변 완료 뱃지 */
+  .dark-mode #userQuestionList .status.답변완료 {
+    background-color: #4CAF50;
+    color: #F5F5F5;
+    border-color: #66BB6A;
+  }
+  
+  #userQuestionList .status.미답변 {
     background-color: #ffebee;
     color: #c62828;
     border: 1px solid #ef9a9a;
-}
-
-/* 본문 내용 */
-#userQuestionList .content {
+  }
+  
+  /* 다크 모드 미답변 뱃지 */
+  .dark-mode #userQuestionList .status.미답변 {
+    background-color: #F44336;
+    color: #F5F5F5;
+    border-color: #E57373;
+  }
+  
+  /* 본문 내용 */
+  #userQuestionList .content {
     font-size: 0.95rem;
     color: #555;
     margin-bottom: 12px;
     line-height: 1.5;
-}
-
-/* 작성자, 날짜 */
-#userQuestionList .metaInfo {
+  }
+  
+  /* 다크 모드 문의 내용 */
+  .dark-mode #userQuestionList .content {
+    color: #BDBDBD;
+  }
+  
+  /* 작성자, 날짜 */
+  #userQuestionList .metaInfo {
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
     color: #999;
-}
+  }
+  
+  /* 다크 모드 메타 정보 */
+  .dark-mode #userQuestionList .metaInfo {
+    color: #757575;
+  }

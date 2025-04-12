@@ -4,38 +4,67 @@
     padding: 40px;
     background: #f9f9f9;
     min-height: 100vh;
-}
-
-#adminAnswer .adminAnswerContainer {
+    color: #333;
+  }
+  
+  /* 다크 모드 전체 컨테이너 */
+  .dark-mode #adminAnswer {
+    background: #1E1E1E;
+    color: #E0E0E0;
+  }
+  
+  #adminAnswer .adminAnswerContainer {
     width: 100%;
     max-width: 800px;
     background: white;
     border-radius: 8px;
     padding: 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#adminAnswer .questionBox {
+  }
+  
+  /* 다크 모드 답변 컨테이너 */
+  .dark-mode #adminAnswer .adminAnswerContainer {
+    background: #303030;
+    box-shadow: 0 0 0 1px #666;
+  }
+  
+  #adminAnswer .questionBox {
     margin-bottom: 20px;
-}
-
-#adminAnswer .questionBox h3 {
+  }
+  
+  #adminAnswer .questionBox h3 {
     font-size: 20px;
     margin-bottom: 10px;
-}
-
-#adminAnswer .questionBox p {
+  }
+  
+  /* 다크 모드 질문 제목 */
+  .dark-mode #adminAnswer .questionBox h3 {
+    color: #F5F5F5;
+  }
+  
+  #adminAnswer .questionBox p {
     font-size: 16px;
     margin-bottom: 10px;
-}
-
-#adminAnswer .imageWrapper img {
+  }
+  
+  /* 다크 모드 질문 내용 */
+  .dark-mode #adminAnswer .questionBox p {
+    color: #BDBDBD;
+  }
+  
+  #adminAnswer .imageWrapper img {
     max-width: 100%;
     border-radius: 5px;
     margin-top: 10px;
-}
-
-#adminAnswer textarea {
+    border: 1px solid transparent; /* 이미지 테두리 */
+  }
+  
+  /* 다크 모드 이미지 */
+  .dark-mode #adminAnswer .imageWrapper img {
+    border-color: #424242;
+  }
+  
+  #adminAnswer textarea {
     width: 100%;
     height: 150px;
     padding: 15px;
@@ -44,9 +73,18 @@
     border-radius: 5px;
     resize: vertical;
     margin-bottom: 20px;
-}
-
-#adminAnswer button {
+    color: #333;
+    background-color: white;
+  }
+  
+  /* 다크 모드 텍스트 영역 */
+  .dark-mode #adminAnswer textarea {
+    color: #E0E0E0;
+    background-color: #424242;
+    border-color: #616161;
+  }
+  
+  #adminAnswer button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #2a2d3e;
@@ -54,4 +92,20 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+    transition: background-color 0.3s;
+  }
+  
+  /* 다크 모드 버튼 */
+  .dark-mode #adminAnswer button {
+    background-color: #424242;
+    color: #F5F5F5;
+  }
+  
+  #adminAnswer button:hover {
+    background-color: #404258;
+  }
+  
+  /* 다크 모드 버튼 호버 */
+  .dark-mode #adminAnswer button:hover {
+    background-color: #616161;
+  }

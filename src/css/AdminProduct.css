@@ -3,60 +3,94 @@
     height: 100vh;
     font-family: Arial, sans-serif;
     background: #f9f9f9;
-}
-
-/* 사이드바 */
-#adminProduct .sidebar {
+    color: #333;
+  }
+  
+  /* 다크 모드 전체 컨테이너 */
+  .dark-mode #adminProduct {
+    background: #1E1E1E;
+    color: #E0E0E0;
+  }
+  
+  /* 사이드바 */
+  #adminProduct .sidebar {
     width: 250px;
     background-color: #2a2d3e;
     color: white;
     padding: 20px;
-}
-
-#adminProduct .sidebar .logo {
+  }
+  
+  /* 다크 모드 사이드바 */
+  .dark-mode #adminProduct .sidebar {
+    background-color: #212121;
+    color: #BDBDBD;
+    box-shadow: 0 0 0 1px #666
+  }
+  
+  #adminProduct .sidebar .logo {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-#adminProduct .sidebar nav ul {
+  }
+  
+  /* 다크 모드 로고 */
+  .dark-mode #adminProduct .sidebar .logo {
+    color: #F5F5F5;
+  }
+  
+  #adminProduct .sidebar nav ul {
     list-style: none;
     padding: 0;
-}
-
-#adminProduct .sidebar nav ul li {
+  }
+  
+  #adminProduct .sidebar nav ul li {
     padding: 10px 15px;
     margin: 10px 0;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-#adminProduct .sidebar nav ul li:hover,
-#adminProduct .sidebar nav ul li.active {
+  }
+  
+  #adminProduct .sidebar nav ul li:hover,
+  #adminProduct .sidebar nav ul li.active {
     background-color: #404258;
-}
-
-/* 메인 콘텐츠 */
-#adminProduct .content {
+  }
+  
+  /* 다크 모드 사이드바 메뉴 */
+  .dark-mode #adminProduct .sidebar nav ul li {
+    color: #E0E0E0;
+  }
+  
+  .dark-mode #adminProduct .sidebar nav ul li:hover,
+  .dark-mode #adminProduct .sidebar nav ul li.active {
+    background-color: #424242;
+  }
+  
+  /* 메인 콘텐츠 */
+  #adminProduct .content {
     flex: 1;
     padding: 30px;
-}
-
-#adminProduct h1 {
+  }
+  
+  #adminProduct h1 {
     font-size: 24px;
     margin-bottom: 20px;
-}
-
-/* ✅ 검색창 스타일 개선 */
-#adminProduct .searchBox {
+  }
+  
+  /* 다크 모드 제목 */
+  .dark-mode #adminProduct h1 {
+    color: #F5F5F5;
+  }
+  
+  /* ✅ 검색창 스타일 개선 */
+  #adminProduct .searchBox {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 24px;
-}
-
-#adminProduct .searchInput {
+  }
+  
+  #adminProduct .searchInput {
     width: 320px;
     padding: 12px 16px;
     padding-left: 44px;
@@ -70,40 +104,79 @@
     background-position: 14px center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease-in-out;
-}
-
-#adminProduct .searchInput:focus {
+    color: #333;
+  }
+  
+  /* 다크 모드 검색창 */
+  .dark-mode #adminProduct .searchInput {
+    background-color: #424242;
+    border-color: #666;
+    color: #E0E0E0;
+    box-shadow: 0 0 0 1px #666
+  }
+  
+  #adminProduct .searchInput:focus {
     border-color: #3498db;
     outline: none;
     box-shadow: 0 0 8px rgba(52, 152, 219, 0.25);
-}
-
-/* 상품 테이블 */
-#adminProduct .productTable {
+  }
+  
+  /* 다크 모드 검색창 포커스 */
+  .dark-mode #adminProduct .searchInput:focus {
+    border-color: #81D4FA;
+    box-shadow: 0 0 0 1px #666
+  }
+  
+  /* 상품 테이블 */
+  #adminProduct .productTable {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#adminProduct table {
+  }
+  
+  /* 다크 모드 상품 테이블 */
+  .dark-mode #adminProduct .productTable {
+    background: #303030;
+    box-shadow: 0 0 0 1px #666
+  }
+  
+  #adminProduct table {
     width: 100%;
     border-collapse: collapse;
-}
-
-#adminProduct table th,
-#adminProduct table td {
+    color: #333;
+  }
+  
+  /* 다크 모드 테이블 */
+  .dark-mode #adminProduct table {
+    color: #E0E0E0;
+  }
+  
+  #adminProduct table th,
+  #adminProduct table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-#adminProduct table th {
+  }
+  
+  /* 다크 모드 테이블 셀 */
+  .dark-mode #adminProduct table th,
+  .dark-mode #adminProduct table td {
+    border-bottom-color: #616161;
+  }
+  
+  #adminProduct table th {
     background: #f1f1f1;
-}
-
-/* 삭제 버튼 */
-#adminProduct .deleteBtn {
+  }
+  
+  /* 다크 모드 테이블 헤더 */
+  .dark-mode #adminProduct table th {
+    background: #424242;
+    color: #F5F5F5;
+  }
+  
+  /* 삭제 버튼 */
+  #adminProduct .deleteBtn {
     background: #5f5f5f;
     color: white;
     border: none;
@@ -111,27 +184,38 @@
     border-radius: 4px;
     cursor: pointer;
     transition: 0.3s;
-}
-
-#adminProduct .deleteBtn:hover {
+  }
+  
+  /* 다크 모드 삭제 버튼 */
+  .dark-mode #adminProduct .deleteBtn {
+    background: #757575;
+    color: #F5F5F5;
+  }
+  
+  #adminProduct .deleteBtn:hover {
     background: #c0392b;
-}
-
-/* 추가 상품 입력창 */
-#adminProduct .addProduct {
+  }
+  
+  /* 다크 모드 삭제 버튼 호버 */
+  .dark-mode #adminProduct .deleteBtn:hover {
+    background: #D32F2F;
+  }
+  
+  /* 추가 상품 입력창 */
+  #adminProduct .addProduct {
     margin-top: 20px;
     display: flex;
     gap: 10px;
-}
-/* ✅ 검색창 wrapper 스타일 */
-#adminProduct .searchBox {
+  }
+  /* ✅ 검색창 wrapper 스타일 */
+  #adminProduct .searchBox {
     display: flex;
     justify-content: flex-end; /* 오른쪽 정렬 */
     margin: 20px 0;
-}
-
-/* ✅ 검색 입력창 스타일 */
-#adminProduct .searchBox input {
+  }
+  
+  /* ✅ 검색 입력창 스타일 */
+  #adminProduct .searchBox input {
     width: 250px; /* 살짝만 보이도록 적당한 너비 설정 */
     padding: 10px 16px;
     border: 1px solid #ccc;
@@ -140,22 +224,37 @@
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     outline: none;
-}
-
-/* ✅ 포커스 시 효과 */
-#adminProduct .searchBox input:focus {
+    color: #333;
+    background-color: white;
+  }
+  
+  /* 다크 모드 추가 상품 입력창 */
+  .dark-mode #adminProduct .addProduct input {
+    color: #E0E0E0;
+    background-color: #424242;
+    border-color: #666;
+  }
+  
+  /* ✅ 포커스 시 효과 */
+  #adminProduct .searchBox input:focus {
     border-color: #0077ff;
     box-shadow: 0 0 6px rgba(0, 119, 255, 0.15);
-}
-
-#adminProduct .addProduct input {
+  }
+  
+  /* 다크 모드 추가 상품 입력창 포커스 */
+  .dark-mode #adminProduct .searchBox input:focus {
+    border-color: #81D4FA;
+    box-shadow: 0 0 0 1px #666
+  }
+  
+  #adminProduct .addProduct input {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-#adminProduct .addProduct button {
+  }
+  
+  #adminProduct .addProduct button {
     background: #4caf50;
     color: white;
     border: none;
@@ -163,28 +262,54 @@
     border-radius: 4px;
     cursor: pointer;
     transition: 0.3s;
-}
-
-#adminProduct .addProduct button:hover {
+  }
+  
+  /* 다크 모드 추가 상품 버튼 */
+  .dark-mode #adminProduct .addProduct button {
+    background: #81C784;
+    color: #212121;
+  }
+  
+  #adminProduct .addProduct button:hover {
     background: #45a049;
-}
-
-/* 페이지네이션 */
-#adminProduct .pagination {
+  }
+  
+  /* 다크 모드 추가 상품 버튼 호버 */
+  .dark-mode #adminProduct .addProduct button:hover {
+    background: #66BB6A;
+  }
+  
+  /* 페이지네이션 */
+  #adminProduct .pagination {
     margin-top: 20px;
     text-align: center;
-}
-
-#adminProduct .pagination button {
+  }
+  
+  #adminProduct .pagination button {
     margin: 0 5px;
     padding: 6px 12px;
     border: 1px solid #ccc;
     background-color: white;
     cursor: pointer;
-}
-
-#adminProduct .pagination .activePage {
+    color: #333;
+  }
+  
+  /* 다크 모드 페이지네이션 버튼 */
+  .dark-mode #adminProduct .pagination button {
+    border-color: #666;
+    background-color: #424242;
+    color: #E0E0E0;
+  }
+  
+  #adminProduct .pagination .activePage {
     background-color: #007bff;
     color: white;
     border-color: #007bff;
-}
+  }
+  
+  /* 다크 모드 활성 페이지 버튼 */
+  .dark-mode #adminProduct .pagination .activePage {
+    background-color: #81D4FA;
+    color: #212121;
+    border-color: #81D4FA;
+  }

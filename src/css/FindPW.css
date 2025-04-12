@@ -11,56 +11,95 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#findPW .mainLabel {
+  }
+  
+  /* 다크 모드 비밀번호 찾기 컨테이너 */
+  .dark-mode #findPW {
+    background-color: #1E1E1E; /* 살짝 옅은 블랙 */
+    box-shadow:
+    0 0 0 1px #666
+  }
+  
+  #findPW .mainLabel {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-#findPW .idLabel,
-#findPW .nameLabel,
-#findPW .emailLabel,
-#findPW .authLabel {
+    color: #333;
+  }
+  
+  /* 다크 모드 비밀번호 찾기 제목 */
+  .dark-mode #findPW .mainLabel {
+    color: #E0E0E0; /* 밝은 회색 */
+  }
+  
+  #findPW .idLabel,
+  #findPW .nameLabel,
+  #findPW .emailLabel,
+  #findPW .authLabel {
     align-self: flex-start;
     font-size: 16px;
     margin-top: 15px;
-}
-
-/* ✅ 모든 group 한 줄 정렬 공통 클래스 */
-#findPW .group {
+    color: #333;
+  }
+  
+  /* 다크 모드 라벨 */
+  .dark-mode #findPW .idLabel,
+  .dark-mode #findPW .nameLabel,
+  .dark-mode #findPW .emailLabel,
+  .dark-mode #findPW .authLabel {
+    color: #BDBDBD; /* 밝은 회색 */
+  }
+  
+  /* ✅ 모든 group 한 줄 정렬 공통 클래스 */
+  #findPW .group {
     display: flex;
     width: 100%;
     flex-direction: row;
     align-items: center;
     gap: 10px;
     margin-top: 5px;
-}
-
-/* ✅ ID, 이름 입력 공통 스타일 */
-#findPW .idInput,
-#findPW .nameInput {
+  }
+  
+  /* ✅ ID, 이름 입력 공통 스타일 */
+  #findPW .idInput,
+  #findPW .nameInput {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
     box-sizing: border-box;
-}
-
-/* ✅ 이메일 입력 */
-#findPW .emailInput {
+    color: #333;
+  }
+  
+  /* 다크 모드 ID, 이름 입력 */
+  .dark-mode #findPW .idInput,
+  .dark-mode #findPW .nameInput {
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    border-color: #666; /* 어두운 테두리 */
+  }
+  
+  /* ✅ 이메일 입력 */
+  #findPW .emailInput {
     flex: 2;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
     box-sizing: border-box;
-}
-
-/* ✅ 이메일 전송 버튼 */
-#findPW .emailBtn {
+    color: #333;
+  }
+  
+  /* 다크 모드 이메일 입력 */
+  .dark-mode #findPW .emailInput {
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    border-color: #666; /* 어두운 테두리 */
+  }
+  
+  /* ✅ 이메일 전송 버튼 */
+  #findPW .emailBtn {
     flex: 1;
     padding: 10px;
     background-color: #007bff;
@@ -68,20 +107,34 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
-}
-
-/* ✅ 인증번호 입력 */
-#findPW .authInput {
+  }
+  
+  /* 다크 모드 이메일 전송 버튼 */
+  .dark-mode #findPW .emailBtn {
+    background-color: #3F51B5; /* 더 어두운 파란색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  /* ✅ 인증번호 입력 */
+  #findPW .authInput {
     flex: 2;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
     box-sizing: border-box;
-}
-
-/* ✅ 인증번호 확인 버튼 */
-#findPW .authBtn {
+    color: #333;
+  }
+  
+  /* 다크 모드 인증번호 입력 */
+  .dark-mode #findPW .authInput {
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    border-color: #666; /* 어두운 테두리 */
+  }
+  
+  /* ✅ 인증번호 확인 버튼 */
+  #findPW .authBtn {
     flex: 1;
     padding: 10px;
     background-color: #28a745;
@@ -89,10 +142,16 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
-}
-
-/* ✅ findPWBtn 버튼 스타일  */
-#findPW .findPWBtn{
+  }
+  
+  /* 다크 모드 인증번호 확인 버튼 */
+  .dark-mode #findPW .authBtn {
+    background-color: #388E3C; /* 더 어두운 초록색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  /* ✅ findPWBtn 버튼 스타일  */
+  #findPW .findPWBtn{
     width: 100%;
     margin-top: 15px;
     padding: 10px;
@@ -103,27 +162,37 @@
     font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-
-
-
-#findPW .linkButtonGroup {
+  }
+  
+  /* 다크 모드 비밀번호 찾기 버튼 */
+  .dark-mode #findPW .findPWBtn {
+    background-color: #546E7A; /* 더 어두운 회색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  #findPW .linkButtonGroup {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-top: 20px;
     gap: 8px;
-}
-
-#findPW .signUpBtn,
-#findPW .loginBtntext,
-#findPW .findIDBtn  {
+  }
+  
+  #findPW .signUpBtn,
+  #findPW .loginBtntext,
+  #findPW .findIDBtn  {
     margin: 10px;
     text-align: center;
     color: #007bff;
     text-decoration: underline;
     font-size: 14px;
     cursor: pointer;
-}
+  }
+  
+  /* 다크 모드 링크 버튼 */
+  .dark-mode #findPW .signUpBtn,
+  .dark-mode #findPW .loginBtntext,
+  .dark-mode #findPW .findIDBtn {
+    color: #BB86FC; /* 보라색 계열 */
+  }

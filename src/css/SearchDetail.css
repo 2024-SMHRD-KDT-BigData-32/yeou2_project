@@ -3,24 +3,43 @@
     flex-direction: row;
     gap: 2rem;
     padding: 2rem;
-}
-
-.itemDetail {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* 다크 모드 전체 컨테이너 */
+  .dark-mode #searchDetail {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+  }
+  
+  .itemDetail {
     flex: 1;
-}
-
-.itemImage {
+  }
+  
+  .itemImage {
     max-width: 300px;
     height: auto;
     border-radius: 8px;
     margin: 1rem 0;
-}
-
-.itemInfo p {
+    border: 1px solid transparent; /* 이미지 테두리 */
+  }
+  
+  /* 다크 모드 아이템 이미지 */
+  .dark-mode .itemImage {
+    border-color: #424242;
+  }
+  
+  .itemInfo p {
     margin: 0.5rem 0;
-}
-
-.goBackButton {
+  }
+  
+  /* 다크 모드 아이템 정보 텍스트 */
+  .dark-mode .itemInfo p {
+    color: #BDBDBD;
+  }
+  
+  .goBackButton {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     border: none;
@@ -28,31 +47,73 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.shoppingPriceTable {
+    transition: background-color 0.3s;
+  }
+  
+  /* 다크 모드 돌아가기 버튼 */
+  .dark-mode .goBackButton {
+    background-color: #81D4FA;
+    color: #212121;
+  }
+  
+  .goBackButton:hover {
+    background-color: #2980b9;
+  }
+  
+  /* 다크 모드 돌아가기 버튼 호버 */
+  .dark-mode .goBackButton:hover {
+    background-color: #4FC3F7;
+  }
+  
+  .shoppingPriceTable {
     flex: 1;
     padding: 1rem;
     border-left: 2px solid #eee;
-}
-
-.shoppingPriceTable table {
+  }
+  
+  /* 다크 모드 쇼핑 가격 테이블 구분선 */
+  .dark-mode .shoppingPriceTable {
+    border-left-color: #616161;
+  }
+  
+  .shoppingPriceTable table {
     width: 100%;
     border-collapse: collapse;
-}
-
-.shoppingPriceTable th,
-.shoppingPriceTable td {
+  }
+  
+  .shoppingPriceTable th,
+  .shoppingPriceTable td {
     padding: 0.75rem;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-.shoppingPriceTable a {
+  }
+  
+  /* 다크 모드 쇼핑 가격 테이블 셀 */
+  .dark-mode .shoppingPriceTable th,
+  .dark-mode .shoppingPriceTable td {
+    border-bottom-color: #616161;
+  }
+  
+  /* 다크 모드 쇼핑 가격 테이블 헤더 */
+  .dark-mode .shoppingPriceTable th {
+    color: #F5F5F5;
+  }
+  
+  /* 다크 모드 쇼핑 가격 테이블 데이터 */
+  .dark-mode .shoppingPriceTable td {
+    color: #E0E0E0;
+  }
+  
+  .shoppingPriceTable a {
     color: #2ecc71;
     text-decoration: none;
-}
-
-.shoppingPriceTable a:hover {
+  }
+  
+  /* 다크 모드 쇼핑 가격 테이블 링크 */
+  .dark-mode .shoppingPriceTable a {
+    color: #69F0AE;
+  }
+  
+  .shoppingPriceTable a:hover {
     text-decoration: underline;
-}
+  }

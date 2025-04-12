@@ -10,41 +10,78 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#editProfile .mainLabel {
+    color: #333;
+  }
+  
+  /* 다크 모드 편집 프로필 컨테이너 */
+  .dark-mode #editProfile {
+    background-color: #1E1E1E;
+    box-shadow: 0 0 0 1px #666;
+    color: #E0E0E0;
+  }
+  
+  #editProfile .mainLabel {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-#editProfile .idLabel,
-#editProfile .nameLabel,
-#editProfile .nickLabel,
-#editProfile .genderLabel,
-#editProfile .birthLabel,
-#editProfile .emailLabel,
-#editProfile .pwLabel {
+  }
+  
+  /* 다크 모드 제목 */
+  .dark-mode #editProfile .mainLabel {
+    color: #F5F5F5;
+  }
+  
+  #editProfile .idLabel,
+  #editProfile .nameLabel,
+  #editProfile .nickLabel,
+  #editProfile .genderLabel,
+  #editProfile .birthLabel,
+  #editProfile .emailLabel,
+  #editProfile .pwLabel {
     align-self: flex-start;
     font-size: 16px;
     margin-top: 10px;
-}
-
-#editProfile .idInput,
-#editProfile .nameInput,
-#editProfile .nickInput,
-#editProfile .emailInput,
-#editProfile .pwInput {
+  }
+  
+  /* 다크 모드 라벨 */
+  .dark-mode #editProfile .idLabel,
+  .dark-mode #editProfile .nameLabel,
+  .dark-mode #editProfile .nickLabel,
+  .dark-mode #editProfile .genderLabel,
+  .dark-mode #editProfile .birthLabel,
+  .dark-mode #editProfile .emailLabel,
+  .dark-mode #editProfile .pwLabel {
+    color: #BDBDBD;
+  }
+  
+  #editProfile .idInput,
+  #editProfile .nameInput,
+  #editProfile .nickInput,
+  #editProfile .emailInput,
+  #editProfile .pwInput {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-#editProfile .saveBtn,
-#editProfile .cancelBtn,
-#editProfile .deleteBtn {
+    color: #333;
+    background-color: white;
+  }
+  
+  /* 다크 모드 입력 필드 */
+  .dark-mode #editProfile .idInput,
+  .dark-mode #editProfile .nameInput,
+  .dark-mode #editProfile .nickInput,
+  .dark-mode #editProfile .emailInput,
+  .dark-mode #editProfile .pwInput {
+    color: #E0E0E0;
+    background-color: #424242;
+    border-color: #666;
+  }
+  
+  #editProfile .saveBtn,
+  #editProfile .cancelBtn,
+  #editProfile .deleteBtn {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -52,81 +89,117 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-
-#editProfile .saveBtn {
+    font-weight: bold;
+  }
+  
+  #editProfile .saveBtn {
     background-color: #28a745;
     color: white;
-}
-
-#editProfile .cancelBtn {
+  }
+  
+  /* 다크 모드 저장 버튼 */
+  .dark-mode #editProfile .saveBtn {
+    background-color: #388E3C;
+    color: #F5F5F5;
+  }
+  
+  #editProfile .cancelBtn {
     background-color: #ffc107;
     color: black;
-}
-
-#editProfile .deleteBtn {
+  }
+  
+  /* 다크 모드 취소 버튼 */
+  .dark-mode #editProfile .cancelBtn {
+    background-color: #FBC02D;
+    color: #212121;
+  }
+  
+  #editProfile .deleteBtn {
     background-color: #dc3545;
     color: white;
     margin-top: 20px;
-}
-
-#editProfile .birthDropbox {
+  }
+  
+  /* 다크 모드 삭제 버튼 */
+  .dark-mode #editProfile .deleteBtn {
+    background-color: #D32F2F;
+    color: #F5F5F5;
+  }
+  
+  #editProfile .birthDropbox {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin-top: 5px;
-}
-
-#editProfile .birthDropbox select {
+  }
+  
+  #editProfile .birthDropbox select {
     width: 32%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-#editProfile .maleLabel,
-#editProfile .femaleLabel {
+    color: #333;
+    background-color: white;
+  }
+  
+  /* 다크 모드 생년월일 드롭다운 */
+  .dark-mode #editProfile .birthDropbox select {
+    color: #E0E0E0;
+    background-color: #424242;
+    border-color: #666;
+  }
+  
+  #editProfile .maleLabel,
+  #editProfile .femaleLabel {
     display: inline-block;
     margin-right: 10px;
-}
-
-#editProfile .maleRadio,
-#editProfile .femaleRadio {
+  }
+  
+  /* 다크 모드 성별 라벨 */
+  .dark-mode #editProfile .maleLabel,
+  .dark-mode #editProfile .femaleLabel {
+    color: #BDBDBD;
+  }
+  
+  #editProfile .maleRadio,
+  #editProfile .femaleRadio {
     margin-right: 20px;
-}
-
-#editProfile .pwInput {
+  }
+  
+  #editProfile .pwInput {
     margin-top: 15px;
-}
-
-#editProfile .saveBtn,
-#editProfile .deleteBtn {
-    font-weight: bold;
-}
-
-#editProfile .saveBtn:hover,
-#editProfile .cancelBtn:hover,
-#editProfile .deleteBtn:hover {
+  }
+  
+  #editProfile .saveBtn:hover,
+  #editProfile .cancelBtn:hover,
+  #editProfile .deleteBtn:hover {
     opacity: 0.8;
-}
-
-#editProfile .saveBtn:active,
-#editProfile .cancelBtn:active,
-#editProfile .deleteBtn:active {
+  }
+  
+  #editProfile .saveBtn:active,
+  #editProfile .cancelBtn:active,
+  #editProfile .deleteBtn:active {
     opacity: 0.6;
-}
-
-#editProfile .idInput:disabled {
+  }
+  
+  #editProfile .idInput:disabled {
     background-color: #f1f1f1;
     cursor: not-allowed;
-}
-
-#editProfile .idLabel,
-#editProfile .nameLabel,
-#editProfile .nickLabel,
-#editProfile .genderLabel,
-#editProfile .birthLabel,
-#editProfile .emailLabel {
+    color: #777;
+  }
+  
+  /* 다크 모드 비활성화된 ID 입력 필드 */
+  .dark-mode #editProfile .idInput:disabled {
+    background-color: #616161;
+    color: #9E9E9E;
+  }
+  
+  #editProfile .idLabel,
+  #editProfile .nameLabel,
+  #editProfile .nickLabel,
+  #editProfile .genderLabel,
+  #editProfile .birthLabel,
+  #editProfile .emailLabel {
     font-size: 16px;
     margin-top: 15px;
-}
+  }

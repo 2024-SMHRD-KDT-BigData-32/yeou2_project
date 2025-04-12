@@ -27,7 +27,7 @@ import AISearch from './page/AISearch.jsx';
 import axios from 'axios';
 import { useState } from 'react';
 import { LoginProvider } from './contexts/LoginContext.jsx';
-// import './App.css';
+import './App.css';
 
 import { QuestionProvider } from './contexts/QuestionContext.jsx'; // ✅ 전역 상태 import
 import { useEffect } from 'react';

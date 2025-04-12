@@ -7,26 +7,38 @@
     margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 섹션 제목 */
-#cp-searchp-800 .section-title {
+  }
+  
+  /* 다크 모드 전체 페이지 스타일 */
+  .dark-mode #cp-searchp-800 {
+    background-color: #1E1E1E; /* 살짝 옅은 블랙 */
+    box-shadow:
+    0 0 0 1px #666; /* 1px 두께의 어두운 회색 테두리 */
+  }
+  
+  /* 섹션 제목 */
+  #cp-searchp-800 .section-title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
     color: #333;
-}
-
-/* 상품 리스트 */
-#cp-searchp-800 .product-list {
+  }
+  
+  /* 다크 모드 섹션 제목 */
+  .dark-mode #cp-searchp-800 .section-title {
+    color: #E0E0E0; /* 밝은 회색 */
+  }
+  
+  /* 상품 리스트 */
+  #cp-searchp-800 .product-list {
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
-
-/* 개별 상품 카드 */
-#cp-searchp-800 .product-item {
+  }
+  
+  /* 개별 상품 카드 */
+  #cp-searchp-800 .product-item {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -35,51 +47,83 @@
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
-}
-
-#cp-searchp-800 .product-item:hover {
+  }
+  
+  /* 다크 모드 개별 상품 카드 */
+  .dark-mode #cp-searchp-800 .product-item {
+    background-color: #303030; /* 어두운 회색 */
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05); /* 그림자 색상 조정 */
+  }
+  
+  #cp-searchp-800 .product-item:hover {
     transform: scale(1.02);
-}
-
-/* 상품 이미지 */
-#cp-searchp-800 .product-image {
+  }
+  
+  /* 다크 모드 개별 상품 카드 호버 */
+  .dark-mode #cp-searchp-800 .product-item:hover {
+    /* 호버 효과 유지 또는 약간 변경 */
+    transform: scale(1.02);
+  }
+  
+  /* 상품 이미지 */
+  #cp-searchp-800 .product-image {
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: 8px;
     border: 2px solid #ddd;
-}
-
-/* 상품명 */
-#cp-searchp-800 .product-link {
+  }
+  
+  /* 다크 모드 상품 이미지 테두리 */
+  .dark-mode #cp-searchp-800 .product-image {
+    border-color: #666; /* 더 어두운 테두리 */
+  }
+  
+  /* 상품명 */
+  #cp-searchp-800 .product-link {
     font-size: 18px;
     color: #222;
     text-decoration: none;
     font-weight: bold;
     flex: 1;
-}
-
-#cp-searchp-800 .product-link:hover {
+  }
+  
+  /* 다크 모드 상품명 */
+  .dark-mode #cp-searchp-800 .product-link {
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  #cp-searchp-800 .product-link:hover {
     color: #284eff;
-}
-
-/* 가격 */
-#cp-searchp-800 .product-price {
+  }
+  
+  /* 다크 모드 상품명 호버 */
+  .dark-mode #cp-searchp-800 .product-link:hover {
+    color: #BB86FC; /* 보라색 계열 */
+  }
+  
+  /* 가격 */
+  #cp-searchp-800 .product-price {
     font-size: 20px;
     font-weight: bold;
     color: #d32f2f;
-}
-
-/* 버튼 컨테이너 */
-#cp-searchp-800 .buttons {
+  }
+  
+  /* 다크 모드 가격 */
+  .dark-mode #cp-searchp-800 .product-price {
+    color: #FFAB91; /* 밝은 주황색 계열 */
+  }
+  
+  /* 버튼 컨테이너 (기존 유지) */
+  #cp-searchp-800 .buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 30px;
-}
-
-/* 버튼 디자인 */
-#cp-searchp-800 .btn {
+  }
+  
+  /* 버튼 디자인 (기존 유지) */
+  #cp-searchp-800 .btn {
     padding: 12px 25px;
     font-size: 16px;
     font-weight: bold;
@@ -87,32 +131,44 @@
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-}
-
-#cp-searchp-800 .btn:hover {
+  }
+  
+  #cp-searchp-800 .btn:hover {
     opacity: 0.9;
     transform: scale(1.05);
-}
-
-/* 버튼 색상 */
-#cp-searchp-800 .btn:first-child {
+  }
+  
+  /* 버튼 색상 */
+  #cp-searchp-800 .btn:first-child {
     background-color: #f44336;
     color: white;
-}
-
-#cp-searchp-800 .btn:last-child {
+  }
+  
+  /* 다크 모드 첫 번째 버튼 색상 */
+  .dark-mode #cp-searchp-800 .btn:first-child {
+    background-color: #D32F2F; /* 더 어두운 빨간색 */
+    color: #F5F5F5;
+  }
+  
+  #cp-searchp-800 .btn:last-child {
     background-color: #4CAF50;
     color: white;
-}
-
-/* 🔸 계정 삭제 버튼 스타일 */
-#cp-searchp-800 .deleteAccount {
+  }
+  
+  /* 다크 모드 두 번째 버튼 색상 */
+  .dark-mode #cp-searchp-800 .btn:last-child {
+    background-color: #388E3C; /* 더 어두운 초록색 */
+    color: #F5F5F5;
+  }
+  
+  /* 🔸 계정 삭제 버튼 스타일 (기존 유지) */
+  #cp-searchp-800 .deleteAccount {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-}
-
-#cp-searchp-800 .deleteAccountButton {
+  }
+  
+  #cp-searchp-800 .deleteAccountButton {
     background-color: #e74c3c;
     /* 빨간 버튼 */
     color: white;
@@ -121,8 +177,19 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-}
-
-#cp-searchp-800 .deleteAccountButton:hover {
+  }
+  
+  /* 다크 모드 계정 삭제 버튼 스타일 */
+  .dark-mode #cp-searchp-800 .deleteAccountButton {
+    background-color: #C62828; /* 더 어두운 빨간색 */
+    color: #F5F5F5;
+  }
+  
+  #cp-searchp-800 .deleteAccountButton:hover {
     background-color: #c0392b;
-}
+  }
+  
+  /* 다크 모드 계정 삭제 버튼 호버 */
+  .dark-mode #cp-searchp-800 .deleteAccountButton:hover {
+    background-color: #9E0000; /* 더 어두운 빨간색 */
+  }

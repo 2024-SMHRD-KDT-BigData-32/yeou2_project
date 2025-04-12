@@ -10,24 +10,45 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#findID .mainLabel {
+  }
+  
+  /* 다크 모드 찾기 컨테이너 */
+  .dark-mode #findID {
+    background-color: #1E1E1E; /* 살짝 옅은 블랙 */
+    box-shadow:
+    0 0 0 1px #666
+  }
+  
+  #findID .mainLabel {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-#findID .nameLabel,
-#findID .emailLabel,
-#findID .authLabel {
+    color: #333;
+  }
+  
+  /* 다크 모드 찾기 제목 */
+  .dark-mode #findID .mainLabel {
+    color: #E0E0E0; /* 밝은 회색 */
+  }
+  
+  #findID .nameLabel,
+  #findID .emailLabel,
+  #findID .authLabel {
     align-self: flex-start;
     font-size: 16px;
     margin-top: 10px;
-}
-
-/* ✅ 이름 입력창 크기 authInput과 통일 */
-#findID .nameInput {
+    color: #333;
+  }
+  
+  /* 다크 모드 라벨 */
+  .dark-mode #findID .nameLabel,
+  .dark-mode #findID .emailLabel,
+  .dark-mode #findID .authLabel {
+    color: #BDBDBD; /* 밝은 회색 */
+  }
+  
+  /* ✅ 이름 입력창 크기 authInput과 통일 */
+  #findID .nameInput {
     width: 100%;
     padding: 10px; /* ✅ */
     margin-top: 5px;
@@ -35,25 +56,41 @@
     border-radius: 5px;
     background-color: white;
     box-sizing: border-box; /* ✅ */
-}
-
-#findID .emailGroup {
+    color: #333;
+  }
+  
+  /* 다크 모드 이름 입력창 */
+  .dark-mode #findID .nameInput {
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    border-color: #666; /* 어두운 테두리 */
+  }
+  
+  #findID .emailGroup {
     display: flex;
     width: 100%;
     gap: 10px;
     margin-top: 5px;
-}
-
-#findID .emailInput {
+  }
+  
+  #findID .emailInput {
     flex: 2;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
     box-sizing: border-box;
-}
-
-#findID .emailBtn {
+    color: #333;
+  }
+  
+  /* 다크 모드 이메일 입력창 */
+  .dark-mode #findID .emailInput {
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    border-color: #666; /* 어두운 테두리 */
+  }
+  
+  #findID .emailBtn {
     flex: 1;
     padding: 10px;
     border: none;
@@ -62,25 +99,39 @@
     color: white;
     cursor: pointer;
     font-size: 16px;
-}
-
-#findID .authGroup {
+  }
+  
+  /* 다크 모드 이메일 버튼 */
+  .dark-mode #findID .emailBtn {
+    background-color: #3F51B5; /* 더 어두운 파란색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  #findID .authGroup {
     display: flex;
     width: 100%;
     gap: 10px;
     margin-top: 5px;
-}
-
-#findID .authInput {
+  }
+  
+  #findID .authInput {
     flex: 2;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
     box-sizing: border-box;
-}
-
-#findID .authBtn {
+    color: #333;
+  }
+  
+  /* 다크 모드 인증 입력창 */
+  .dark-mode #findID .authInput {
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    border-color: #666; /* 어두운 테두리 */
+  }
+  
+  #findID .authBtn {
     flex: 1;
     padding: 10px;
     border: none;
@@ -89,9 +140,15 @@
     color: white;
     cursor: pointer;
     font-size: 16px;
-}
-
-#findID .findIDBtn {
+  }
+  
+  /* 다크 모드 인증 버튼 */
+  .dark-mode #findID .authBtn {
+    background-color: #3F51B5; /* 더 어두운 파란색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  #findID .findIDBtn {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -101,24 +158,37 @@
     color: white;
     cursor: pointer;
     font-size: 16px;
-}
-
-#findID .linkButtonGroup {
+  }
+  
+  /* 다크 모드 아이디 찾기 버튼 */
+  .dark-mode #findID .findIDBtn {
+    background-color: #388E3C; /* 더 어두운 초록색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  #findID .linkButtonGroup {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-top: 20px;
     gap: 8px;
-}
-
-#findID .loginBtn,
-#findID .signUpBtn,
-#findID .findPWBtn {
+  }
+  
+  #findID .loginBtn,
+  #findID .signUpBtn,
+  #findID .findPWBtn {
     margin: 15px;
     text-align: center;
     color: #007bff;
     text-decoration: underline;
     font-size: 14px;
     cursor: pointer;
-}
+  }
+  
+  /* 다크 모드 링크 버튼 */
+  .dark-mode #findID .loginBtn,
+  .dark-mode #findID .signUpBtn,
+  .dark-mode #findID .findPWBtn {
+    color: #BB86FC; /* 보라색 계열 */
+  }

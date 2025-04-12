@@ -7,26 +7,37 @@
     flex-direction: column;
     align-items: center;
     color: #333; /* 텍스트 색상 */
-}
-
-/* 카테고리 섹션 */
-#aiSearch .categorySection {
+  }
+  
+  /* 다크 모드 전체 AI 검색 컨테이너 */
+  .dark-mode #aiSearch {
+    background-color: #1E1E1E; /* 어두운 배경 색상 */
+    color: #E0E0E0; /* 밝은 텍스트 색상 */
+  }
+  
+  /* 카테고리 섹션 */
+  #aiSearch .categorySection {
     width: 100%; /* 전체 너비 */
     max-width: 1400px; /* 최대 너비 1400px */
     margin-bottom: 80px; /* 아래 여백 */
-}
-
-/* 카테고리 제목 */
-#aiSearch .categorySection h2 {
+  }
+  
+  /* 카테고리 제목 */
+  #aiSearch .categorySection h2 {
     font-size: 30px; /* 폰트 크기 */
     color: #333; /* 텍스트 색상 */
     margin-bottom: 24px; /* 아래 여백 */
     text-align: center; /* 텍스트 중앙 정렬 */
     position: relative; /* 상대 위치 설정 */
-}
-
-/* 카테고리 제목 밑줄 */
-#aiSearch .categorySection h2::after {
+  }
+  
+  /* 다크 모드 카테고리 제목 */
+  .dark-mode #aiSearch .categorySection h2 {
+    color: #E0E0E0; /* 밝은 텍스트 색상 */
+  }
+  
+  /* 카테고리 제목 밑줄 */
+  #aiSearch .categorySection h2::after {
     content: '';
     display: block;
     width: 60px; /* 밑줄 너비 */
@@ -34,19 +45,24 @@
     background: #4a90e2; /* 밑줄 색상 */
     margin: 12px auto 0; /* 마진 */
     border-radius: 2px; /* 밑줄 둥근 모서리 */
-}
-
-/* 상품 리스트 */
-#aiSearch .productList {
+  }
+  
+  /* 다크 모드 카테고리 제목 밑줄 */
+  .dark-mode #aiSearch .categorySection h2::after {
+    background: #81D4FA; /* 밝은 파란색 */
+  }
+  
+  /* 상품 리스트 */
+  #aiSearch .productList {
     display: grid; /* 그리드 레이아웃 */
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 자동으로 열 크기 조정 */
     gap: 24px; /* 카드 간격 */
     justify-items: center; /* 아이템 중앙 정렬 */
     padding: 0 16px; /* 좌우 여백 */
-}
-
-/* 상품 카드 */
-#aiSearch .productCard {
+  }
+  
+  /* 상품 카드 */
+  #aiSearch .productCard {
     background: #fff; /* 배경 색상 */
     border: 1px solid #e5e5e5; /* 테두리 색상 */
     border-radius: 18px; /* 카드 모서리 둥글게 */
@@ -62,16 +78,29 @@
     height: 100%; /* 카드 높이 */
     position: relative; /* 상대 위치 설정 */
     justify-content: space-between; /* 콘텐츠 자동 배치 */
-}
-
-/* 카드 hover 효과 */
-#aiSearch .productCard:hover {
+  }
+  
+  /* 다크 모드 상품 카드 */
+  .dark-mode #aiSearch .productCard {
+    background: #303030; /* 어두운 배경 색상 */
+    border: 1px solid #424242; /* 어두운 테두리 색상 */
+    color: #E0E0E0; /* 밝은 텍스트 색상 */
+    box-shadow: 0 0 0 1px #666
+  }
+  
+  /* 카드 hover 효과 */
+  #aiSearch .productCard:hover {
     transform: translateY(-6px); /* 카드 이동 */
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2); /* hover시 그림자 */
-}
-
-/* 이미지 */
-#aiSearch .productCard img {
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2); /* hover 시 그림자 */
+  }
+  
+  /* 다크 모드 카드 hover 효과 */
+  .dark-mode #aiSearch .productCard:hover {
+    box-shadow: 0 6px 20px rgba(129, 212, 250, 0.3); /* 밝은 hover 시 그림자 */
+  }
+  
+  /* 이미지 */
+  #aiSearch .productCard img {
     width: 100%; /* 이미지 너비 */
     max-width: 180px; /* 최대 너비 */
     height: auto; /* 비율 유지 */
@@ -79,29 +108,44 @@
     border-radius: 12px; /* 이미지 모서리 둥글게 */
     background-color: #f4f6f8; /* 배경 색상 */
     padding: 10px; /* 이미지 안쪽 여백 */
-}
-
-/* 상품명 */
-#aiSearch .productCard h3 {
+  }
+  
+  /* 다크 모드 이미지 배경 */
+  .dark-mode #aiSearch .productCard img {
+    background-color: #424242; /* 어두운 배경 색상 */
+  }
+  
+  /* 상품명 */
+  #aiSearch .productCard h3 {
     font-size: 17px; /* 폰트 크기 */
     font-weight: 600; /* 폰트 두께 */
     margin: 10px 0 6px; /* 여백 */
     color: #4a90e2; /* 텍스트 색상 */
     text-align: center; /* 중앙 정렬 */
-}
-
-/* 텍스트들 */
-#aiSearch .productCard p {
+  }
+  
+  /* 다크 모드 상품명 */
+  .dark-mode #aiSearch .productCard h3 {
+    color: #81D4FA; /* 밝은 파란색 */
+  }
+  
+  /* 텍스트들 */
+  #aiSearch .productCard p {
     font-size: 14px; /* 폰트 크기 */
     color: #666; /* 텍스트 색상 */
     margin: 4px 0; /* 여백 */
     text-align: center; /* 중앙 정렬 */
     flex-grow: 1; /* 텍스트가 공간을 차지 */
     padding-bottom: 20px; /* 버튼과 겹치지 않도록 여백 추가 */
-}
-
-/* 링크 버튼 */
-#aiSearch .productCard a {
+  }
+  
+  /* 다크 모드 텍스트 */
+  .dark-mode #aiSearch .productCard p {
+    color: #BDBDBD; /* 밝은 텍스트 색상 */
+  }
+  
+  /* 링크 버튼 */
+  #aiSearch .productCard a {
     margin-top: 14px; /* 버튼과 텍스트 간 간격 */
     padding: 10px 16px; /* 패딩 */
     font-size: 14px; /* 폰트 크기 */
@@ -112,49 +156,57 @@
     font-weight: bold; /* 텍스트 두께 */
     text-align: center; /* 텍스트 중앙 정렬 */
     transition: background 0.3s; /* 배경 색상 변화 효과 */
-}
-
-/* 버튼 hover 효과 */
-#aiSearch .productCard a:hover {
+  }
+  
+  /* 다크 모드 링크 버튼 */
+  .dark-mode #aiSearch .productCard a {
+    background-color: #81D4FA; /* 밝은 파란색 */
+    color: #212121; /* 어두운 텍스트 색상 */
+  }
+  
+  /* 버튼 hover 효과 */
+  #aiSearch .productCard a:hover {
     background-color: #357ae8; /* hover 시 버튼 배경 색상 */
-}
-
-
-
-
-/* 반응형 - 태블릿 */
-@media (max-width: 1024px) {
+  }
+  
+  /* 다크 모드 버튼 hover 효과 */
+  .dark-mode #aiSearch .productCard a:hover {
+    background-color: #4FC3F7; /* 더 밝은 파란색 */
+  }
+  
+  /* 반응형 - 태블릿 (기존 유지) */
+  @media (max-width: 1024px) {
     #aiSearch .productList {
-        grid-template-columns: repeat(3, 1fr); /* 태블릿에서 3열 */
+      grid-template-columns: repeat(3, 1fr); /* 태블릿에서 3열 */
     }
-}
-
-/* 반응형 - 모바일 */
-@media (max-width: 600px) {
+  }
+  
+  /* 반응형 - 모바일 (기존 유지) */
+  @media (max-width: 600px) {
     #aiSearch .productList {
-        grid-template-columns: 1fr; /* 모바일에서 1열 */
+      grid-template-columns: 1fr; /* 모바일에서 1열 */
     }
-
+  
     #aiSearch .productCard {
-        max-width: 90%; /* 카드 너비 90%로 설정 */
+      max-width: 90%; /* 카드 너비 90%로 설정 */
     }
-
+  
     #aiSearch .categorySection h2 {
-        font-size: 24px; /* 카테고리 제목 폰트 크기 */
+      font-size: 24px; /* 카테고리 제목 폰트 크기 */
     }
-
+  
     #aiSearch .productCard h3 {
-        font-size: 16px; /* 상품명 폰트 크기 */
+      font-size: 16px; /* 상품명 폰트 크기 */
     }
-
+  
     #aiSearch .productCard p,
     #aiSearch .productCard a {
-        font-size: 13px; /* 텍스트 폰트 크기 */
+      font-size: 13px; /* 텍스트 폰트 크기 */
     }
-}
-
-/* 최저가 뱃지 */
-.badge {
+  }
+  
+  /* 최저가 뱃지 */
+  .badge {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -165,15 +217,33 @@
     font-size: 12px;
     font-weight: bold;
     z-index: 1;
-}
-
-/* 가격 강조 */
-.productDetails .price {
+  }
+  
+  /* 다크 모드 최저가 뱃지 (색상 유지 또는 변경) */
+  .dark-mode .badge {
+    background-color: #f44336; /* 약간 더 어두운 빨간색 */
+    color: #fff;
+  }
+  
+  /* 가격 강조 */
+  .productDetails .price {
     color: #d32f2f;
     font-weight: bold;
     font-size: 16px;
-}
-#aiSearch .loadingMessage{
+  }
+  
+  /* 다크 모드 가격 강조 */
+  .dark-mode .productDetails .price {
+    color: #FFAB91; /* 밝은 주황색 계열 */
+  }
+  
+  #aiSearch .loadingMessage{
     width: 500px;
     height: 500px;
-} 
+  }
+  
+  /* 다크 모드 로딩 메시지 */
+  .dark-mode #aiSearch .loadingMessage {
+    /* 필요하다면 로딩 메시지 스타일 변경 */
+    color: #E0E0E0;
+  }

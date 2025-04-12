@@ -4,55 +4,90 @@
     font-family: "Pretendard", sans-serif;
     background-color: #f9f9f9;
     min-height: 100vh;
-}
-
-/* 컨테이너 박스 */
-#userQuestion .questionContainer {
+    color: #333;
+  }
+  
+  /* 다크 모드 문의 등록 전체 영역 */
+  .dark-mode #userQuestion {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+  }
+  
+  /* 컨테이너 박스 */
+  #userQuestion .questionContainer {
     max-width: 700px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* 제목 */
-#userQuestion .questionContainer h2 {
+  }
+  
+  /* 다크 모드 컨테이너 박스 */
+  .dark-mode #userQuestion .questionContainer {
+    background-color: #303030;
+    box-shadow: 0 0 0 1px #666;
+    color: #E0E0E0;
+  }
+  
+  /* 제목 */
+  #userQuestion .questionContainer h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-/* 폼 */
-#userQuestion .questionForm {
+  }
+  
+  /* 다크 모드 제목 */
+  .dark-mode #userQuestion .questionContainer h2 {
+    color: #F5F5F5;
+  }
+  
+  /* 폼 */
+  #userQuestion .questionForm {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 30px;
-}
-
-#userQuestion .questionForm input,
-#userQuestion .questionForm textarea {
+  }
+  
+  #userQuestion .questionForm input,
+  #userQuestion .questionForm textarea {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
     transition: border 0.2s;
-}
-
-#userQuestion .questionForm input:focus,
-#userQuestion .questionForm textarea:focus {
+    color: #333;
+    background-color: white;
+  }
+  
+  /* 다크 모드 폼 입력 및 텍스트 영역 */
+  .dark-mode #userQuestion .questionForm input,
+  .dark-mode #userQuestion .questionForm textarea {
+    border-color: #616161;
+    color: #E0E0E0;
+    background-color: #424242;
+  }
+  
+  #userQuestion .questionForm input:focus,
+  #userQuestion .questionForm textarea:focus {
     border-color: #4e6ef2;
     outline: none;
-}
-
-#userQuestion .questionForm textarea {
+  }
+  
+  /* 다크 모드 폼 입력 및 텍스트 영역 포커스 */
+  .dark-mode #userQuestion .questionForm input:focus,
+  .dark-mode #userQuestion .questionForm textarea:focus {
+    border-color: #81D4FA;
+  }
+  
+  #userQuestion .questionForm textarea {
     min-height: 120px;
     resize: vertical;
-}
-
-/* 버튼 */
-#userQuestion .questionForm button {
+  }
+  
+  /* 버튼 */
+  #userQuestion .questionForm button {
     background-color: #4e6ef2;
     color: #fff;
     padding: 12px;
@@ -61,40 +96,78 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-#userQuestion .questionForm button:hover {
+  }
+  
+  /* 다크 모드 버튼 */
+  .dark-mode #userQuestion .questionForm button {
+    background-color: #81D4FA;
+    color: #212121;
+  }
+  
+  #userQuestion .questionForm button:hover {
     background-color: #3a56c9;
-}
-
-/* 문의 리스트 */
-#userQuestion .questionList h3 {
+  }
+  
+  /* 다크 모드 버튼 호버 */
+  .dark-mode #userQuestion .questionForm button:hover {
+    background-color: #4FC3F7;
+  }
+  
+  /* 문의 리스트 */
+  #userQuestion .questionList h3 {
     font-size: 20px;
     margin-bottom: 12px;
-}
-
-#userQuestion .questionList ul {
+  }
+  
+  /* 다크 모드 문의 리스트 제목 */
+  .dark-mode #userQuestion .questionList h3 {
+    color: #F5F5F5;
+  }
+  
+  #userQuestion .questionList ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-#userQuestion .questionList li {
+  }
+  
+  #userQuestion .questionList li {
     border-top: 1px solid #eee;
     padding: 12px 0;
-}
-
-#userQuestion .questionList li strong {
+    color: #333;
+  }
+  
+  /* 다크 모드 문의 리스트 아이템 */
+  .dark-mode #userQuestion .questionList li {
+    border-top-color: #616161;
+    color: #E0E0E0;
+  }
+  
+  #userQuestion .questionList li strong {
     display: block;
     font-weight: bold;
     margin-bottom: 4px;
-}
-
-#userQuestion .questionList li p {
+  }
+  
+  /* 다크 모드 문의 리스트 아이템 강조 */
+  .dark-mode #userQuestion .questionList li strong {
+    color: #F5F5F5;
+  }
+  
+  #userQuestion .questionList li p {
     margin: 4px 0;
-}
-
-#userQuestion .questionList li span {
+  }
+  
+  /* 다크 모드 문의 리스트 아이템 내용 */
+  .dark-mode #userQuestion .questionList li p {
+    color: #BDBDBD;
+  }
+  
+  #userQuestion .questionList li span {
     font-size: 14px;
     color: #888;
-}
+  }
+  
+  /* 다크 모드 문의 리스트 아이템 정보 */
+  .dark-mode #userQuestion .questionList li span {
+    color: #757575;
+  }

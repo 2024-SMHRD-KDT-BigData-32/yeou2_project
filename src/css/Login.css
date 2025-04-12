@@ -10,43 +10,79 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#login .loginLabel {
+  }
+  
+  /* 다크 모드 로그인 컨테이너 */
+  .dark-mode #login {
+    background-color: #1E1E1E; /* 살짝 옅은 블랙 */
+    box-shadow:
+    0 0 0 1px #666; /* 1px 두께의 어두운 회색 테두리 */
+  }
+  
+  #login .loginLabel {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-#login .idLabel,
-#login .pwLabel {
+    color: #333;
+  }
+  
+  /* 다크 모드 로그인 제목 */
+  .dark-mode #login .loginLabel {
+    color: #E0E0E0; /* 밝은 회색 */
+  }
+  
+  #login .idLabel,
+  #login .pwLabel {
     align-self: flex-start;
     font-size: 16px;
     margin-top: 10px;
-}
-
-#login .idInput,
-#login .pwInput {
+    color: #333;
+  }
+  
+  /* 다크 모드 레이블 */
+  .dark-mode #login .idLabel,
+  .dark-mode #login .pwLabel {
+    color: #BDBDBD; /* 밝은 회색 */
+  }
+  
+  #login .idInput,
+  #login .pwInput {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-#login .roleBox {
+    color: #333;
+    background-color: white;
+  }
+  
+  /* 다크 모드 입력 필드 */
+  .dark-mode #login .idInput,
+  .dark-mode #login .pwInput {
+    border-color: #666; /* 어두운 테두리 */
+    color: #E0E0E0; /* 밝은 회색 */
+    background-color: #424242; /* 어두운 회색 */
+  }
+  
+  #login .roleBox {
     display: flex;
     gap: 20px;
     margin-top: 15px;
     align-items: center;
-}
-
-#login .userDio,
-#login .adminDio {
+    color: #333;
+  }
+  
+  /* 다크 모드 역할 선택 */
+  .dark-mode #login .roleBox {
+    color: #BDBDBD; /* 밝은 회색 */
+  }
+  
+  #login .userDio,
+  #login .adminDio {
     margin-right: 5px;
-}
-
-#login .loginBtn {
+  }
+  
+  #login .loginBtn {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -56,10 +92,15 @@
     font-size: 16px;
     background-color: #007bff;
     color: white;
-}
-
-/* 소셜 로그인 버튼 정렬 */
-#login .buttonRow {
+  }
+  
+  /* 다크 모드 로그인 버튼 */
+  .dark-mode #login .loginBtn {
+    background-color: #3F51B5; /* 더 어두운 파란색 */
+    color: #F5F5F5; /* 밝은 회색 */
+  }
+  
+  #login .buttonRow {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -67,10 +108,9 @@
     gap: 10px;
     margin-top: 20px;
     width: 100%;
-}
-
-/* 공통 로그인 아이콘 스타일 */
-#login .loginIcon {
+  }
+  
+  #login .loginIcon {
     flex: 1;
     max-width: 48%;
     height: 45px;
@@ -79,16 +119,20 @@
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-}
-
-#login .loginIcon:hover {
+  }
+  
+  /* 다크 모드 소셜 로그인 아이콘 */
+  .dark-mode #login .loginIcon {
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); /* 그림자 색상 조정 */
+  }
+  
+  #login .loginIcon:hover {
     transform: scale(1.03);
-}
-
-/* 기타 텍스트 버튼 */
-#login .findIDBtn,
-#login .findPWBtn,
-#login .SignUpBtn {
+  }
+  
+  #login .findIDBtn,
+  #login .findPWBtn,
+  #login .SignUpBtn {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -99,24 +143,31 @@
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-}
-
-/* 반응형 디자인 */
-@media screen and (max-width: 480px) {
+  }
+  
+  /* 다크 모드 기타 텍스트 버튼 */
+  .dark-mode #login .findIDBtn,
+  .dark-mode #login .findPWBtn,
+  .dark-mode #login .SignUpBtn {
+    color: #BB86FC; /* 보라색 계열 */
+  }
+  
+  /* 반응형 디자인 (기존 유지) */
+  @media screen and (max-width: 480px) {
     #login {
-        width: 100%;
-        padding: 15px;
+      width: 100%;
+      padding: 15px;
     }
-
+  
     #login .loginLabel {
-        font-size: 20px;
+      font-size: 20px;
     }
-
+  
     #login .idLabel,
     #login .pwLabel {
-        font-size: 14px;
+      font-size: 14px;
     }
-
+  
     #login .idInput,
     #login .pwInput,
     #login .loginBtn,
@@ -124,11 +175,11 @@
     #login .findIDBtn,
     #login .findPWBtn,
     #login .SignUpBtn {
-        font-size: 14px;
-        padding: 8px;
+      font-size: 14px;
+      padding: 8px;
     }
-
+  
     #login .loginIcon {
-        height: 40px;
+      height: 40px;
     }
-}
+  }

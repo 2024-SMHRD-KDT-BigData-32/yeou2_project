@@ -24,8 +24,8 @@
 
 /* ✅ 푸터 스타일 및 하단 고정 처리 */
 #wrapper footer {
-    background-color: #fff;
-    color: #333;
+    background-color: gray;
+    color: white;
     padding: 20px 40px;
     text-align: center;
     margin-top: auto;
@@ -98,3 +98,8 @@ body.dark-mode footer {
 #footer button:hover {
     background-color: #55576b;
 }
+.dark-mode html, .dark-mode body, .dark-mode #root {
+    background-color: #1E1E1E; /* 어두운 배경색 */
+    color: #e0e0e0; /* 밝은 글자색 */
+  }
+  

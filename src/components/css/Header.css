@@ -1,4 +1,4 @@
-/* 헤더 스타일 */
+/* 헤더 스타일 (기존 스타일 유지) */
 #headerLogout {
     display: flex;
     align-items: center;
@@ -7,29 +7,40 @@
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 12px 12px;
-}
-
-/* 로고 영역 */
-#headerLogout .logo {
+  }
+  
+  /* 다크 모드 헤더 스타일 */
+  .dark-mode #headerLogout {
+    background: #212121; /* 어두운 배경색 */
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* 그림자 색상 변경 */
+  }
+  
+  /* 로고 영역 (기존 스타일 유지) */
+  #headerLogout .logo {
     display: flex;
     align-items: center;
     cursor: pointer;
-}
-
-#headerLogout .headerImg {
+  }
+  
+  #headerLogout .headerImg {
     width: 50px;
     height: 50px;
     margin-right: 10px;
-}
-
-#headerLogout .siteName {
+  }
+  
+  #headerLogout .siteName {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-}
-
-/* 검색창 스타일 */
-#headerLogout .searchContainer {
+  }
+  
+  /* 다크 모드 로고 텍스트 색상 */
+  .dark-mode #headerLogout .siteName {
+    color: #e0e0e0; /* 밝은 글자색 */
+  }
+  
+  /* 검색창 스타일 (기존 스타일 유지) */
+  #headerLogout .searchContainer {
     display: flex;
     align-items: center;
     background: white;
@@ -39,22 +50,41 @@
     transition: 0.3s;
     margin-right: 10px;
     gap: 10px; /* 검색창과 버튼을 일정 간격으로 띄움 */
-}
-
-#headerLogout .searchContainer:hover {
+  }
+  
+  /* 다크 모드 검색창 스타일 */
+  .dark-mode #headerLogout .searchContainer {
+    background: #424242; /* 어두운 배경색 */
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05); /* 그림자 색상 변경 */
+  }
+  
+  #headerLogout .searchContainer:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-#headerLogout .searchInput {
+  }
+  
+  /* 다크 모드 검색창 호버 스타일 */
+  .dark-mode #headerLogout .searchContainer:hover {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* 그림자 색상 변경 */
+  }
+  
+  #headerLogout .searchInput {
     width: 250px; /* 적당한 너비로 설정 */
     padding: 8px;
     border: none;
     border-radius: 12px;
     outline: none;
     font-size: 16px;
-}
-
-#headerLogout .searchBtn {
+    color: #333; /* 기본 텍스트 색상 */
+    background-color: white; /* 기본 배경색 */
+  }
+  
+  /* 다크 모드 검색창 입력창 스타일 */
+  .dark-mode #headerLogout .searchInput {
+    color: #e0e0e0; /* 밝은 텍스트 색상 */
+    background-color: #616161; /* 어두운 배경색 */
+  }
+  
+  #headerLogout .searchBtn {
     background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
     border: none;
@@ -64,40 +94,56 @@
     font-weight: bold;
     font-size: 14px;
     transition: 0.3s;
-}
-
-#headerLogout .searchBtn:hover {
+  }
+  
+  /* 다크 모드 검색 버튼 스타일 */
+  .dark-mode #headerLogout .searchBtn {
+    background: linear-gradient(135deg, #3949ab, #283593); /* 어두운 계열 색상 */
+  }
+  
+  #headerLogout .searchBtn:hover {
     background: linear-gradient(135deg, #0056b3, #007bff);
     transform: scale(1.05);
-}
-
-/* 검색 유형 레디오 버튼 스타일 */
-#headerLogout .searchType {
+  }
+  
+  /* 다크 모드 검색 버튼 호버 스타일 */
+  .dark-mode #headerLogout .searchBtn:hover {
+    background: linear-gradient(135deg, #283593, #3949ab);
+    transform: scale(1.05);
+  }
+  
+  /* 검색 유형 레디오 버튼 스타일 (기존 스타일 유지) */
+  #headerLogout .searchType {
     display: flex;
     gap: 10px; /* 레디오 버튼 간 간격 */
     font-size: 14px;
     color: #555;
-}
-
-#headerLogout .searchType label {
+  }
+  
+  /* 다크 모드 검색 유형 텍스트 색상 */
+  .dark-mode #headerLogout .searchType {
+    color: #bdbdbd; /* 밝은 글자색 */
+  }
+  
+  #headerLogout .searchType label {
     display: flex;
     align-items: center;
     cursor: pointer;
-}
-
-#headerLogout .searchType input {
+  }
+  
+  #headerLogout .searchType input {
     margin-right: 5px;
-}
-
-/* 버튼 컨테이너 */
-#headerLogout .btnContainer {
+  }
+  
+  /* 버튼 컨테이너 (기존 스타일 유지) */
+  #headerLogout .btnContainer {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-/* 마이페이지 버튼 */
-#headerLogout .myPage {
+  }
+  
+  /* 마이페이지 버튼 (기존 스타일 유지) */
+  #headerLogout .myPage {
     padding: 10px 20px;
     background: #dc3545;
     color: white;
@@ -107,15 +153,27 @@
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-#headerLogout .myPage:hover {
+  }
+  
+  /* 다크 모드 마이페이지 버튼 스타일 */
+  .dark-mode #headerLogout .myPage {
+    background: #b71c1c; /* 더 어두운 빨간색 */
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+  }
+  
+  #headerLogout .myPage:hover {
     background: #c82333;
     transform: scale(1.05);
-}
-
-/* 로그아웃 버튼 */
-#headerLogout .loginBtn {
+  }
+  
+  /* 다크 모드 마이페이지 버튼 호버 스타일 */
+  .dark-mode #headerLogout .myPage:hover {
+    background: #9a0007;
+    transform: scale(1.05);
+  }
+  
+  /* 로그아웃 버튼 (기존 스타일 유지) */
+  #headerLogout .loginBtn {
     padding: 10px 20px;
     background: #28a745;
     color: white;
@@ -125,50 +183,63 @@
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-#headerLogout .loginBtn:hover {
+  }
+  
+  /* 다크 모드 로그아웃 버튼 스타일 */
+  .dark-mode #headerLogout .loginBtn {
+    background: #1b5e20; /* 더 어두운 초록색 */
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+  }
+  
+  #headerLogout .loginBtn:hover {
     background: #218838;
     transform: scale(1.05);
-}
-
-/* 반응형 디자인 */
-@media (max-width: 1024px) {
+  }
+  
+  /* 다크 모드 로그아웃 버튼 호버 스타일 */
+  .dark-mode #headerLogout .loginBtn:hover {
+    background: #003300;
+    transform: scale(1.05);
+  }
+  
+  /* 반응형 디자인 (기존 스타일 유지) */
+  @media (max-width: 1024px) {
     #headerLogout {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
     }
-
+  
     #headerLogout .searchContainer {
-        width: 100%;
-        justify-content: center;
-        margin-top: 10px;
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
     }
-
+  
     #headerLogout .searchInput {
-        width: 80%;
+      width: 80%;
     }
-
+  
     #headerLogout .btnContainer {
-        margin-top: 10px;
-        justify-content: center;
-        width: 100%;
+      margin-top: 10px;
+      justify-content: center;
+      width: 100%;
     }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     #headerLogout .searchInput {
-        width: 100%;
+      width: 100%;
     }
-
+  
     #headerLogout .searchContainer {
-        flex-direction: column;
-        gap: 5px;
+      flex-direction: column;
+      gap: 5px;
     }
-
+  
     #headerLogout .btnContainer {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
-}
+  }
+  

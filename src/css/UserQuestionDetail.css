@@ -6,47 +6,92 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     background-color: #fafafa;
-}
-
-#userQuestionDetail .title {
+    color: #333;
+  }
+  
+  /* 다크 모드 문의 상세 컨테이너 */
+  .dark-mode #userQuestionDetail {
+    background-color: #303030;
+    border-color: #616161;
+    color: #E0E0E0;
+  }
+  
+  #userQuestionDetail .title {
     font-size: 22px;
     margin-bottom: 10px;
-}
-
-#userQuestionDetail .meta {
+  }
+  
+  /* 다크 모드 제목 */
+  .dark-mode #userQuestionDetail .title {
+    color: #F5F5F5;
+  }
+  
+  #userQuestionDetail .meta {
     font-size: 13px;
     color: #888;
     margin-bottom: 20px;
-}
-
-#userQuestionDetail .content {
+  }
+  
+  /* 다크 모드 메타 정보 */
+  .dark-mode #userQuestionDetail .meta {
+    color: #BDBDBD;
+  }
+  
+  #userQuestionDetail .content {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
     margin-bottom: 30px;
-}
-
-#userQuestionDetail .answerSection {
+  }
+  
+  /* 다크 모드 내용 */
+  .dark-mode #userQuestionDetail .content {
+    color: #E0E0E0;
+  }
+  
+  #userQuestionDetail .answerSection {
     border-top: 1px solid #ccc;
     padding-top: 20px;
-}
-
-#userQuestionDetail .answerSection h2 {
+  }
+  
+  /* 다크 모드 답변 섹션 구분선 */
+  .dark-mode #userQuestionDetail .answerSection {
+    border-top-color: #616161;
+  }
+  
+  #userQuestionDetail .answerSection h2 {
     font-size: 18px;
     margin-bottom: 10px;
     color: #444;
-}
-
-#userQuestionDetail .answer {
+  }
+  
+  /* 다크 모드 답변 섹션 제목 */
+  .dark-mode #userQuestionDetail .answerSection h2 {
+    color: #F5F5F5;
+  }
+  
+  #userQuestionDetail .answer {
     background-color: #e9f7ef;
     border: 1px solid #b2dfdb;
     padding: 15px;
     border-radius: 8px;
     color: #2e7d32;
     font-size: 15px;
-}
-
-#userQuestionDetail .noAnswer {
+  }
+  
+  /* 다크 모드 답변 */
+  .dark-mode #userQuestionDetail .answer {
+    background-color: #4CAF50;
+    border-color: #66BB6A;
+    color: #F5F5F5;
+  }
+  
+  #userQuestionDetail .noAnswer {
     color: #999;
     font-size: 14px;
-}
+  }
+  
+  /* 다크 모드 미답변 */
+  .dark-mode #userQuestionDetail .noAnswer {
+    color: #E0E0E0;
+  }

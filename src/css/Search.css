@@ -4,10 +4,15 @@
     margin: 40px auto;
     font-family: 'Inter', 'Segoe UI', sans-serif;
     color: #2e2e2e;
-}
-
-/* 탭 영역 */
-#search .tabs {
+  }
+  
+  /* 다크 모드 전체 검색 영역 */
+  .dark-mode #search {
+    color: #e0e0e0; /* 밝은 회색 */
+  }
+  
+  /* 탭 영역 */
+  #search .tabs {
     display: flex;
     gap: 12px;
     padding: 16px 20px;
@@ -16,10 +21,18 @@
     border-radius: 16px;
     margin-bottom: 24px;
     box-shadow: inset 0 -1px 0 #e5e7eb;
-}
-
-/* 탭 버튼 공통 스타일 */
-#search .tabButton {
+  }
+  
+  /* 다크 모드 탭 영역 */
+  .dark-mode #search .tabs {
+    background-color: #303030; /* 어두운 회색 */
+    border-bottom-color: #616161; /* 더 어두운 회색 */
+    box-shadow:
+    0 0 0 1px #666
+  }
+  
+  /* 탭 버튼 공통 스타일 */
+  #search .tabButton {
     padding: 10px 20px;
     background: #fff;
     border: 1px solid transparent;
@@ -30,38 +43,67 @@
     cursor: pointer;
     transition: all 0.25s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
-}
-
-/* 각 탭별 색상 설정 */
-#search .tabButton.cpu { color: #e4572e; }
-#search .tabButton.gpu { color: #3b8ed0; }
-#search .tabButton.mb { color: #34a853; }
-#search .tabButton.ram { color: #7e57c2; }
-#search .tabButton.ssd { color: #f0b429; }
-#search .tabButton.hdd { color: #9b59b6; }
-
-#search .tabButton:hover {
+  }
+  
+  /* 다크 모드 탭 버튼 공통 스타일 */
+  .dark-mode #search .tabButton {
+    background: #424242; /* 어두운 회색 */
+    color: #bdbdbd; /* 밝은 회색 */
+    box-shadow:
+    0 0 0 1px #666
+  }
+  
+  /* 각 탭별 색상 설정 */
+  #search .tabButton.cpu { color: #e4572e; }
+  #search .tabButton.gpu { color: #3b8ed0; }
+  #search .tabButton.mb { color: #34a853; }
+  #search .tabButton.ram { color: #7e57c2; }
+  #search .tabButton.ssd { color: #f0b429; }
+  #search .tabButton.hdd { color: #9b59b6; }
+  
+  /* 다크 모드 각 탭별 색상 유지 */
+  .dark-mode #search .tabButton.cpu { color: #e4572e; }
+  .dark-mode #search .tabButton.gpu { color: #81d4fa; /* 밝은 파랑 */ }
+  .dark-mode #search .tabButton.mb { color: #81c784; /* 밝은 초록 */ }
+  .dark-mode #search .tabButton.ram { color: #ba68c8; /* 밝은 보라 */ }
+  .dark-mode #search .tabButton.ssd { color: #ffd54f; /* 밝은 노랑 */ }
+  .dark-mode #search .tabButton.hdd { color: #d1c4e9; /* 밝은 자주 */ }
+  
+  #search .tabButton:hover {
     background-color: #f0f0f0;
     transform: scale(1.05);
-}
-
-#search .tabButton.active {
+  }
+  
+  /* 다크 모드 탭 버튼 호버 */
+  .dark-mode #search .tabButton:hover {
+    background-color: #616161; /* 더 어두운 회색 */
+  }
+  
+  #search .tabButton.active {
     background-color: #111827;
     color: #fff;
     border-color: #111827;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 콘텐츠 영역 */
-#search .tabContent {
+  }
+  
+  /* 다크 모드 활성 탭 버튼 */
+  .dark-mode #search .tabButton.active {
+    background-color: #bb86fc; /* 밝은 보라 */
+    color: #212121; /* 어두운 회색 */
+    border-color: #bb86fc;
+    box-shadow: 0 4px 10px rgba(187, 134, 252, 0.3); /* 그림자 색상 조정 */
+  }
+  
+  /* 콘텐츠 영역 */
+  #search .tabContent {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
-}
-
-/* 제품 카드 */
-#search .itemCard {
+  }
+  
+  /* 제품 카드 */
+  #search .itemCard {
     flex: 1 1 calc(20% - 24px);
     max-width: calc(20% - 24px);
     min-width: 240px;
@@ -72,75 +114,102 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     text-align: center;
     transition: all 0.3s ease;
-}
-
-#search .itemCard:hover {
+  }
+  
+  /* 다크 모드 제품 카드 */
+  .dark-mode #search .itemCard {
+    background: #303030; /* 어두운 회색 */
+    border-color: #616161; /* 더 어두운 회색 */
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.02); /* 그림자 색상 조정 */
+  }
+  
+  #search .itemCard:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-#search .itemCard img {
+  }
+  
+  /* 다크 모드 제품 카드 호버 */
+  .dark-mode #search .itemCard:hover {
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.05); /* 그림자 색상 조정 */
+  }
+  
+  #search .itemCard img {
     width: 100%;
     max-width: 220px;
     height: 220px;
     object-fit: contain;
     margin-bottom: 16px;
-}
-
-#search .itemCard h4 {
+  }
+  
+  #search .itemCard h4 {
     margin: 10px 0 6px;
     font-size: 17px;
     font-weight: 600;
     color: #222;
-}
-
-#search .itemCard p {
+  }
+  
+  /* 다크 모드 제품 카드 제목 */
+  .dark-mode #search .itemCard h4 {
+    color: #f5f5f5; /* 밝은 회색 */
+  }
+  
+  #search .itemCard p {
     font-size: 14px;
     color: #666;
-}
-
-#search .pagination span {
+  }
+  
+  /* 다크 모드 제품 카드 설명 */
+  .dark-mode #search .itemCard p {
+    color: #bdbdbd; /* 밝은 회색 */
+  }
+  
+  #search .pagination span {
     padding: 0 6px;
     font-size: 16px;
     color: #aaa;
-}
-
-
-/* 반응형 레이아웃 */
-@media (max-width: 1600px) {
+  }
+  
+  /* 다크 모드 페이지네이션 span */
+  .dark-mode #search .pagination span {
+    color: #757575; /* 더 어두운 회색 */
+  }
+  
+  /* 반응형 레이아웃 (기존 유지) */
+  @media (max-width: 1600px) {
     #search .itemCard {
-        flex: 1 1 calc(25% - 24px);
-        max-width: calc(25% - 24px);
+      flex: 1 1 calc(25% - 24px);
+      max-width: calc(25% - 24px);
     }
-}
-@media (max-width: 1200px) {
+  }
+  @media (max-width: 1200px) {
     #search .itemCard {
-        flex: 1 1 calc(33.33% - 24px);
-        max-width: calc(33.33% - 24px);
+      flex: 1 1 calc(33.33% - 24px);
+      max-width: calc(33.33% - 24px);
     }
-}
-@media (max-width: 900px) {
+  }
+  @media (max-width: 900px) {
     #search .itemCard {
-        flex: 1 1 calc(50% - 24px);
-        max-width: calc(50% - 24px);
+      flex: 1 1 calc(50% - 24px);
+      max-width: calc(50% - 24px);
     }
-}
-@media (max-width: 768px) {
+  }
+  @media (max-width: 768px) {
     #search .itemCard {
-        flex: 1 1 calc(100% - 24px);
-        max-width: calc(100% - 24px);
+      flex: 1 1 calc(100% - 24px);
+      max-width: calc(100% - 24px);
     }
-}
-
-/* 페이지네이션 */
-#search .pagination {
+  }
+  
+  /* 페이지네이션 */
+  #search .pagination {
     margin-top: 32px;
     display: flex;
     justify-content: center;
     gap: 8px;
-}
-
-#search .pageButton {
+  }
+  
+  /* 페이지 버튼 */
+  #search .pageButton {
     padding: 8px 14px;
     border: 1px solid #ddd;
     background-color: #f3f4f6;
@@ -148,14 +217,34 @@
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s;
-}
-
-#search .pageButton:hover {
+    color: #424242;
+  }
+  
+  /* 다크 모드 페이지 버튼 */
+  .dark-mode #search .pageButton {
+    border-color: #616161; /* 더 어두운 회색 */
+    background-color: #424242; /* 어두운 회색 */
+    color: #e0e0e0; /* 밝은 회색 */
+  }
+  
+  #search .pageButton:hover {
     background-color: #e5e7eb;
-}
-
-#search .pageButton.active {
+  }
+  
+  /* 다크 모드 페이지 버튼 호버 */
+  .dark-mode #search .pageButton:hover {
+    background-color: #616161; /* 더 어두운 회색 */
+  }
+  
+  #search .pageButton.active {
     background-color: #111827;
     color: white;
     border-color: #111827;
-}
+  }
+  
+  /* 다크 모드 활성 페이지 버튼 */
+  .dark-mode #search .pageButton.active {
+    background-color: #bb86fc; /* 밝은 보라 */
+    color: #212121; /* 어두운 회색 */
+    border-color: #bb86fc;
+  }

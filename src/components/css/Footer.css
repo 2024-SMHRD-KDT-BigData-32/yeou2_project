@@ -1,88 +1,109 @@
-/* 푸터 전체 스타일 */
+/* 푸터 전체 스타일 (기존 스타일 유지) */
 #footer {
     background-color: #adadad;
     color: white;
-    padding: 10px; /* 패딩 더 축소 */
+    padding: 10px;
     text-align: center;
-    font-size: 10px; /* 글자 크기 더 축소 */
-    margin-top: 30px; /* 여백 더 감소 */
-}
-
-/* 푸터 내부 컨텐츠 정렬 */
-#footer .footer-content {
+    font-size: 10px;
+    margin-top: 30px;
+  }
+  
+  /* 다크 모드 푸터 전체 스타일 */
+  .dark-mode #footer {
+    background-color: #333; /* 어두운 배경색 */
+    color: #f8f9fa; /* 밝은 글자색 */
+  }
+  
+  /* 푸터 내부 컨텐츠 정렬 (기존 스타일 유지) */
+  #footer .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px; /* 간격 더 축소 */
-}
-
-/* 로고 및 회사명 */
-#footer .footer-logo {
+    gap: 5px;
+  }
+  
+  /* 로고 및 회사명 (기존 스타일 유지) */
+  #footer .footer-logo {
     display: flex;
     align-items: center;
-    gap: 5px; /* 간격 축소 */
-}
-
-#footer .footer-img {
-    width: 25px; /* 기존 35px → 25px */
-    height: 25px; /* 크기 축소 */
-}
-
-#footer .company-name {
-    font-size: 12px; /* 기존 16px → 12px */
+    gap: 5px;
+  }
+  
+  #footer .footer-img {
+    width: 25px;
+    height: 25px;
+  }
+  
+  #footer .company-name {
+    font-size: 12px;
     font-weight: bold;
-}
-
-/* 링크 스타일 */
-#footer .footer-links {
+  }
+  
+  /* 링크 스타일 (기존 스타일 유지) */
+  #footer .footer-links {
     display: flex;
-    gap: 8px; /* 기존 12px → 8px */
+    gap: 8px;
     flex-wrap: wrap;
-}
-
-#footer .footer-links a {
+  }
+  
+  #footer .footer-links a {
     color: white;
     text-decoration: none;
-    font-size: 10px; /* 기존 12px → 10px */
+    font-size: 10px;
     transition: 0.3s;
-}
-
-#footer .footer-links a:hover {
+  }
+  
+  /* 다크 모드 링크 스타일 */
+  .dark-mode #footer .footer-links a {
+    color: #bb86fc; /* 다크 모드 링크 색상 */
+  }
+  
+  #footer .footer-links a:hover {
     text-decoration: underline;
     color: #ffeb3b;
-}
-
-/* 저작권 정보 */
-#footer .copyright {
-    margin-top: 5px; /* 기존 8px → 5px */
-    font-size: 8px; /* 기존 10px → 8px */
+  }
+  
+  /* 다크 모드 링크 호버 스타일 (선택 사항) */
+  .dark-mode #footer .footer-links a:hover {
+    color: #d4c2ff; /* 다크 모드 링크 호버 색상 */
+  }
+  
+  /* 저작권 정보 (기존 스타일 유지) */
+  #footer .copyright {
+    margin-top: 5px;
+    font-size: 8px;
     opacity: 0.8;
-}
-
-#footer button{
-    
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
+  }
+  
+  /* 다크 모드 저작권 정보 스타일 (선택 사항) */
+  .dark-mode #footer .copyright {
+    color: #e0e0e0; /* 다크 모드 저작권 글자색 */
+    opacity: 0.6;
+  }
+  
+  #footer button {
+  
+  }
+  
+  /* 반응형 디자인 (기존 스타일 유지) */
+  @media (max-width: 768px) {
     #footer .footer-links {
-        flex-direction: column;
-        gap: 4px; /* 기존 6px → 4px */
+      flex-direction: column;
+      gap: 4px;
     }
-}
+  }
+  
 
-html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+  
+  /* 다크 모드 전체 배경 및 글자색 */
 
-.wrapper {
+  
+  .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-.content {
+  }
+  
+  .content {
     flex-grow: 1;
-}
+  }

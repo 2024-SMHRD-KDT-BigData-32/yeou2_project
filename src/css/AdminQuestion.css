@@ -2,98 +2,180 @@
     display: flex;
     height: 100vh;
     font-family: 'Arial', sans-serif;
-}
-
-#adminQuestion .sidebar {
+    color: #333;
+  }
+  
+  /* 다크 모드 전체 컨테이너 */
+  .dark-mode #adminQuestion {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+  }
+  
+  #adminQuestion .sidebar {
     width: 250px;
     background-color: #2a2d3e;
     color: white;
     padding: 20px;
-}
-
-#adminQuestion .sidebar .logo {
+  }
+  
+  /* 다크 모드 사이드바 */
+  .dark-mode #adminQuestion .sidebar {
+    background-color: #212121;
+    color: #BDBDBD;
+    box-shadow: 0 0 0 1px #666;
+  }
+  
+  #adminQuestion .sidebar .logo {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-#adminQuestion .sidebar nav ul {
+  }
+  
+  /* 다크 모드 로고 */
+  .dark-mode #adminQuestion .sidebar .logo {
+    color: #F5F5F5;
+  }
+  
+  #adminQuestion .sidebar nav ul {
     list-style: none;
     padding: 0;
-}
-
-#adminQuestion .sidebar nav ul li {
+  }
+  
+  #adminQuestion .sidebar nav ul li {
     padding: 10px 15px;
     margin: 10px 0;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-#adminQuestion .sidebar nav ul li:hover,
-#adminQuestion .sidebar nav ul li.active {
+  }
+  
+  #adminQuestion .sidebar nav ul li:hover,
+  #adminQuestion .sidebar nav ul li.active {
     background-color: #404258;
-}
-
-#adminQuestion .content {
+  }
+  
+  /* 다크 모드 사이드바 메뉴 */
+  .dark-mode #adminQuestion .sidebar nav ul li {
+    color: #E0E0E0;
+  }
+  
+  .dark-mode #adminQuestion .sidebar nav ul li:hover,
+  .dark-mode #adminQuestion .sidebar nav ul li.active {
+    background-color: #424242;
+  }
+  
+  #adminQuestion .content {
     flex-grow: 1;
     padding: 20px;
     background: #f4f4f4;
-}
-
-#adminQuestion .header {
+  }
+  
+  /* 다크 모드 메인 콘텐츠 */
+  .dark-mode #adminQuestion .content {
+    background: #303030;
+  }
+  
+  #adminQuestion .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-}
-
-#adminQuestion .header h1 {
+  }
+  
+  #adminQuestion .header h1 {
     font-size: 1.8rem;
     color: #333;
-}
-
-#adminQuestion .search-bar {
+  }
+  
+  /* 다크 모드 헤더 제목 */
+  .dark-mode #adminQuestion .header h1 {
+    color: #F5F5F5;
+  }
+  
+  #adminQuestion .search-bar {
     display: flex;
     align-items: center;
     background: white;
     padding: 5px 10px;
     border-radius: 20px;
     border: 1px solid #ccc;
-}
-
-#adminQuestion .search-bar input {
+  }
+  
+  /* 다크 모드 검색 바 */
+  .dark-mode #adminQuestion .search-bar {
+    background: #424242;
+    border-color: #666;
+  }
+  
+  #adminQuestion .search-bar input {
     border: none;
     outline: none;
     margin-left: 10px;
     font-size: 14px;
-}
-
-#adminQuestion .question-table {
+    color: #333;
+    background-color: transparent;
+  }
+  
+  /* 다크 모드 검색 바 입력 */
+  .dark-mode #adminQuestion .search-bar input {
+    color: #E0E0E0;
+  }
+  
+  #adminQuestion .question-table {
     background: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#adminQuestion .question-table table {
+    color: #333;
+  }
+  
+  /* 다크 모드 질문 테이블 */
+  .dark-mode #adminQuestion .question-table {
+    background: #303030;
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.05);
+    color: #E0E0E0;
+  }
+  
+  #adminQuestion .question-table table {
     width: 100%;
     border-collapse: collapse;
-}
-
-#adminQuestion .question-table th,
-#adminQuestion .question-table td {
+  }
+  
+  #adminQuestion .question-table th,
+  #adminQuestion .question-table td {
     padding: 12px 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-#adminQuestion .response-yes {
+  }
+  
+  /* 다크 모드 테이블 셀 */
+  .dark-mode #adminQuestion .question-table th,
+  .dark-mode #adminQuestion .question-table td {
+    border-bottom-color: #616161;
+  }
+  
+  /* 다크 모드 테이블 헤더 */
+  .dark-mode #adminQuestion .question-table th {
+    background-color: #424242;
+    color: #F5F5F5;
+  }
+  
+  #adminQuestion .response-yes {
     color: green;
     font-weight: bold;
-}
-
-#adminQuestion .response-no {
+  }
+  
+  /* 다크 모드 응답 예 */
+  .dark-mode #adminQuestion .response-yes {
+    color: #8BC34A;
+  }
+  
+  #adminQuestion .response-no {
     color: red;
     font-weight: bold;
-}
+  }
+  
+  /* 다크 모드 응답 아니오 */
+  .dark-mode #adminQuestion .response-no {
+    color: #E57373;
+  }
