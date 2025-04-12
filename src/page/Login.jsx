@@ -8,13 +8,11 @@ import { useLoginContext } from '../contexts/LoginContext'; // 위치 확인 필
 
 const Login = () => {
 
+    // ✅ 기존 코드 유지하면서 userId 가져옴
+    const { setIsLoggedIn, setIsAdmin, setUserId, userId } = useLoginContext(); // ✅ userId 추가
 
+    const navigate = useNavigate();
 
-    // 추가 2: 함수 내부에서 context 사용
-const { setIsLoggedIn, setIsAdmin } = useLoginContext();
-
-    const navigate = useNavigate(); 
-    
     const signUpBtnClick = () => {
         navigate('/SignUp'); // 이동할 경로
     };
@@ -25,7 +23,6 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
         navigate('/FindPW'); // 이동할 경로
     };
 
-    const [userId, setUserId] = useState();
     const [password, setPassWord] = useState();
     const [role, setRole] = useState('USER'); // 기본값 USER
 
@@ -44,18 +41,17 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
         window.location.href = url;
     };
 
-
     const tryLogin = async () => {
         if (!userId || userId.trim() === "") {
             alert("아이디를 입력해주세요.");
             return;
         }
-    
+
         const loginData = {
             mb_id: userId,
             mb_pw: password,
         };
-    
+
         try {
             const response = await axios.post(
                 "http://localhost:8084/controller/login",
@@ -67,31 +63,32 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
                     withCredentials: false
                 }
             );
-    
+
             const result = response.data;
-    
+
             console.log("🟢 서버 응답:", result); // 디버깅 필수!
-    
-            // 문자열 응답이라면
+
             if (result === "관리자 로그인 성공") {
                 alert("관리자 로그인 성공!");
                 navigate("/");
                 setIsLoggedIn(true);
-                setIsAdmin(true);   
+                setIsAdmin(true);
             } else if (result === "로그인성공") {
                 alert("로그인 성공!");
                 navigate("/");
                 setIsLoggedIn(true);
                 setIsAdmin(false);
+                console.log('네비게이터 ')
             } else {
                 alert(result || "로그인 실패");
             }
-    
+
         } catch (error) {
             alert("서버 오류 또는 네트워크 문제로 로그인 실패");
             console.error(error);
         }
     };
+
     return (
         <div id='login'>
             <div className="loginLabel">로그인</div>
@@ -100,7 +97,7 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
                 className="idInput"
                 placeholder="아이디를 입력해주세요"
                 type="text"
-                onChange={(e) => setUserId(e.target.value)}
+                onChange={(e) => setUserId(e.target.value)} // ✅ context 기반 상태 업데이트
             />
 
             <div className="pwLabel">PW</div>
@@ -111,7 +108,6 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
                 onChange={(e) => setPassWord(e.target.value)}
             />
 
-            {/* 사용자/관리자 선택 */}
             <div className="roleBox">
                 <label>
                     <input
@@ -139,8 +135,8 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
 
             <button className="loginBtn" onClick={tryLogin}>로그인</button>
             <div className="buttonRow">
-                <img className='snsLogin' id ="googleBtn" src="/img/loginGoogle.png" onClick={googleLogin}/>
-                <img className='snsLogin' id ="kakaoBtn" src="/img/loginKakao.png" onClick={kakaoLogin}/>
+                <img className='snsLogin' id="googleBtn" src="/img/loginGoogle.png" onClick={googleLogin} />
+                <img className='snsLogin' id="kakaoBtn" src="/img/loginKakao.png" onClick={kakaoLogin} />
             </div>
             <button className="findIDBtn" onClick={findIdBtnClick}>아이디찾기</button>
             <button className="findPWBtn" onClick={findPwBtnClick}>비밀번호찾기</button>
@@ -149,4 +145,4 @@ const { setIsLoggedIn, setIsAdmin } = useLoginContext();
     );
 };
 
-export default Login
+export default Login;
